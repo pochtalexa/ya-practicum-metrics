@@ -7,9 +7,13 @@ import (
 	"strings"
 	"errors"
 	"slices"
-	"strconv"	
+	"strconv"
+
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 )
 
+
+var MemStorage = storage.NewMemStore()
 
 
 func checkMethod(w http.ResponseWriter, r *http.Request) error {
@@ -58,9 +62,21 @@ func urlParse(w http.ResponseWriter, url string) (map[string]string, error) {
 	return CurMetric, nil
 }
 
+func UpdateMetric(CurMetric map[string]string) (error) {
+	if CurMetric["metricType"] == "gauge" {
+		value, _  := strconv.ParseInt(CurMetric["metricVal"], 10, 64)
+		MemStorage.SetGauge(CurMetric["metricName"], storage.Gauge(value))		
+	} else {
+		value, _  := strconv.ParseInt(CurMetric["metricVal"], 10, 64)
+		MemStorage.UpdateCounter(CurMetric["metricName"], storage.Counter(value))
+	}	
+	return nil
+}
 
 func UpdateHandler(w http.ResponseWriter, r *http.Request) {
-    if err := checkMethod(w, r); err != nil {
+	var err error
+
+    if err = checkMethod(w, r); err != nil {
 		return
 	}
 	
@@ -70,4 +86,11 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Println(CurMetric)
+
+	err = UpdateMetric(CurMetric)
+	if err != nil {		
+		return
+	}
+	
+	fmt.Println(MemStorage)
 }

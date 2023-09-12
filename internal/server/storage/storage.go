@@ -2,7 +2,7 @@ package storage
 
 
 type Gauge float64
-type Counter float64
+type Counter int64
 
 type MemStore struct {    
     gauges   map[string]Gauge
@@ -20,16 +20,16 @@ func NewMemStore() *MemStore {
     return &MemStore{gauges: make(map[string]Gauge), counters: make(map[string]Counter)}
 }
 
-func (m MemStore) GetGauge(name string) (Gauge, bool) {
+func (m *MemStore) GetGauge(name string) (Gauge, bool) {
     val, exists := m.gauges[name]
     return val, exists
 }
 
-func (m MemStore) SetGauge(name string, value Gauge) {
+func (m *MemStore) SetGauge(name string, value Gauge) {
     m.gauges[name] = value
 }
 
-func (m MemStore) GetCounter(name string) (Counter, bool) {
+func (m *MemStore) GetCounter(name string) (Counter, bool) {
     val, exists := m.counters[name] 
     return val, exists
 }
