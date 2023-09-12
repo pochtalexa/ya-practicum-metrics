@@ -47,12 +47,14 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) (error) {
 			if err != nil {
 				return err
 			}
+			res.Body.Close()
 			fmt.Println(res.Status)
 
 			res, err = http.Post(urlCounter, "text/plain", nil)
 			if err != nil {
 				return err
 			}
+			res.Body.Close()
 			fmt.Println(res.Status)
 		}
 	}
