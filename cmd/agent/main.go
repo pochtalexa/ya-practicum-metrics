@@ -37,9 +37,13 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) (error) {
     		fmt.Println("Type:", field.Type, ",", field.Name, "=", value)
 
 			if value.Kind() == reflect.Float64 {										
-				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value)
-			} else {
-				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value)
+				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value.Interface().(float64))
+				// urlGauge = strings.Join([]string{"111", "222"}, "")
+				// fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value)
+			} else if value.Kind() == reflect.Uint32 {
+				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value.Interface().(uint32))
+			} else if value.Kind() == reflect.Uint64 {
+				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value.Interface().(uint64))
 			}
 			urlCounter := fmt.Sprintf("http://%s:%s/update/counter/%s/%d", reportHost, reportPort, field.Name, metrics.PollCount)
 
