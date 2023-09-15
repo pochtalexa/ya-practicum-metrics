@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"	
+	// "errors"
+	"fmt"
+	"net/http"
 	"reflect"
 	"runtime"
 	"slices"
 	"time"
-	"net/http"
 
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
 )
@@ -23,7 +24,6 @@ const (
 
 func sendMetrics(metrics *metrics.RuntimeMetrics) (error) {
 	var urlGauge string
-	client := &http.Client{}
 	
 	fields := reflect.TypeOf(rtm)
 	values := reflect.ValueOf(rtm)
@@ -46,19 +46,15 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) (error) {
 				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value.Interface().(uint64))
 			}
 			urlCounter := fmt.Sprintf("http://%s:%s/update/counter/%s/%d", reportHost, reportPort, field.Name, metrics.PollCount)
-						
-			req, _ := http.NewRequest(http.MethodPost, urlGauge, nil)
-			req.Header.Add("Content-Type", "text/plain")			
-			res, err := client.Do(req)
+
+			res, err := http.Post(urlGauge, "text/plain", nil)
 			if err != nil {
 				return err
 			}
 			res.Body.Close()
 			fmt.Println(res.Status)
 
-			req, _ = http.NewRequest(http.MethodPost, urlCounter, nil)
-			req.Header.Add("Content-Type", "text/plain")			
-			res, err = client.Do(req)
+			res, err = http.Post(urlCounter, "text/plain", nil)
 			if err != nil {
 				return err
 			}
@@ -66,7 +62,6 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) (error) {
 			fmt.Println(res.Status)
 		}
 	}
-
 	return nil
 }
 
@@ -86,7 +81,7 @@ func main() {
 			pollSumm = 0
 			err := sendMetrics(metricsStorage)
 			if err != nil {
-				panic(err)
+				fmt.Println(err)
 			}			
 		}
 	}

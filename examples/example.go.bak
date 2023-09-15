@@ -1,4 +1,4 @@
-package main
+// package main
 
 import (
 	"fmt"
@@ -88,3 +88,17 @@ func MyMain() {
 	*/
 
 }
+
+
+
+cli := request.Client{
+				URL:	urlGauge,
+				Method: "POST",
+				Header:	map[string]string{"Content-Type": "text/plain"},
+				String:	"test",
+			}
+			resp := cli.Send().Scan(&response)
+			if !resp.OK() {
+				return resp.Error()
+			}
+			fmt.Println(resp.Response().Status)

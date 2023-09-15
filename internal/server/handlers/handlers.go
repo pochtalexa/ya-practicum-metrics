@@ -8,15 +8,15 @@ import (
 	"errors"
 	"slices"
 	"strconv"
-
+	"io"
+	
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 )
 
 
 var MemStorage = storage.NewMemStore()
 
-
-func checkMethod(w http.ResponseWriter, r *http.Request) error {
+func checkMethodPost(w http.ResponseWriter, r *http.Request) error {
 	if r.Method != http.MethodPost {        
         w.WriteHeader(http.StatusMethodNotAllowed)
         return errors.New("bad Method")
@@ -24,7 +24,15 @@ func checkMethod(w http.ResponseWriter, r *http.Request) error {
 	return nil
 }
 
-func urlParse(w http.ResponseWriter, url string) (map[string]string, error) {
+func checkMethodGet(w http.ResponseWriter, r *http.Request) error {
+	if r.Method != http.MethodGet {        
+        w.WriteHeader(http.StatusMethodNotAllowed)
+        return errors.New("bad Method")
+    }
+	return nil
+}
+
+func urlParse(w http.ResponseWriter, url string, action string) (map[string]string, error) {
 	w.Header().Set("content-type", "text/plain; charset=utf-8")
 	w.Header().Set("Date", time.Now().String())
 	
@@ -52,13 +60,12 @@ func urlParse(w http.ResponseWriter, url string) (map[string]string, error) {
 	}
 
 	_, err := strconv.Atoi(CurMetric["metricVal"])
-    if err != nil {		
+    if err != nil && action == "update" {		
 		w.WriteHeader(http.StatusBadRequest)
 		return nil, errors.New("bad metricVal")
 
     }
-
-	w.WriteHeader(http.StatusOK)
+	
 	return CurMetric, nil
 }
 
@@ -74,23 +81,90 @@ func UpdateMetric(CurMetric map[string]string) (error) {
 }
 
 func UpdateHandler(w http.ResponseWriter, r *http.Request) {
-	var err error
 
-    if err = checkMethod(w, r); err != nil {
+    if err := checkMethodPost(w, r); err != nil {
 		return
 	}
 	
-	CurMetric, err := urlParse(w, r.URL.Path)
+	CurMetric, err := urlParse(w, r.URL.Path, "upadte")
 	if err != nil {		
 		return
 	}
-
 	fmt.Println(CurMetric)
+
+	w.WriteHeader(http.StatusOK)
 
 	err = UpdateMetric(CurMetric)
 	if err != nil {		
 		return
 	}
-	
+
 	fmt.Println(MemStorage)
+}
+
+func ValueHandler(w http.ResponseWriter, r *http.Request) {
+	var (
+		valCounter storage.Counter
+		valGauge storage.Gauge
+		ok bool
+		data string
+	)
+	
+
+	if err := checkMethodGet(w, r); err != nil {
+		return
+	}
+
+	CurMetric, err := urlParse(w, r.URL.Path, "value")
+	if err != nil {		
+		return
+	}
+
+
+	if CurMetric["metricType"] == "counter" {
+		if valCounter, ok = MemStorage.GetCounter(CurMetric["metricName"]); ok {
+			data = CurMetric["metricType"] + ":" + CurMetric["metricName"] + ":" + fmt.Sprintf("%d", valCounter)
+		} 		
+	} else {
+		if valGauge, ok = MemStorage.GetGauge(CurMetric["metricName"]); ok {
+			data = CurMetric["metricType"] + ":" + CurMetric["metricName"] + ":" + fmt.Sprintf("%f", valGauge)
+		}
+	}		
+
+	w.Header().Set("content-type", "text/plain; charset=utf-8")
+	w.Header().Set("Date", time.Now().String())
+
+	if ok {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte(data))
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+	}    
+}
+
+func RootHandler(w http.ResponseWriter, r *http.Request) {	
+	if err := checkMethodGet(w, r); err != nil {
+		return
+	}	
+
+	WebPage1, _ := MemStorage.String("gauges")
+	WebPage2, _ := MemStorage.String("counters")	
+
+	WebPage := fmt.Sprintf(`<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		<h3>Metric values</h3>
+		<h5>gauges</h5>
+		<p> %s </p>
+		<p> </p>
+		<h5>counters</h5>
+		<p> %s </p>
+	</body>
+	</html>`, WebPage1, WebPage2)	
+
+	io.WriteString(w, WebPage)
 }
