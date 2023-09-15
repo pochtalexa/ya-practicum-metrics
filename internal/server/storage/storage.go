@@ -13,17 +13,24 @@ type Counter int64
 type MemStore struct {
 	gauges   map[string]Gauge
 	counters map[string]Counter
+	MetricsName []string
 }
 
 type MemStorer interface {
 	GetGauge(name string) (Gauge, bool)
 	SetGauge(name string, value Gauge)
 	GetCounter(name string) (Counter, bool)
-	UpdateCounter(name string, value Counter)
+	UpdateCounter(name string, value Counter)	
 }
 
 func NewMemStore() *MemStore {
-	return &MemStore{gauges: make(map[string]Gauge), counters: make(map[string]Counter)}
+	return &MemStore{
+		gauges: make(map[string]Gauge), 
+		counters: make(map[string]Counter),
+		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
+		"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys", 
+		"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc"},
+	}
 }
 
 func (m *MemStore) GetGauge(name string) (Gauge, bool) {

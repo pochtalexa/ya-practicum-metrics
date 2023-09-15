@@ -51,6 +51,11 @@ func urlParse(w http.ResponseWriter, url string, action string) (map[string]stri
 
 	if CurMetric["metricName"] == "" {		
 		w.WriteHeader(http.StatusNotFound)
+		return nil, errors.New("no metricName")
+	}
+
+	if !slices.Contains(MemStorage.MetricsName, CurMetric["metricName"]) {		
+		w.WriteHeader(http.StatusBadRequest)
 		return nil, errors.New("bad metricName")
 	}
 	
