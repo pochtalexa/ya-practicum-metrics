@@ -26,7 +26,8 @@ func checkMethodPost(w http.ResponseWriter, r *http.Request) error {
 
 func checkMethodGet(w http.ResponseWriter, r *http.Request) error {
 	if r.Method != http.MethodGet {
-		w.WriteHeader(http.StatusMethodNotAllowed)
+		//w.WriteHeader(http.StatusMethodNotAllowed)
+		w.WriteHeader(http.StatusBadRequest)
 		return errors.New("bad Method")
 	}
 	return nil
@@ -94,7 +95,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	CurMetric, err := urlParse(w, r.URL.Path, "upadte")
+	CurMetric, err := urlParse(w, r.URL.Path, "update")
 	if err != nil {
 		return
 	}

@@ -40,7 +40,7 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 		value := values.Field(i)
 
 		if slices.Contains(metrics.MetricsName, field.Name) {
-			fmt.Println("Type:", field.Type, ",", field.Name, "=", value)
+			//fmt.Println("Type:", field.Type, ",", field.Name, "=", value)
 
 			if value.Kind() == reflect.Float64 {
 				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value.Interface().(float64))
@@ -59,7 +59,7 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 				return err
 			}
 			res.Body.Close()
-			fmt.Println(res.Status)
+			//fmt.Println(res.Status)
 
 			req, _ = http.NewRequest(http.MethodPost, urlCounter, nil)
 			req.Header.Add("Content-Type", "text/plain")
@@ -68,7 +68,7 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 				return err
 			}
 			res.Body.Close()
-			fmt.Println(res.Status)
+			//fmt.Println(res.Status)
 		}
 	}
 
@@ -76,22 +76,22 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 }
 
 func main() {
-	pollSumm := 0
+	pollSum := 0
 	metricsStorage := metrics.New()
 
 	for {
 		runtime.ReadMemStats(&rtm)
-		pollSumm += pollInterval
+		pollSum += pollInterval
 		metricsStorage.RandomValueUpdate()
 		metricsStorage.PollCountInc()
 		time.Sleep(pollInterval * time.Second)
 
-		if pollSumm >= reportInterval {
+		if pollSum >= reportInterval {
 			err := sendMetrics(metricsStorage)
 			if err != nil {
 				panic(err)
 			}
-			pollSumm = 0
+			pollSum = 0
 			metricsStorage.PollCountDrop()
 		}
 	}
