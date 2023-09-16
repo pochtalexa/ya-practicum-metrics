@@ -6,7 +6,8 @@ import (
 	"net/http"
 	"reflect"
 	"runtime"
-	"slices"
+	//"slices"
+	"golang.org/x/exp/slices"
 	"time"
 
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
