@@ -73,12 +73,12 @@ func urlParse(w http.ResponseWriter, url string, action string) (map[string]stri
 		if err != nil && action == "update" {
 			w.WriteHeader(http.StatusBadRequest)
 			return nil, errors.New("bad metricVal")
-		} else if CurMetric["metricType"] == "gauge" {
-			_, err := strconv.ParseFloat(CurMetric["metricVal"], 64)
-			if err != nil && action == "update" {
-				w.WriteHeader(http.StatusBadRequest)
-				return nil, errors.New("bad metricVal")
-			}
+		}
+	} else if CurMetric["metricType"] == "gauge" {
+		_, err := strconv.ParseFloat(CurMetric["metricVal"], 64)
+		if err != nil && action == "update" {
+			w.WriteHeader(http.StatusBadRequest)
+			return nil, errors.New("bad metricVal")
 		}
 	}
 
