@@ -6,20 +6,25 @@ import (
 	"net/http"
 	"reflect"
 	"runtime"
-	//"slices"
-	"golang.org/x/exp/slices"
 	"time"
 
+	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
+	"golang.org/x/exp/slices"
 )
 
-var rtm runtime.MemStats
+var (
+	rtm            runtime.MemStats
+	pollInterval   int
+	reportInterval int
+	reportRunAddr  string
+)
 
 const (
-	pollInterval   = 2
-	reportInterval = 10
-	reportHost     = "127.0.0.1"
-	reportPort     = "8080"
+// pollInterval   = 2
+// reportInterval = 10
+// reportHost     = "127.0.0.1"
+// reportPort     = "8080"
 )
 
 func sendMetrics(metrics *metrics.RuntimeMetrics) error {
@@ -43,14 +48,14 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 			//fmt.Println("Type:", field.Type, ",", field.Name, "=", value)
 
 			if value.Kind() == reflect.Float64 {
-				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value.Interface().(float64))
+				urlGauge = fmt.Sprintf("http://%s/update/gauge/%s/%.0f", reportRunAddr, field.Name, value.Interface().(float64))
 				// fmt.Sprintf("http://%s:%s/update/gauge/%s/%.0f", reportHost, reportPort, field.Name, value)
 			} else if value.Kind() == reflect.Uint32 {
-				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value.Interface().(uint32))
+				urlGauge = fmt.Sprintf("http://%s/update/gauge/%s/%d", reportRunAddr, field.Name, value.Interface().(uint32))
 			} else if value.Kind() == reflect.Uint64 {
-				urlGauge = fmt.Sprintf("http://%s:%s/update/gauge/%s/%d", reportHost, reportPort, field.Name, value.Interface().(uint64))
+				urlGauge = fmt.Sprintf("http://%s/update/gauge/%s/%d", reportRunAddr, field.Name, value.Interface().(uint64))
 			}
-			urlCounter := fmt.Sprintf("http://%s:%s/update/counter/%s/%d", reportHost, reportPort, field.Name, metrics.PollCount)
+			urlCounter := fmt.Sprintf("http://%s/update/counter/%s/%d", reportRunAddr, field.Name, metrics.PollCount)
 
 			req, _ := http.NewRequest(http.MethodPost, urlGauge, nil)
 			req.Header.Add("Content-Type", "text/plain")
@@ -76,6 +81,12 @@ func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 }
 
 func main() {
+	flags.ParseFlags()
+
+	pollInterval = flags.FlagPollInterval
+	reportInterval = flags.FlagReportInterval
+	reportRunAddr = flags.FlagRunAddr
+
 	pollSum := 0
 	metricsStorage := metrics.New()
 
@@ -84,7 +95,7 @@ func main() {
 		pollSum += pollInterval
 		metricsStorage.RandomValueUpdate()
 		metricsStorage.PollCountInc()
-		time.Sleep(pollInterval * time.Second)
+		time.Sleep(time.Duration(pollInterval) * time.Second)
 
 		if pollSum >= reportInterval {
 			err := sendMetrics(metricsStorage)
