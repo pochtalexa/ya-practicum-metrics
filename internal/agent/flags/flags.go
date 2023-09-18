@@ -1,6 +1,10 @@
 package flags
 
-import "flag"
+import (
+	"flag"
+	"os"
+	"strconv"
+)
 
 var (
 	FlagRunAddr        string
@@ -14,4 +18,16 @@ func ParseFlags() {
 	flag.IntVar(&FlagReportInterval, "r", 10, "reportInterval")
 	flag.IntVar(&FlagPollInterval, "p", 2, "pollInterval")
 	flag.Parse()
+
+	if envRunAddr := os.Getenv("ADDRESS"); envRunAddr != "" {
+		FlagRunAddr = envRunAddr
+	}
+
+	if envReportInterval := os.Getenv("REPORT_INTERVAL"); envReportInterval != "" {
+		FlagReportInterval, _ = strconv.Atoi(envReportInterval)
+	}
+
+	if envPollInterval := os.Getenv("POLL_INTERVAL"); envPollInterval != "" {
+		FlagPollInterval, _ = strconv.Atoi(envPollInterval)
+	}
 }

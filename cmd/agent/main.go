@@ -20,13 +20,6 @@ var (
 	reportRunAddr  string
 )
 
-const (
-// pollInterval   = 2
-// reportInterval = 10
-// reportHost     = "127.0.0.1"
-// reportPort     = "8080"
-)
-
 func sendMetrics(metrics *metrics.RuntimeMetrics) error {
 	var urlGauge string
 
