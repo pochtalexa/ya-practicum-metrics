@@ -16,12 +16,21 @@ var CurMetric = make(map[string]string)
 
 func UpdateMetric(CurMetric map[string]string, MemStorage storage.Store) error {
 	if CurMetric["metricType"] == "gauge" {
-		value, _ := strconv.ParseFloat(CurMetric["metricVal"], 64)
+		value, err := strconv.ParseFloat(CurMetric["metricVal"], 64)
+		if err != nil {
+			return fmt.Errorf("bad gauge val: %s", CurMetric["metricVal"])
+		}
 		MemStorage.SetGauge(CurMetric["metricName"], storage.Gauge(value))
-	} else {
-		value, _ := strconv.ParseInt(CurMetric["metricVal"], 10, 64)
+	} else if CurMetric["metricType"] == "counter" {
+		value, err := strconv.ParseInt(CurMetric["metricVal"], 10, 64)
+		if err != nil {
+			return fmt.Errorf("bad counter val: %s", CurMetric["metricVal"])
+		}
 		MemStorage.UpdateCounter(CurMetric["metricName"], storage.Counter(value))
+	} else {
+		return fmt.Errorf("bad metric type val: %s", CurMetric["metricType"])
 	}
+
 	return nil
 }
 
@@ -33,6 +42,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.St
 
 	err := UpdateMetric(CurMetric, MemStorage)
 	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")

@@ -1,7 +1,6 @@
 package metrics
 
 import (
-	"errors"
 	"fmt"
 	"math"
 	"math/rand"
@@ -106,7 +105,7 @@ func (el *RuntimeMetrics) GetDataValue(name string) (string, error) {
 	case "GCCPUFraction":
 		result = el.Data.GCCPUFraction
 	default:
-		return "", errors.New(fmt.Sprintf("can not find metric name: %s", name))
+		return "", fmt.Errorf("can not find metric name: %s", name)
 	}
 
 	fmt.Println("result:", result)
