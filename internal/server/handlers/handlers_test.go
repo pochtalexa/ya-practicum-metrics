@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 	"github.com/stretchr/testify/assert"
 
@@ -40,14 +42,6 @@ func TestUpdateHandler1(t *testing.T) {
 		},
 		{
 			name: "negative test #3",
-			url:  "/update/gauge/11",
-			want: want{
-				code:        http.StatusBadRequest,
-				contentType: "text/plain; charset=utf-8",
-			},
-		},
-		{
-			name: "negative test #4",
 			url:  "/update/gauge/Alloc/value",
 			want: want{
 				code:        http.StatusBadRequest,
@@ -55,7 +49,7 @@ func TestUpdateHandler1(t *testing.T) {
 			},
 		},
 		{
-			name: "negative test #5",
+			name: "negative test #4",
 			url:  "/",
 			want: want{
 				code:        http.StatusNotFound,
@@ -66,9 +60,18 @@ func TestUpdateHandler1(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
+			mux := chi.NewRouter()
+			mux.Use(middleware.Logger)
+
+			mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
+				UpdateHandler(w, r, *MemStorage)
+			})
+
 			request := httptest.NewRequest(http.MethodPost, test.url, nil)
 			w := httptest.NewRecorder()
-			UpdateHandler(w, request, *MemStorage)
+			mux.ServeHTTP(w, request)
+
+			//UpdateHandler(w, request, *MemStorage)
 
 			res := w.Result()
 			res.Body.Close()

@@ -35,6 +35,8 @@ func UpdateMetric(CurMetric map[string]string, MemStorage storage.Store) error {
 }
 
 func UpdateHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	w.Header().Set("Date", time.Now().String())
 
 	CurMetric["metricType"] = chi.URLParam(r, "metricType")
 	CurMetric["metricName"] = chi.URLParam(r, "metricName")
@@ -45,8 +47,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.St
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	w.Header().Set("Date", time.Now().String())
+
 	w.WriteHeader(http.StatusOK)
 }
 
