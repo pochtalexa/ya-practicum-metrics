@@ -31,12 +31,13 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.St
 	CurMetric["metricName"] = chi.URLParam(r, "metricName")
 	CurMetric["metricVal"] = chi.URLParam(r, "metricVal")
 
-	w.WriteHeader(http.StatusOK)
-
 	err := UpdateMetric(CurMetric, MemStorage)
 	if err != nil {
 		return
 	}
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	w.Header().Set("Date", time.Now().String())
+	w.WriteHeader(http.StatusOK)
 }
 
 func ValueHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
