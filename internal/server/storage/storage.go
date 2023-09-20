@@ -9,21 +9,14 @@ import (
 type Gauge float64
 type Counter int64
 
-type MemStore struct {
+type Store struct {
 	gauges      map[string]Gauge
 	counters    map[string]Counter
 	MetricsName []string
 }
 
-type MemStorer interface {
-	GetGauge(name string) (Gauge, bool)
-	SetGauge(name string, value Gauge)
-	GetCounter(name string) (Counter, bool)
-	UpdateCounter(name string, value Counter)
-}
-
-func NewMemStore() *MemStore {
-	return &MemStore{
+func NewStore() *Store {
+	return &Store{
 		gauges:   make(map[string]Gauge),
 		counters: make(map[string]Counter),
 		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
@@ -32,25 +25,25 @@ func NewMemStore() *MemStore {
 	}
 }
 
-func (m *MemStore) GetGauge(name string) (Gauge, bool) {
+func (m *Store) GetGauge(name string) (Gauge, bool) {
 	val, exists := m.gauges[name]
 	return val, exists
 }
 
-func (m *MemStore) SetGauge(name string, value Gauge) {
+func (m *Store) SetGauge(name string, value Gauge) {
 	m.gauges[name] = value
 }
 
-func (m *MemStore) GetCounter(name string) (Counter, bool) {
+func (m *Store) GetCounter(name string) (Counter, bool) {
 	val, exists := m.counters[name]
 	return val, exists
 }
 
-func (m MemStore) UpdateCounter(name string, value Counter) {
+func (m Store) UpdateCounter(name string, value Counter) {
 	m.counters[name] += value
 }
 
-func (m MemStore) String(paramName string) (string, error) {
+func (m Store) String(paramName string) (string, error) {
 	var storList []string
 
 	if paramName == "counters" {

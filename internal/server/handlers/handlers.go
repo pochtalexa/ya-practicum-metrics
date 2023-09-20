@@ -1,12 +1,10 @@
 package handlers
 
 import (
-	"errors"
 	"fmt"
+	"github.com/go-chi/chi/v5"
 	"io"
 	"net/http"
-	//"slices"
-	"golang.org/x/exp/slices"
 	"strconv"
 	"strings"
 	"time"
@@ -14,78 +12,9 @@ import (
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 )
 
-var MemStorage = storage.NewMemStore()
+var CurMetric = make(map[string]string)
 
-func checkMethodPost(w http.ResponseWriter, r *http.Request) error {
-	if r.Method != http.MethodPost {
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		return errors.New("bad Method")
-	}
-	return nil
-}
-
-func checkMethodGet(w http.ResponseWriter, r *http.Request) error {
-	if r.Method != http.MethodGet {
-		//w.WriteHeader(http.StatusMethodNotAllowed)
-		w.WriteHeader(http.StatusBadRequest)
-		return errors.New("bad Method")
-	}
-	return nil
-}
-
-func urlParse(w http.ResponseWriter, url string, action string) (map[string]string, error) {
-	w.Header().Set("content-type", "text/plain; charset=utf-8")
-	w.Header().Set("Date", time.Now().String())
-
-	MetricTypes := []string{"gauge", "counter"}
-	CurMetric := make(map[string]string)
-
-	urlParts := strings.Split(url, "/")
-
-	for k, v := range urlParts {
-		switch k {
-		case 2:
-			CurMetric["metricType"] = v
-		case 3:
-			CurMetric["metricName"] = v
-		case 4:
-			CurMetric["metricVal"] = v
-		}
-	}
-
-	if CurMetric["metricName"] == "" {
-		w.WriteHeader(http.StatusNotFound)
-		return nil, errors.New("no metricName")
-	}
-
-	// if !slices.Contains(MemStorage.MetricsName, CurMetric["metricName"]) {
-	// 	w.WriteHeader(http.StatusBadRequest)
-	// 	return nil, errors.New("bad metricName")
-	// }
-
-	if !slices.Contains(MetricTypes, CurMetric["metricType"]) {
-		w.WriteHeader(http.StatusBadRequest)
-		return nil, errors.New("bad metricType")
-	}
-
-	if CurMetric["metricType"] == "counter" {
-		_, err := strconv.Atoi(CurMetric["metricVal"])
-		if err != nil && action == "update" {
-			w.WriteHeader(http.StatusBadRequest)
-			return nil, errors.New("bad metricVal")
-		}
-	} else if CurMetric["metricType"] == "gauge" {
-		_, err := strconv.ParseFloat(CurMetric["metricVal"], 64)
-		if err != nil && action == "update" {
-			w.WriteHeader(http.StatusBadRequest)
-			return nil, errors.New("bad metricVal")
-		}
-	}
-
-	return CurMetric, nil
-}
-
-func UpdateMetric(CurMetric map[string]string) error {
+func UpdateMetric(CurMetric map[string]string, MemStorage storage.Store) error {
 	if CurMetric["metricType"] == "gauge" {
 		value, _ := strconv.ParseFloat(CurMetric["metricVal"], 64)
 		MemStorage.SetGauge(CurMetric["metricName"], storage.Gauge(value))
@@ -96,28 +25,21 @@ func UpdateMetric(CurMetric map[string]string) error {
 	return nil
 }
 
-func UpdateHandler(w http.ResponseWriter, r *http.Request) {
+func UpdateHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
 
-	if err := checkMethodPost(w, r); err != nil {
-		return
-	}
-
-	CurMetric, err := urlParse(w, r.URL.Path, "update")
-	if err != nil {
-		return
-	}
-	//fmt.Println(CurMetric)
+	CurMetric["metricType"] = chi.URLParam(r, "metricType")
+	CurMetric["metricName"] = chi.URLParam(r, "metricName")
+	CurMetric["metricVal"] = chi.URLParam(r, "metricVal")
 
 	w.WriteHeader(http.StatusOK)
 
-	err = UpdateMetric(CurMetric)
+	err := UpdateMetric(CurMetric, MemStorage)
 	if err != nil {
 		return
 	}
-	//fmt.Println(MemStorage)
 }
 
-func ValueHandler(w http.ResponseWriter, r *http.Request) {
+func ValueHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
 	var (
 		valCounter storage.Counter
 		valGauge   storage.Gauge
@@ -125,23 +47,16 @@ func ValueHandler(w http.ResponseWriter, r *http.Request) {
 		data       string
 	)
 
-	if err := checkMethodGet(w, r); err != nil {
-		return
-	}
-
-	CurMetric, err := urlParse(w, r.URL.Path, "value")
-	if err != nil {
-		return
-	}
+	CurMetric["metricType"] = chi.URLParam(r, "metricType")
+	CurMetric["metricName"] = chi.URLParam(r, "metricName")
+	CurMetric["metricVal"] = chi.URLParam(r, "metricVal")
 
 	if CurMetric["metricType"] == "counter" {
 		if valCounter, ok = MemStorage.GetCounter(CurMetric["metricName"]); ok {
-			//data = CurMetric["metricType"] + ":" + CurMetric["metricName"] + ":" + fmt.Sprintf("%d", valCounter)
 			data = fmt.Sprintf("%d", valCounter)
 		}
 	} else {
 		if valGauge, ok = MemStorage.GetGauge(CurMetric["metricName"]); ok {
-			//data = CurMetric["metricType"] + ":" + CurMetric["metricName"] + ":" + fmt.Sprintf("%f", valGauge)
 			data = fmt.Sprintf("%.3f", valGauge)
 			data = strings.Trim(data, "0")
 		}
@@ -158,10 +73,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func RootHandler(w http.ResponseWriter, r *http.Request) {
-	if err := checkMethodGet(w, r); err != nil {
-		return
-	}
+func RootHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
 
 	WebPage1, _ := MemStorage.String("gauges")
 	WebPage2, _ := MemStorage.String("counters")
@@ -182,5 +94,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	</body>
 	</html>`, WebPage1, WebPage2)
 
-	io.WriteString(w, WebPage)
+	if _, err := io.WriteString(w, WebPage); err != nil {
+		panic(err)
+	}
 }
