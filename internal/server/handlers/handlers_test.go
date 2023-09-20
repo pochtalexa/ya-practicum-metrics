@@ -71,8 +71,6 @@ func TestUpdateHandler1(t *testing.T) {
 			w := httptest.NewRecorder()
 			mux.ServeHTTP(w, request)
 
-			//UpdateHandler(w, request, *MemStorage)
-
 			res := w.Result()
 			res.Body.Close()
 			assert.Equal(t, res.Header.Get("Content-Type"), test.want.contentType)
