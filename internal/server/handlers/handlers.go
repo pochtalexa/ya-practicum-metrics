@@ -85,10 +85,10 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Sto
 	}
 }
 
-func RootHandler(w http.ResponseWriter, r *http.Request, MemStorage storage.Store) {
+func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 
-	WebPage1, _ := MemStorage.String("gauges")
-	WebPage2, _ := MemStorage.String("counters")
+	WebPage1, _ := repo.String("gauges")
+	WebPage2, _ := repo.String("counters")
 
 	WebPage := fmt.Sprintf(`<!DOCTYPE html>
 	<html lang="en">

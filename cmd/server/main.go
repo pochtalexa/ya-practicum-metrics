@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/handlers"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 	"net/http"
-
-	"github.com/go-chi/chi/v5"
 )
 
 var MemStorage = storage.NewStore()
@@ -20,7 +19,7 @@ func run() error {
 	mux.Use(middleware.Logger)
 
 	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		handlers.RootHandler(w, r, *MemStorage)
+		handlers.RootHandler(w, r, MemStorage)
 	})
 
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {

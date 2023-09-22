@@ -5,4 +5,5 @@ type Storer interface {
 	SetGauge(name string, value Gauge)
 	GetCounter(name string) (Counter, bool)
 	UpdateCounter(name string, value Counter)
+	String(name string) (string, error)
 }
