@@ -64,7 +64,7 @@ func TestUpdateHandler1(t *testing.T) {
 			mux.Use(middleware.Logger)
 
 			mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
-				UpdateHandler(w, r, *MemStorage)
+				UpdateHandler(w, r, MemStorage)
 			})
 
 			request := httptest.NewRequest(http.MethodPost, test.url, nil)
