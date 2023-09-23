@@ -23,11 +23,11 @@ func run() error {
 	})
 
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
-		handlers.UpdateHandler(w, r, *MemStorage)
+		handlers.UpdateHandler(w, r, MemStorage)
 	})
 
 	mux.Get("/value/{metricType}/{metricName}", func(w http.ResponseWriter, r *http.Request) {
-		handlers.ValueHandler(w, r, *MemStorage)
+		handlers.ValueHandler(w, r, MemStorage)
 	})
 
 	return http.ListenAndServe(flags.FlagRunAddr, mux)
