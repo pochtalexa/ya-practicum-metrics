@@ -39,7 +39,7 @@ func (r *loggingResponseWriter) WriteHeader(statusCode int) {
 	r.responseData.status = statusCode // захватываем код статуса
 }
 
-func logHttpResult(start time.Time, lw loggingResponseWriter, r http.Request) {
+func logHTTPResult(start time.Time, lw loggingResponseWriter, r http.Request) {
 	log.Info().
 		Str("URI", r.URL.Path).
 		Str("Method", r.Method).
@@ -95,13 +95,13 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	err := UpdateMetric(CurMetric, repo)
 	if err != nil {
 		lw.WriteHeader(http.StatusBadRequest)
-		logHttpResult(start, lw, *r)
+		logHTTPResult(start, lw, *r)
 		return
 	}
 
 	lw.WriteHeader(http.StatusOK)
 
-	logHttpResult(start, lw, *r)
+	logHTTPResult(start, lw, *r)
 }
 
 func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
@@ -148,7 +148,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		lw.WriteHeader(http.StatusNotFound)
 	}
 
-	logHttpResult(start, lw, *r)
+	logHTTPResult(start, lw, *r)
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
@@ -187,7 +187,7 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		panic(err)
 	}
 
-	logHttpResult(start, lw, *r)
+	logHTTPResult(start, lw, *r)
 }
 
 func сounters2String(mapCounters map[string]storage.Counter) (string, error) {

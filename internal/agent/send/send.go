@@ -22,7 +22,7 @@ func Metrics(metrics *metrics.RuntimeMetrics, reportRunAddr string) error {
 			return err
 		}
 
-		urlGauge = fmt.Sprintf("http://%s/update/gauge/%s/%s", reportRunAddr, mName, mValue)
+		urlGauge = fmt.Sprintf("http://%s/update/gauge/%s/%f", reportRunAddr, mName, mValue)
 		urlCounter := fmt.Sprintf("http://%s/update/counter/%s/%d", reportRunAddr, mName, metrics.PollCount)
 
 		req, _ := http.NewRequest(http.MethodPost, urlGauge, nil)
