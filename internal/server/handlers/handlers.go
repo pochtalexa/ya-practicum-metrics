@@ -13,6 +13,45 @@ import (
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 )
 
+// структура для хранения сведений об ответе
+type responseData struct {
+	status int
+	size   int
+}
+
+// добавляем кастомную реализацию http.ResponseWriter
+type loggingResponseWriter struct {
+	// встраиваем оригинальный http.ResponseWriter
+	http.ResponseWriter
+	responseData *responseData
+}
+
+func (r *loggingResponseWriter) Write(b []byte) (int, error) {
+	// записываем ответ, используя оригинальный http.ResponseWriter
+	size, err := r.ResponseWriter.Write(b)
+	r.responseData.size += size // захватываем размер
+	return size, err
+}
+
+func (r *loggingResponseWriter) WriteHeader(statusCode int) {
+	// записываем код статуса, используя оригинальный http.ResponseWriter
+	r.ResponseWriter.WriteHeader(statusCode)
+	r.responseData.status = statusCode // захватываем код статуса
+}
+
+func logHttpResult(start time.Time, lw loggingResponseWriter, r http.Request) {
+	log.Info().
+		Str("URI", r.URL.Path).
+		Str("Method", r.Method).
+		Dur("duration", time.Now().Sub(start)).
+		Msg("request")
+
+	log.Info().
+		Str("Status", strconv.Itoa(lw.responseData.status)).
+		Str("Content-Length", strconv.Itoa(lw.responseData.size)).
+		Msg("response")
+}
+
 func UpdateMetric(CurMetric map[string]string, repo storage.Storer) error {
 	if CurMetric["metricType"] == "gauge" {
 		value, err := strconv.ParseFloat(CurMetric["metricVal"], 64)
@@ -35,32 +74,54 @@ func UpdateMetric(CurMetric map[string]string, repo storage.Storer) error {
 
 func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	var CurMetric = make(map[string]string)
+	start := time.Now()
 
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	w.Header().Set("Date", time.Now().String())
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+	}
 
 	CurMetric["metricType"] = chi.URLParam(r, "metricType")
 	CurMetric["metricName"] = chi.URLParam(r, "metricName")
 	CurMetric["metricVal"] = chi.URLParam(r, "metricVal")
 
+	lw.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	lw.Header().Set("Date", time.Now().String())
+
 	err := UpdateMetric(CurMetric, repo)
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeader(http.StatusBadRequest)
+		logHttpResult(start, lw, *r)
 		return
 	}
 
-	w.WriteHeader(http.StatusOK)
+	lw.WriteHeader(http.StatusOK)
+
+	logHttpResult(start, lw, *r)
 }
 
 func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	var CurMetric = make(map[string]string)
-
 	var (
 		valCounter storage.Counter
 		valGauge   storage.Gauge
 		ok         bool
 		data       string
 	)
+	start := time.Now()
+
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+	}
 
 	CurMetric["metricType"] = chi.URLParam(r, "metricType")
 	CurMetric["metricName"] = chi.URLParam(r, "metricName")
@@ -77,23 +138,33 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		}
 	}
 
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	w.Header().Set("Date", time.Now().String())
+	lw.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	lw.Header().Set("Date", time.Now().String())
 
 	if ok {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(data))
+		lw.WriteHeader(http.StatusOK)
+		lw.Write([]byte(data))
 	} else {
-		w.WriteHeader(http.StatusNotFound)
+		lw.WriteHeader(http.StatusNotFound)
 	}
+
+	logHttpResult(start, lw, *r)
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
-	log.Info().Str("URI", r.URL).Msg(r.URL)
+	start := time.Now()
+
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+	}
 
 	WebPage1, _ := gauges2String(repo.GetGauges())
 	WebPage2, _ := сounters2String(repo.GetCounters())
-
 	WebPage := fmt.Sprintf(`<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -110,9 +181,13 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	</body>
 	</html>`, WebPage1, WebPage2)
 
-	if _, err := io.WriteString(w, WebPage); err != nil {
+	lw.WriteHeader(http.StatusOK)
+
+	if _, err := io.WriteString(&lw, WebPage); err != nil {
 		panic(err)
 	}
+
+	logHttpResult(start, lw, *r)
 }
 
 func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
