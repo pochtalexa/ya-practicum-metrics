@@ -1,10 +1,9 @@
 package main
 
 import (
+	patronhttp "github.com/beatlabs/patron/client/http"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
-	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/send"
-	"runtime"
 	"time"
 )
 
@@ -15,6 +14,12 @@ var (
 )
 
 func main() {
+	var (
+		CashMetrics    metrics.CashMetrics
+		metricsStorage = metrics.New()
+		err            error
+	)
+
 	flags.ParseFlags()
 
 	pollInterval = flags.FlagPollInterval
@@ -24,7 +29,10 @@ func main() {
 	pollIntervalCounter := 0
 	reportIntervalCounter := 0
 
-	metricsStorage := metrics.New()
+	httpClient, err := patronhttp.New()
+	if err != nil {
+		panic(err)
+	}
 
 	for {
 		time.Sleep(time.Duration(1) * time.Second)
@@ -33,17 +41,21 @@ func main() {
 		reportIntervalCounter += 1
 
 		if pollIntervalCounter == pollInterval {
-			runtime.ReadMemStats(&metricsStorage.Data)
-			metricsStorage.RandomValueUpdate()
-			metricsStorage.PollCountInc()
+			metricsStorage.UpdateMetrics()
 			pollIntervalCounter = 0
 		}
 
 		if reportIntervalCounter == reportInterval {
-			err := send.Metrics(metricsStorage, reportRunAddr)
+			CashMetrics, err = metrics.CollectMetrics(metricsStorage)
 			if err != nil {
 				panic(err)
 			}
+
+			err = metrics.SendMetric(CashMetrics, httpClient, reportRunAddr)
+			if err != nil {
+				panic(err)
+			}
+
 			reportIntervalCounter = 0
 			metricsStorage.PollCountDrop()
 		}

@@ -5,18 +5,34 @@ import (
 	"math"
 	"math/rand"
 	"runtime"
-	"strconv"
 )
 
-type gauge float64
-type counter int64
+type Gauge float64
+type Counter int64
 
 type RuntimeMetrics struct {
 	Data        runtime.MemStats
 	MetricsName []string
-	Counters    map[string]counter
-	PollCount   counter
-	RandomValue gauge
+	Counters    map[string]Counter
+	PollCount   Counter
+	RandomValue Gauge
+}
+
+type GaugeMetric struct {
+	Name     string `json:"name"`
+	Value    Gauge  `json:"value"`
+	ValueStr string `json:"value_str"`
+}
+
+type CounterMetric struct {
+	Name     string  `json:"name"`
+	Value    Counter `json:"value"`
+	ValueStr string  `json:"value_str"`
+}
+
+type CashMetrics struct {
+	GaugeMetrics  []GaugeMetric
+	CounterMetric []CounterMetric
 }
 
 func New() *RuntimeMetrics {
@@ -24,11 +40,11 @@ func New() *RuntimeMetrics {
 		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
 			"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys",
 			"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc"},
-		Counters: make(map[string]counter),
+		Counters: make(map[string]Counter),
 	}
 }
 
-func (el *RuntimeMetrics) UpdateCounter(name string, value counter) {
+func (el *RuntimeMetrics) UpdateCounter(name string, value Counter) {
 	el.Counters[name] = value
 }
 
@@ -41,13 +57,21 @@ func (el *RuntimeMetrics) PollCountDrop() {
 }
 
 func (el *RuntimeMetrics) RandomValueUpdate() {
-	el.RandomValue = gauge(rand.Float64() * math.Pow(10, 6))
+	el.RandomValue = Gauge(rand.Float64() * math.Pow(10, 6))
 }
 
-func (el *RuntimeMetrics) GetDataValue(name string) (string, error) {
-	var result float64
+func (el *RuntimeMetrics) GetMericsName() []string {
+	return el.MetricsName
+}
 
-	fmt.Println("name:", name)
+func (el *RuntimeMetrics) UpdateMetrics() {
+	runtime.ReadMemStats(&el.Data)
+	el.RandomValueUpdate()
+	el.PollCountInc()
+}
+
+func (el *RuntimeMetrics) GetDataValue(name string) (Gauge, error) {
+	var result float64
 
 	switch name {
 	case "Alloc":
@@ -105,10 +129,8 @@ func (el *RuntimeMetrics) GetDataValue(name string) (string, error) {
 	case "GCCPUFraction":
 		result = el.Data.GCCPUFraction
 	default:
-		return "", fmt.Errorf("can not find metric name: %s", name)
+		return -1, fmt.Errorf("can not find metric name: %s", name)
 	}
 
-	fmt.Println("result:", result)
-
-	return strconv.FormatFloat(result, 'E', -1, 64), nil
+	return Gauge(result), nil
 }
