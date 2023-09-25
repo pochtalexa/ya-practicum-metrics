@@ -43,7 +43,7 @@ func logHTTPResult(start time.Time, lw loggingResponseWriter, r http.Request) {
 	log.Info().
 		Str("URI", r.URL.Path).
 		Str("Method", r.Method).
-		Dur("duration", time.Now().Sub(start)).
+		Dur("duration", time.Since(start)).
 		Msg("request")
 
 	log.Info().
