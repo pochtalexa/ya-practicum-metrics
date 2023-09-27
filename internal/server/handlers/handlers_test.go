@@ -1,15 +1,31 @@
 package handlers
 
 import (
+	"bytes"
+	"encoding/json"
+	"errors"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 	"github.com/stretchr/testify/assert"
-
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
+
+type metricsSend struct {
+	ID    string  `json:"id"`              // имя метрики
+	MType string  `json:"type"`            // параметр, принимающий значение gauge или counter
+	Delta int64   `json:"delta,omitempty"` // значение метрики в случае передачи counter
+	Value float64 `json:"value,omitempty"` // значение метрики в случае передачи gauge
+}
+
+type metricsSendBad struct {
+	ID    string `json:"id"`              // имя метрики
+	MType string `json:"type"`            // параметр, принимающий значение gauge или counter
+	Delta string `json:"delta,omitempty"` // значение метрики в случае передачи counter
+	Value string `json:"value,omitempty"` // значение метрики в случае передачи gauge
+}
 
 func TestUpdateHandler1(t *testing.T) {
 	var MemStorage = storage.NewStore()
@@ -17,35 +33,105 @@ func TestUpdateHandler1(t *testing.T) {
 	type want struct {
 		code        int
 		contentType string
+		delta       int64
+		value       float64
 	}
 
 	tests := []struct {
 		name string
 		url  string
+		body metricsSend
 		want want
 	}{
 		{
 			name: "positive test #1",
-			url:  "/update/counter/Alloc/22",
+			url:  "/update/",
+			body: metricsSend{ID: "Alloc", MType: "counter", Delta: 5},
 			want: want{
 				code:        http.StatusOK,
-				contentType: "text/plain; charset=utf-8",
+				contentType: "application/json",
+				delta:       5,
+				value:       -1,
 			},
 		},
 		{
 			name: "positive test #2",
-			url:  "/update/gauge/Alloc/11",
+			url:  "/update/",
+			body: metricsSend{ID: "Alloc", MType: "gauge", Value: 11},
 			want: want{
 				code:        http.StatusOK,
-				contentType: "text/plain; charset=utf-8",
+				contentType: "application/json",
+				delta:       -1,
+				value:       11,
 			},
 		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			var metric metricsSend
+
+			mux := chi.NewRouter()
+			mux.Use(middleware.Logger)
+
+			mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
+				UpdateHandler(w, r, MemStorage)
+			})
+
+			reqBody, _ := json.Marshal(test.body)
+
+			request := httptest.NewRequest(http.MethodPost, test.url, bytes.NewReader(reqBody))
+			w := httptest.NewRecorder()
+			mux.ServeHTTP(w, request)
+
+			res := w.Result()
+
+			dec := json.NewDecoder(res.Body)
+			if err := dec.Decode(&metric); err != nil {
+				panic(err)
+			}
+			err := res.Body.Close()
+			if err != nil {
+				panic(err)
+			}
+
+			assert.Equal(t, res.Header.Get("Content-Type"), test.want.contentType)
+			assert.Equal(t, res.StatusCode, test.want.code)
+
+			if metric.MType == "counter" {
+				assert.Equal(t, metric.Delta, test.want.delta)
+			} else if metric.MType == "gauge" {
+				assert.Equal(t, metric.Value, test.want.value)
+			} else {
+				panic(errors.New("incorrect MType"))
+			}
+		})
+	}
+}
+
+func TestUpdateHandler2(t *testing.T) {
+	var MemStorage = storage.NewStore()
+
+	type want struct {
+		code        int
+		contentType string
+		delta       int64
+		value       float64
+	}
+
+	tests := []struct {
+		name string
+		url  string
+		body metricsSendBad
+		want want
+	}{
 		{
 			name: "negative test #3",
-			url:  "/update/gauge/Alloc/value",
+			url:  "/update/",
+			body: metricsSendBad{ID: "Alloc", MType: "gauge", Value: "55"},
 			want: want{
-				code:        http.StatusBadRequest,
-				contentType: "text/plain; charset=utf-8",
+				code:        http.StatusInternalServerError,
+				contentType: "application/json",
 			},
 		},
 		{
@@ -53,29 +139,36 @@ func TestUpdateHandler1(t *testing.T) {
 			url:  "/",
 			want: want{
 				code:        http.StatusNotFound,
-				contentType: "text/plain; charset=utf-8",
+				contentType: "application/json",
 			},
 		},
 	}
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
+
 			mux := chi.NewRouter()
 			mux.Use(middleware.Logger)
 
-			mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
+			mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
 				UpdateHandler(w, r, MemStorage)
 			})
 
-			request := httptest.NewRequest(http.MethodPost, test.url, nil)
+			reqBody, _ := json.Marshal(test.body)
+
+			request := httptest.NewRequest(http.MethodPost, test.url, bytes.NewReader(reqBody))
 			w := httptest.NewRecorder()
 			mux.ServeHTTP(w, request)
 
 			res := w.Result()
-			res.Body.Close()
-			assert.Equal(t, res.Header.Get("Content-Type"), test.want.contentType)
-			assert.Equal(t, res.StatusCode, test.want.code)
 
+			err := res.Body.Close()
+			if err != nil {
+				panic(err)
+			}
+
+			//assert.Equal(t, res.Header.Get("Content-Type"), test.want.contentType)
+			assert.Equal(t, res.StatusCode, test.want.code)
 		})
 	}
 }

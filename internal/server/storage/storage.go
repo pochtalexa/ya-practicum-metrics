@@ -41,6 +41,6 @@ func (m *Store) GetCounters() map[string]Counter {
 	return m.Counters
 }
 
-func (m Store) UpdateCounter(name string, value Counter) {
+func (m *Store) UpdateCounter(name string, value Counter) {
 	m.Counters[name] += value
 }

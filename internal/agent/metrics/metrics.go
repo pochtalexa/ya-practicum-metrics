@@ -18,21 +18,32 @@ type RuntimeMetrics struct {
 	RandomValue Gauge
 }
 
-type GaugeMetric struct {
-	Name     string `json:"name"`
-	Value    Gauge  `json:"value"`
-	ValueStr string `json:"value_str"`
-}
+//type GaugeMetric struct {
+//	Name     string `json:"name"`
+//	Value    Gauge  `json:"value"`
+//	ValueStr string `json:"value_str"`
+//}
+//
+//type CounterMetric struct {
+//	Name     string  `json:"name"`
+//	Value    Counter `json:"value"`
+//	ValueStr string  `json:"value_str"`
+//}
 
-type CounterMetric struct {
-	Name     string  `json:"name"`
-	Value    Counter `json:"value"`
-	ValueStr string  `json:"value_str"`
+//type CashMetrics struct {
+//	GaugeMetrics  []GaugeMetric
+//	CounterMetric []CounterMetric
+//}
+
+type Metrics struct {
+	ID    string   `json:"id"`              // имя метрики
+	MType string   `json:"type"`            // параметр, принимающий значение gauge или counter
+	Delta *int64   `json:"delta,omitempty"` // значение метрики в случае передачи counter
+	Value *float64 `json:"value,omitempty"` // значение метрики в случае передачи gauge
 }
 
 type CashMetrics struct {
-	GaugeMetrics  []GaugeMetric
-	CounterMetric []CounterMetric
+	CashMetrics []Metrics
 }
 
 func New() *RuntimeMetrics {
@@ -70,7 +81,7 @@ func (el *RuntimeMetrics) UpdateMetrics() {
 	el.PollCountInc()
 }
 
-func (el *RuntimeMetrics) GetDataValue(name string) (Gauge, error) {
+func (el *RuntimeMetrics) GetDataValue(name string) (float64, error) {
 	var result float64
 
 	switch name {
@@ -132,5 +143,6 @@ func (el *RuntimeMetrics) GetDataValue(name string) (Gauge, error) {
 		return -1, fmt.Errorf("can not find metric name: %s", name)
 	}
 
-	return Gauge(result), nil
+	//return Gauge(result), nil
+	return result, nil
 }

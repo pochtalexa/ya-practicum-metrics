@@ -1,9 +1,11 @@
 package main
 
 import (
-	patronhttp "github.com/beatlabs/patron/client/http"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
+	"net/http"
 	"time"
 )
 
@@ -21,6 +23,7 @@ func main() {
 	)
 
 	flags.ParseFlags()
+	zerolog.SetGlobalLevel(zerolog.InfoLevel)
 
 	pollInterval = flags.FlagPollInterval
 	reportInterval = flags.FlagReportInterval
@@ -29,10 +32,7 @@ func main() {
 	pollIntervalCounter := 0
 	reportIntervalCounter := 0
 
-	httpClient, err := patronhttp.New()
-	if err != nil {
-		panic(err)
-	}
+	httpClient := http.Client{}
 
 	for {
 		time.Sleep(time.Duration(1) * time.Second)
@@ -43,6 +43,8 @@ func main() {
 		if pollIntervalCounter == pollInterval {
 			metricsStorage.UpdateMetrics()
 			pollIntervalCounter = 0
+
+			log.Info().Msg("Metrics updated")
 		}
 
 		if reportIntervalCounter == reportInterval {
@@ -58,6 +60,8 @@ func main() {
 
 			reportIntervalCounter = 0
 			metricsStorage.PollCountDrop()
+
+			log.Info().Msg("Metrics sent")
 		}
 	}
 }

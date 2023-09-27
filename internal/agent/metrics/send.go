@@ -1,57 +1,52 @@
 package metrics
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
-	patronhttp "github.com/beatlabs/patron/client/http"
 	"net/http"
-	"strconv"
 )
 
-var err error
-
 func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
-	var CashMetrics CashMetrics
-	var gaugeMetric GaugeMetric
-	var counterMetric CounterMetric
+	var (
+		CashMetrics   CashMetrics
+		gaugeMetric   Metrics
+		counterMetric Metrics
+	)
 
 	for _, mName := range metrics.GetMericsName() {
-		gaugeMetric.Name = mName
-		gaugeMetric.Value, err = metrics.GetDataValue(mName)
+		gaugeMetric.ID = mName
+		gaugeMetric.MType = "gauge"
+
+		gaugeMetricTemp, err := metrics.GetDataValue(mName)
 		if err != nil {
 			return CashMetrics, err
 		}
-		gaugeMetric.ValueStr = strconv.FormatFloat(float64(gaugeMetric.Value), 'E', -1, 64)
+		gaugeMetric.Value = &gaugeMetricTemp
 
-		counterMetric.Name = mName
-		counterMetric.Value = metrics.PollCount
-		counterMetric.ValueStr = strconv.FormatUint(uint64(counterMetric.Value), 10)
+		counterMetric.ID = mName
+		counterMetric.MType = "counter"
+		counterMetricTemp := int64(metrics.PollCount)
+		counterMetric.Delta = &counterMetricTemp
 
-		CashMetrics.GaugeMetrics = append(CashMetrics.GaugeMetrics, gaugeMetric)
-		CashMetrics.CounterMetric = append(CashMetrics.CounterMetric, counterMetric)
+		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
+		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, counterMetric)
 	}
 
 	return CashMetrics, nil
 }
 
-func SendMetric(CashMetrics CashMetrics, httpClient patronhttp.Client, reportRunAddr string) error {
+func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
+	urlMetric := fmt.Sprintf("http://%s/update/", reportRunAddr)
 
-	for _, el := range CashMetrics.GaugeMetrics {
-		urlGauge := fmt.Sprintf("http://%s/update/gauge/%s/%s", reportRunAddr, el.Name, el.ValueStr)
+	for _, el := range CashMetrics.CashMetrics {
 
-		req, _ := http.NewRequest(http.MethodPost, urlGauge, nil)
-		req.Header.Add("Content-Type", "text/plain")
-		res, err := httpClient.Do(req)
+		reqBody, err := json.Marshal(el)
 		if err != nil {
-			return err
+			panic(err)
 		}
-		res.Body.Close()
-	}
-
-	for _, el := range CashMetrics.CounterMetric {
-		urlCounter := fmt.Sprintf("http://%s/update/counter/%s/%s", reportRunAddr, el.Name, el.ValueStr)
-
-		req, _ := http.NewRequest(http.MethodPost, urlCounter, nil)
-		req.Header.Add("Content-Type", "text/plain")
+		req, _ := http.NewRequest(http.MethodPost, urlMetric, bytes.NewReader(reqBody))
+		req.Header.Add("Content-Type", "application/json")
 		res, err := httpClient.Do(req)
 		if err != nil {
 			return err
