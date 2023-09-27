@@ -52,12 +52,10 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-
 			err = metrics.SendMetric(CashMetrics, httpClient, reportRunAddr)
 			if err != nil {
 				panic(err)
 			}
-
 			reportIntervalCounter = 0
 			metricsStorage.PollCountDrop()
 
