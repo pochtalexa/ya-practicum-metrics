@@ -262,8 +262,6 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 		return
 	}
 
-	lw.WriteHeader(http.StatusOK)
-
 	if ok {
 		lw.WriteHeader(http.StatusOK)
 		lw.Write([]byte(data))
@@ -382,26 +380,6 @@ func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
 }
 
 func gauges2String(mapGauges map[string]storage.Gauge) (string, error) {
-	var storeList []string
-
-	for k, v := range mapGauges {
-		storeList = append(storeList, k+":"+fmt.Sprintf("%.3f", v))
-	}
-
-	return strings.Join(storeList, ","), nil
-}
-
-func Counters2String(mapCounters map[string]storage.Counter) (string, error) {
-	var storeList []string
-
-	for k, v := range mapCounters {
-		storeList = append(storeList, k+":"+fmt.Sprintf("%d", v))
-	}
-
-	return strings.Join(storeList, ","), nil
-}
-
-func Gauges2String(mapGauges map[string]storage.Gauge) (string, error) {
 	var storeList []string
 
 	for k, v := range mapGauges {
