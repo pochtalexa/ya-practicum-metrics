@@ -317,14 +317,17 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		return
 	}
 
-	lw.WriteHeader(http.StatusOK)
-
-	enc := json.NewEncoder(&lw)
-	enc.SetIndent("", "  ")
-	if err := enc.Encode(reqJSON); err != nil {
-		lw.WriteHeader(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
-		return
+	if ok {
+		lw.WriteHeader(http.StatusOK)
+		enc := json.NewEncoder(&lw)
+		enc.SetIndent("", "  ")
+		if err := enc.Encode(reqJSON); err != nil {
+			lw.WriteHeader(http.StatusBadRequest)
+			logHTTPResult(start, lw, *r, err)
+			return
+		}
+	} else {
+		lw.WriteHeader(http.StatusNotFound)
 	}
 
 	logHTTPResult(start, lw, *r)

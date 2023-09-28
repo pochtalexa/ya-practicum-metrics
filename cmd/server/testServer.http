@@ -1,3 +1,13 @@
 ###
-http://localhost:8080/value/gauge/testUnknown109
+GET http://localhost:8080/value/gauge/testUnknown109
 
+###
+POST http://localhost:8080/value/
+Content-Type: application/json
+
+{
+  "id": "nothing",
+  "type": "counter"
+}
+
+###
