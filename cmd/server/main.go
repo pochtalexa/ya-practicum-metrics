@@ -23,10 +23,16 @@ func run() error {
 		handlers.RootHandler(w, r, MemStorage)
 	})
 
+	mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
+		handlers.UpdateHandlerLong(w, r, MemStorage)
+	})
 	mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
 		handlers.UpdateHandler(w, r, MemStorage)
 	})
 
+	mux.Get("/value/{metricType}/{metricName}", func(w http.ResponseWriter, r *http.Request) {
+		handlers.ValueHandlerLong(w, r, MemStorage)
+	})
 	mux.Post("/value/", func(w http.ResponseWriter, r *http.Request) {
 		handlers.ValueHandler(w, r, MemStorage)
 	})

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/go-chi/chi/v5"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
 	"io"
@@ -80,6 +81,81 @@ func UpdateMetric(reqJSON models.Metrics, repo storage.Storer) error {
 	return nil
 }
 
+func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
+	var (
+		reqJSON    models.Metrics
+		valCounter storage.Counter
+		valGauge   storage.Gauge
+		ok         bool
+	)
+	start := time.Now()
+
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+	}
+
+	reqJSON.ID = chi.URLParam(r, "metricName")
+	reqJSON.MType = chi.URLParam(r, "metricType")
+	if reqJSON.MType == "counter" {
+		counterVal, err := strconv.ParseInt(chi.URLParam(r, "metricVal"), 10, 64)
+		if err != nil {
+			lw.WriteHeader(http.StatusBadRequest)
+			logHTTPResult(start, lw, *r, err)
+			return
+		}
+		reqJSON.Delta = &counterVal
+	} else if reqJSON.MType == "gauge" {
+		gaugeVal, err := strconv.ParseFloat(chi.URLParam(r, "metricVal"), 64)
+		if err != nil {
+			lw.WriteHeader(http.StatusBadRequest)
+			logHTTPResult(start, lw, *r, err)
+			return
+		}
+		reqJSON.Value = &gaugeVal
+	} else {
+		err := fmt.Errorf("can not get val for %v from repo", reqJSON.MType)
+		lw.WriteHeader(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	lw.Header().Set("Content-Type", "application/json")
+	lw.Header().Set("Date", time.Now().String())
+
+	err := UpdateMetric(reqJSON, repo)
+	if err != nil {
+		lw.WriteHeader(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	if reqJSON.MType == "counter" {
+		if valCounter, ok = repo.GetCounter(reqJSON.ID); ok {
+			valCounterI64 := int64(valCounter)
+			reqJSON.Delta = &valCounterI64
+		}
+	} else if reqJSON.MType == "gauge" {
+		if valGauge, ok = repo.GetGauge(reqJSON.ID); ok {
+			valGaugeF64 := float64(valGauge)
+			reqJSON.Value = &valGaugeF64
+		}
+	} else {
+		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
+		lw.WriteHeader(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	lw.WriteHeader(http.StatusOK)
+
+	logHTTPResult(start, lw, *r)
+}
+
 func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	var (
 		reqJSON    models.Metrics
@@ -140,6 +216,59 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		lw.WriteHeader(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
+	}
+
+	logHTTPResult(start, lw, *r)
+}
+
+func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
+	var (
+		reqJSON    models.Metrics
+		valCounter storage.Counter
+		valGauge   storage.Gauge
+		ok         bool
+		data       string
+	)
+	start := time.Now()
+
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+	}
+
+	reqJSON.ID = chi.URLParam(r, "metricName")
+	reqJSON.MType = chi.URLParam(r, "metricType")
+
+	lw.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	lw.Header().Set("Date", time.Now().String())
+
+	if reqJSON.MType == "counter" {
+		if valCounter, ok = repo.GetCounter(reqJSON.ID); ok {
+			data = fmt.Sprintf("%d", valCounter)
+		}
+	} else if reqJSON.MType == "gauge" {
+		if valGauge, ok = repo.GetGauge(reqJSON.ID); ok {
+			data = fmt.Sprintf("%.3f", valGauge)
+			data = strings.Trim(data, "0")
+		}
+	} else {
+		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
+		lw.WriteHeader(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	lw.WriteHeader(http.StatusOK)
+
+	if ok {
+		lw.WriteHeader(http.StatusOK)
+		lw.Write([]byte(data))
+	} else {
+		lw.WriteHeader(http.StatusNotFound)
 	}
 
 	logHTTPResult(start, lw, *r)
