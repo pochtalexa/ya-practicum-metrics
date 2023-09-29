@@ -2,6 +2,7 @@ package metrics
 
 import (
 	"fmt"
+	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/models"
 	"math"
 	"math/rand"
 	"runtime"
@@ -18,39 +19,16 @@ type RuntimeMetrics struct {
 	RandomValue Gauge
 }
 
-//type GaugeMetric struct {
-//	Name     string `json:"name"`
-//	Value    Gauge  `json:"value"`
-//	ValueStr string `json:"value_str"`
-//}
-//
-//type CounterMetric struct {
-//	Name     string  `json:"name"`
-//	Value    Counter `json:"value"`
-//	ValueStr string  `json:"value_str"`
-//}
-
-//type CashMetrics struct {
-//	GaugeMetrics  []GaugeMetric
-//	CounterMetric []CounterMetric
-//}
-
-type Metrics struct {
-	ID    string   `json:"id"`              // имя метрики
-	MType string   `json:"type"`            // параметр, принимающий значение gauge или counter
-	Delta *int64   `json:"delta,omitempty"` // значение метрики в случае передачи counter
-	Value *float64 `json:"value,omitempty"` // значение метрики в случае передачи gauge
-}
-
 type CashMetrics struct {
-	CashMetrics []Metrics
+	CashMetrics []models.Metrics
 }
 
 func New() *RuntimeMetrics {
 	return &RuntimeMetrics{
 		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
 			"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys",
-			"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc"},
+			"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc",
+			"PollCount", "RandomValue"},
 		Counters: make(map[string]Counter),
 	}
 }
@@ -139,6 +117,10 @@ func (el *RuntimeMetrics) GetDataValue(name string) (float64, error) {
 		result = float64(el.Data.NumGC)
 	case "GCCPUFraction":
 		result = el.Data.GCCPUFraction
+	case "RandomValue":
+		result = float64(el.RandomValue)
+	case "PollCount":
+		result = float64(0)
 	default:
 		return -1, fmt.Errorf("can not find metric name: %s", name)
 	}

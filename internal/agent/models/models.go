@@ -1,8 +1,6 @@
 package models
 
-import (
-	"encoding/json"
-)
+import "encoding/json"
 
 // Metrics структура для обработки тела POST запроса в формате JSON
 type Metrics struct {

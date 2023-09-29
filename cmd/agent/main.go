@@ -35,10 +35,10 @@ func main() {
 	httpClient := http.Client{}
 
 	for {
-		time.Sleep(time.Duration(1) * time.Second)
+		time.Sleep(1 * time.Second)
 
-		pollIntervalCounter += 1
-		reportIntervalCounter += 1
+		pollIntervalCounter++
+		reportIntervalCounter++
 
 		if pollIntervalCounter == pollInterval {
 			metricsStorage.UpdateMetrics()
@@ -58,8 +58,13 @@ func main() {
 			}
 			reportIntervalCounter = 0
 			metricsStorage.PollCountDrop()
-
 			log.Info().Msg("Metrics sent")
+
+			err = metrics.GetRoot(httpClient, reportRunAddr)
+			if err != nil {
+				panic(err)
+			}
+
 		}
 	}
 }
