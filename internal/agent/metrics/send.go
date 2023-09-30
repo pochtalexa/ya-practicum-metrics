@@ -16,30 +16,30 @@ func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
 		counterMetric models.Metrics
 	)
 
-	for _, mName := range metrics.GetMericsName() {
+	for _, mName := range metrics.GetGaugeName() {
 		gaugeMetric.ID = mName
 		gaugeMetric.MType = "gauge"
 
-		gaugeMetricTemp, err := metrics.GetDataValue(mName)
+		gaugeMetricTemp, err := metrics.GetGaugeValue(mName)
 		if err != nil {
 			return CashMetrics, err
 		}
 		gaugeMetric.Value = &gaugeMetricTemp
 
-		counterMetric.ID = mName
-		counterMetric.MType = "counter"
-		counterMetricTemp := int64(metrics.PollCount)
-		counterMetric.Delta = &counterMetricTemp
-
 		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
-		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, counterMetric)
 	}
+
+	counterMetric.ID = "PollCount"
+	counterMetric.MType = "counter"
+	counterMetricTemp := int64(metrics.PollCount)
+	counterMetric.Delta = &counterMetricTemp
+
+	CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, counterMetric)
 
 	return CashMetrics, nil
 }
 
 func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
-	//var respMetric models.Metrics
 	urlMetric := fmt.Sprintf("http://%s/update/", reportRunAddr)
 
 	for _, el := range CashMetrics.CashMetrics {
@@ -66,21 +66,5 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		log.Info().Str("status", res.Status).Msg(fmt.Sprintln("respMetric:", respMetric.String()))
 	}
 
-	return nil
-}
-
-func GetRoot(httpClient http.Client, reportRunAddr string) error {
-	urlMetric := fmt.Sprintf("http://%s/", reportRunAddr)
-
-	req, _ := http.NewRequest(http.MethodGet, urlMetric, nil)
-	req.Header.Add("Content-Type", "text/plain; charset=utf-8")
-
-	res, err := http.Get(urlMetric)
-	//res, err := httpClient.Do(req)
-	if err != nil {
-		return err
-	}
-
-	log.Info().Str("status", res.Status).Msg("root page")
 	return nil
 }

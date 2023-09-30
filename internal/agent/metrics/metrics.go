@@ -13,8 +13,7 @@ type Counter int64
 
 type RuntimeMetrics struct {
 	Data        runtime.MemStats
-	MetricsName []string
-	Counters    map[string]Counter
+	GaugesName  []string
 	PollCount   Counter
 	RandomValue Gauge
 }
@@ -25,16 +24,11 @@ type CashMetrics struct {
 
 func New() *RuntimeMetrics {
 	return &RuntimeMetrics{
-		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
+		GaugesName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
 			"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys",
 			"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc",
-			"PollCount", "RandomValue"},
-		Counters: make(map[string]Counter),
+			"RandomValue"},
 	}
-}
-
-func (el *RuntimeMetrics) UpdateCounter(name string, value Counter) {
-	el.Counters[name] = value
 }
 
 func (el *RuntimeMetrics) PollCountInc() {
@@ -49,8 +43,8 @@ func (el *RuntimeMetrics) RandomValueUpdate() {
 	el.RandomValue = Gauge(rand.Float64() * math.Pow(10, 6))
 }
 
-func (el *RuntimeMetrics) GetMericsName() []string {
-	return el.MetricsName
+func (el *RuntimeMetrics) GetGaugeName() []string {
+	return el.GaugesName
 }
 
 func (el *RuntimeMetrics) UpdateMetrics() {
@@ -59,7 +53,7 @@ func (el *RuntimeMetrics) UpdateMetrics() {
 	el.PollCountInc()
 }
 
-func (el *RuntimeMetrics) GetDataValue(name string) (float64, error) {
+func (el *RuntimeMetrics) GetGaugeValue(name string) (float64, error) {
 	var result float64
 
 	switch name {
@@ -119,12 +113,9 @@ func (el *RuntimeMetrics) GetDataValue(name string) (float64, error) {
 		result = el.Data.GCCPUFraction
 	case "RandomValue":
 		result = float64(el.RandomValue)
-	case "PollCount":
-		result = float64(0)
 	default:
 		return -1, fmt.Errorf("can not find metric name: %s", name)
 	}
 
-	//return Gauge(result), nil
 	return result, nil
 }

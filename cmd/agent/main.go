@@ -60,11 +60,6 @@ func main() {
 			metricsStorage.PollCountDrop()
 			log.Info().Msg("Metrics sent")
 
-			err = metrics.GetRoot(httpClient, reportRunAddr)
-			if err != nil {
-				panic(err)
-			}
-
 		}
 	}
 }

@@ -166,6 +166,9 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		lw.WriteHeader(http.StatusNotFound)
 	}
 
+	fmt.Println("update_long-reqJSON", reqJSON.String())
+	fmt.Println("update_long-resJSON", resJSON.String())
+
 	logHTTPResult(start, lw, *r)
 }
 
