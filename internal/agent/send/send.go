@@ -16,8 +16,8 @@ func Metrics(metrics *metrics.RuntimeMetrics, reportRunAddr string) error {
 		return err
 	}
 
-	for _, mName := range metrics.MetricsName {
-		mValue, err := metrics.GetDataValue(mName)
+	for _, mName := range metrics.GaugesName {
+		mValue, err := metrics.GetGaugeValue(mName)
 		if err != nil {
 			return err
 		}
