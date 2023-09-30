@@ -1,0 +1,574 @@
+{"level":"info","time":"2023-09-30T21:33:54+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:33:56+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:33:58+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:34:00+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:34:02+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:34:04+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207984}","time":"2023-09-30T21:34:04+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:34:04+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:36:33+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:36:35+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:36:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:36:40+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:36:42+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:36:44+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208608}","time":"2023-09-30T21:36:44+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-09-30T21:38:12+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:38:14+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:38:16+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:38:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:38:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:38:22+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207512}","time":"2023-09-30T21:38:22+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-09-30T21:39:00+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:39:02+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:04+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:06+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:10+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208080}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208080}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208080}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208080}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721552}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721552}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208080}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208080}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":939951.5658286008}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":939951.5658286008}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:39:10+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:10+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-09-30T21:39:10+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:39:12+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:14+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:16+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:20+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":492384}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":492384}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":174}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":174}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1772640}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1772640}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":492384}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":492384}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2777088}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2777088}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1286144}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1286144}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4039}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4039}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2744320}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2744320}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4063232}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4063232}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":35952}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":35952}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4213}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4213}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":868712}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":868712}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":131072}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":131072}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":131072}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":131072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6907088}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6907088}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":492384}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":492384}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":336034.9195887807}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":336034.9195887807}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:39:20+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:39:20+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":10}\n"}
+{"level":"info","time":"2023-09-30T21:39:20+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:39:22+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:24+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:26+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:28+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:39:30+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":677296}","time":"2023-09-30T21:39:30+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:39:30+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:40:22+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:40:24+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:40:26+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:40:28+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:40:30+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:40:32+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207512}","time":"2023-09-30T21:40:32+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-09-30T21:40:32+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:45:04+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:45:06+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:10+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:12+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:15+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":206296}","time":"2023-09-30T21:45:15+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:45:15+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:45:32+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:45:34+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:36+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:38+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:40+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:45:42+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208144}","time":"2023-09-30T21:45:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-09-30T21:45:42+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:48:52+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:48:54+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:48:56+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:48:58+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:00+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:02+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":206296}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":206296}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3448832}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":647168}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1632}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3448832}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1649}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721551}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":206296}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":128384.20695392502}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:49:02+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:02+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:49:02+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:49:04+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:06+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:14+03:00","message":"fLogger initiated"}
+{"level":"info","time":"2023-09-30T21:49:16+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:22+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:24+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207512}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":207512}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1631}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1648}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715383}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":207512}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":439973.33515367744}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:49:24+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-09-30T21:49:24+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-09-30T21:49:24+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:49:26+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:28+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:30+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:32+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:34+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":566896}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":566896}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":253}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":253}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1766472}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1766472}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":566896}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":566896}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2539520}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2539520}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1425408}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1425408}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":5374}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":5374}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2441216}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2441216}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":3964928}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":3964928}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":5627}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":5627}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1137023}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1137023}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":229376}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":229376}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":229376}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":229376}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":566896}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":566896}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":960770.4756042408}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":960770.4756042408}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:49:34+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:34+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-09-30T21:49:34+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:49:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:39+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:41+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:43+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:49:45+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":812160}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":812160}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":392}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":392}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1784976}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1784976}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":812160}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":812160}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2269184}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2269184}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1662976}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1662976}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":7484}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":7484}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2138112}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2138112}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":3932160}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":3932160}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":7876}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":7876}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1118519}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1118519}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":262144}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":262144}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":262144}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":262144}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":812160}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":812160}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":236097.0636522068}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":236097.0636522068}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:49:45+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:49:45+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":10}\n"}
+{"level":"info","time":"2023-09-30T21:49:45+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:52:09+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-09-30T21:52:11+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:13+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:15+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:17+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:19+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208000}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208000}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208000}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208000}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1634}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1634}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1651}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1651}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721551}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721551}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208000}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208000}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":518058.88464424043}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":518058.88464424043}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:52:19+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:19+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-09-30T21:52:19+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:52:21+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:23+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:25+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:27+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:30+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":492440}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":492440}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":174}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":174}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1747968}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1747968}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":492440}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":492440}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2809856}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":2809856}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1253376}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1253376}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4041}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4041}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2777088}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2777088}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4063232}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4063232}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":46704}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":48888}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4215}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4215}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":893383}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":893383}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":131072}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":131072}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":131072}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":131072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6907088}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6907088}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":492440}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":492440}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":457787.79363674275}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":457787.79363674275}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-09-30T21:52:30+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-09-30T21:52:30+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":10}\n"}
+{"level":"info","time":"2023-09-30T21:52:30+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-09-30T21:52:32+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-09-30T21:52:34+03:00","message":"Metrics updated"}

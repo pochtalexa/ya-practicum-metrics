@@ -5,7 +5,9 @@ import (
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
+	"io"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -15,12 +17,33 @@ var (
 	reportRunAddr  string
 )
 
+func InitFLogger() *os.File {
+	fileLogger, err := os.OpenFile(
+		"client.log",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY,
+		0664,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	writers := io.MultiWriter(os.Stdout, fileLogger)
+	log.Logger = log.Output(writers)
+
+	log.Info().Msg("MultiWriter logger initiated")
+
+	return fileLogger
+}
+
 func main() {
 	var (
 		CashMetrics    metrics.CashMetrics
 		metricsStorage = metrics.New()
 		err            error
 	)
+
+	fileLogger := InitFLogger()
+	defer fileLogger.Close()
 
 	flags.ParseFlags()
 	zerolog.SetGlobalLevel(zerolog.InfoLevel)
@@ -32,7 +55,7 @@ func main() {
 	pollIntervalCounter := 0
 	reportIntervalCounter := 0
 
-	httpClient := http.Client{}
+	httpClient := *http.DefaultClient
 
 	for {
 		time.Sleep(1 * time.Second)

@@ -49,19 +49,22 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		if err != nil {
 			panic(err)
 		}
+		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
+
 		req, _ := http.NewRequest(http.MethodPost, urlMetric, bytes.NewReader(reqBody))
 		req.Header.Add("Content-Type", "application/json")
 		res, err := httpClient.Do(req)
 		if err != nil {
-			return err
+			log.Info().Err(err).Msg("SendMetric error")
+			continue
 		}
+		defer res.Body.Close()
 
 		dec := json.NewDecoder(res.Body)
 		if err := dec.Decode(&respMetric); err != nil {
 			log.Info().Err(err).Msg("decode body error")
-			return err
+			continue
 		}
-		res.Body.Close()
 
 		log.Info().Str("status", res.Status).Msg(fmt.Sprintln("respMetric:", respMetric.String()))
 	}
