@@ -17,7 +17,7 @@ var (
 	reportRunAddr  string
 )
 
-func InitFLogger() *os.File {
+func InitMultiLogger() *os.File {
 	fileLogger, err := os.OpenFile(
 		"client.log",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY,
@@ -42,8 +42,14 @@ func main() {
 		err            error
 	)
 
-	fileLogger := InitFLogger()
-	defer fileLogger.Close()
+	tr := &http.Transport{
+		MaxIdleConns:       10,
+		IdleConnTimeout:    30 * time.Second,
+		DisableCompression: false,
+	}
+
+	multiLogger := InitMultiLogger()
+	defer multiLogger.Close()
 
 	flags.ParseFlags()
 	zerolog.SetGlobalLevel(zerolog.InfoLevel)
@@ -55,7 +61,8 @@ func main() {
 	pollIntervalCounter := 0
 	reportIntervalCounter := 0
 
-	httpClient := *http.DefaultClient
+	//httpClient := *http.DefaultClient
+	httpClient := http.Client{Transport: tr}
 
 	for {
 		time.Sleep(1 * time.Second)

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"compress/gzip"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -18,38 +19,72 @@ import (
 
 // структура для хранения сведений об ответе
 type responseData struct {
-	status int
-	size   int
+	status       int
+	contEncoding string
+	size         int
+}
+
+// проверяем, что клиент отправил серверу сжатые данные в формате gzip
+func reqCheckGzipBody(r *http.Request) (io.ReadCloser, error) {
+	contentEncoding := r.Header.Get("Content-Encoding")
+	sendsGzip := strings.Contains(contentEncoding, "gzip")
+
+	if sendsGzip {
+		gzr, err := gzip.NewReader(r.Body)
+		if err != nil {
+			return r.Body, err
+		}
+		// меняем тело запроса на новое
+		r.Body = gzr
+		defer gzr.Close()
+	}
+
+	return r.Body, nil
 }
 
 // добавляем кастомную реализацию http.ResponseWriter
-type loggingResponseWriter struct {
+type loggingGzipResponseWriter struct {
 	// встраиваем оригинальный http.ResponseWriter
 	http.ResponseWriter
 	responseData *responseData
+	resCompress  bool // требуется ли сжимать ответ
 }
 
-func (r *loggingResponseWriter) Write(b []byte) (int, error) {
-	// записываем ответ, используя оригинальный http.ResponseWriter
-	size, err := r.ResponseWriter.Write(b)
+func (r *loggingGzipResponseWriter) Write(b []byte) (int, error) {
+	var (
+		size int
+		err  error
+		gzw  *gzip.Writer
+	)
+
+	if r.resCompress {
+		gzw, err = gzip.NewWriterLevel(r.ResponseWriter, gzip.BestSpeed)
+		if err != nil {
+			return -1, err
+		}
+		defer gzw.Close()
+
+		r.responseData.contEncoding = "gzip" // сохраняем значение contEncoding
+
+		size, err = gzw.Write(b)
+
+	} else {
+		// записываем ответ, используя оригинальный http.ResponseWriter
+		size, err = r.ResponseWriter.Write(b)
+	}
+
 	r.responseData.size += size // захватываем размер
+
 	return size, err
 }
 
-func (r *loggingResponseWriter) WriteHeader(statusCode int) {
+func (r *loggingGzipResponseWriter) WriteHeaderStatus(statusCode int) {
 	// записываем код статуса, используя оригинальный http.ResponseWriter
 	r.ResponseWriter.WriteHeader(statusCode)
 	r.responseData.status = statusCode // захватываем код статуса
 }
 
-// optParams оциональные параметры для logHTTPResult
-type stOptParams struct {
-	optErr     error
-	optReqJSON models.Metrics
-	optResJSON models.Metrics
-}
-
-func logHTTPResult(start time.Time, lw loggingResponseWriter, r http.Request, optErr ...error) {
+func logHTTPResult(start time.Time, lw loggingGzipResponseWriter, r http.Request, optErr ...error) {
 	err := errors.New("null")
 	if len(optErr) > 0 {
 		err = optErr[0]
@@ -88,6 +123,21 @@ func UpdateMetric(reqJSON models.Metrics, repo storage.Storer) error {
 	return nil
 }
 
+func getReqContEncoding(r *http.Request) bool {
+
+	encodingSlice := r.Header.Values("Accept-Encoding")
+	encodingsStr := strings.Join(encodingSlice, ",")
+	encodings := strings.Split(encodingsStr, ",")
+
+	for _, el := range encodings {
+		if el == "gzip" {
+			return true
+		}
+	}
+
+	return false
+}
+
 func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	var (
 		valCounter       storage.Counter
@@ -101,9 +151,10 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		status: 0,
 		size:   0,
 	}
-	lw := loggingResponseWriter{
+	lw := loggingGzipResponseWriter{
 		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
 		responseData:   responseData,
+		resCompress:    false,
 	}
 
 	reqJSON.ID = chi.URLParam(r, "metricName")
@@ -112,7 +163,7 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 	if reqJSON.MType == "counter" {
 		counterVal, err := strconv.ParseInt(chi.URLParam(r, "metricVal"), 10, 64)
 		if err != nil {
-			lw.WriteHeader(http.StatusBadRequest)
+			lw.WriteHeaderStatus(http.StatusBadRequest)
 			logHTTPResult(start, lw, *r, err)
 			return
 		}
@@ -120,14 +171,14 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 	} else if reqJSON.MType == "gauge" {
 		gaugeVal, err := strconv.ParseFloat(chi.URLParam(r, "metricVal"), 64)
 		if err != nil {
-			lw.WriteHeader(http.StatusBadRequest)
+			lw.WriteHeaderStatus(http.StatusBadRequest)
 			logHTTPResult(start, lw, *r, err)
 			return
 		}
 		reqJSON.Value = &gaugeVal
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.MType)
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
@@ -137,7 +188,7 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 
 	err := UpdateMetric(reqJSON, repo)
 	if err != nil {
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
@@ -155,15 +206,15 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		}
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
 
 	if ok {
-		lw.WriteHeader(http.StatusOK)
+		lw.WriteHeaderStatus(http.StatusOK)
 	} else {
-		lw.WriteHeader(http.StatusNotFound)
+		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
 	fmt.Println("update_long-reqJSON", reqJSON.String())
@@ -178,6 +229,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		valCounter       storage.Counter
 		valGauge         storage.Gauge
 		ok               bool
+		err              error
 	)
 	start := time.Now()
 
@@ -185,14 +237,26 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		status: 0,
 		size:   0,
 	}
-	lw := loggingResponseWriter{
+	lw := loggingGzipResponseWriter{
 		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
 		responseData:   responseData,
+		resCompress:    false,
+	}
+
+	r.Body, err = reqCheckGzipBody(r)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
+		lw.Header().Set("Content-Encoding", "gzip")
 	}
 
 	dec := json.NewDecoder(r.Body)
 	if err := dec.Decode(&reqJSON); err != nil {
-		lw.WriteHeader(http.StatusInternalServerError)
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
@@ -200,9 +264,9 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	lw.Header().Set("Content-Type", "application/json")
 	lw.Header().Set("Date", time.Now().String())
 
-	err := UpdateMetric(reqJSON, repo)
+	err = UpdateMetric(reqJSON, repo)
 	if err != nil {
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
@@ -222,23 +286,23 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		}
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", resJSON.ID)
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
 
-	lw.WriteHeader(http.StatusOK)
+	lw.WriteHeaderStatus(http.StatusOK)
 
 	enc := json.NewEncoder(&lw)
 	enc.SetIndent("", "  ")
 	if err := enc.Encode(resJSON); err != nil {
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
 
-	fmt.Println("update-reqJSON", reqJSON.String())
-	fmt.Println("update-resJSON", resJSON.String())
+	//fmt.Println("update-reqJSON", reqJSON.String())
+	//fmt.Println("update-resJSON", resJSON.String())
 
 	logHTTPResult(start, lw, *r)
 }
@@ -257,9 +321,10 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 		status: 0,
 		size:   0,
 	}
-	lw := loggingResponseWriter{
+	lw := loggingGzipResponseWriter{
 		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
 		responseData:   responseData,
+		resCompress:    false,
 	}
 
 	reqJSON.ID = chi.URLParam(r, "metricName")
@@ -280,16 +345,16 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 		}
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
 
 	if ok {
-		lw.WriteHeader(http.StatusOK)
+		lw.WriteHeaderStatus(http.StatusOK)
 		lw.Write([]byte(data))
 	} else {
-		lw.WriteHeader(http.StatusNotFound)
+		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
 	logHTTPResult(start, lw, *r)
@@ -306,17 +371,30 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	start := time.Now()
 
 	responseData := &responseData{
-		status: 0,
-		size:   0,
+		status:       0,
+		contEncoding: "",
+		size:         0,
 	}
-	lw := loggingResponseWriter{
+	lw := loggingGzipResponseWriter{
 		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
 		responseData:   responseData,
+		resCompress:    false,
+	}
+
+	r.Body, err = reqCheckGzipBody(r)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, err)
+		return
+	}
+
+	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
+		lw.Header().Set("Content-Encoding", "gzip")
 	}
 
 	dec := json.NewDecoder(r.Body)
 	if err = dec.Decode(&reqJSON); err != nil {
-		lw.WriteHeader(http.StatusInternalServerError)
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
@@ -339,27 +417,27 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		}
 	} else {
 		err = fmt.Errorf("can not get val for %v from repo", resJSON.MType)
-		lw.WriteHeader(http.StatusBadRequest)
+		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
 
 	if ok {
-		lw.WriteHeader(http.StatusOK)
+		lw.WriteHeaderStatus(http.StatusOK)
 		enc := json.NewEncoder(&lw)
 		enc.SetIndent("", "  ")
 		if err := enc.Encode(resJSON); err != nil {
-			lw.WriteHeader(http.StatusBadRequest)
+			lw.WriteHeaderStatus(http.StatusBadRequest)
 			logHTTPResult(start, lw, *r, err)
 			return
 		}
 	} else {
 		err = fmt.Errorf("can not get val for <%v>, type <%v> from repo", reqJSON.ID, reqJSON.MType)
-		lw.WriteHeader(http.StatusNotFound)
+		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
-	fmt.Println("value-reqJSON", reqJSON.String())
-	fmt.Println("value-resJSON", resJSON.String())
+	//fmt.Println("value-reqJSON", reqJSON.String())
+	//fmt.Println("value-resJSON", resJSON.String())
 
 	logHTTPResult(start, lw, *r, err)
 }
@@ -368,13 +446,22 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	start := time.Now()
 
 	responseData := &responseData{
-		status: 0,
-		size:   0,
+		status:       0,
+		contEncoding: "",
+		size:         0,
 	}
-	lw := loggingResponseWriter{
+	lw := loggingGzipResponseWriter{
 		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
 		responseData:   responseData,
+		resCompress:    false,
 	}
+
+	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
+		lw.Header().Set("Content-Encoding", "gzip")
+	}
+
+	lw.Header().Set("Content-Type", "text/html")
+	lw.Header().Set("Date", time.Now().String())
 
 	WebPage1, _ := gauges2String(repo.GetGauges())
 	WebPage2, _ := сounters2String(repo.GetCounters())
@@ -394,11 +481,17 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	</body>
 	</html>`, WebPage1, WebPage2)
 
-	lw.WriteHeader(http.StatusOK)
+	data := []byte(WebPage)
 
-	if _, err := io.WriteString(&lw, WebPage); err != nil {
+	lw.WriteHeaderStatus(http.StatusOK)
+
+	if _, err := lw.Write(data); err != nil {
 		panic(err)
 	}
+
+	//if _, err := io.WriteString(&lw, WebPage); err != nil {
+	//	panic(err)
+	//}
 
 	logHTTPResult(start, lw, *r)
 }

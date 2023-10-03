@@ -572,3 +572,953 @@
 {"level":"info","time":"2023-09-30T21:52:30+03:00","message":"Metrics sent"}
 {"level":"info","time":"2023-09-30T21:52:32+03:00","message":"Metrics updated"}
 {"level":"info","time":"2023-09-30T21:52:34+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:10:18+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:10:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:10:22+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:10:24+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:10:26+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:10:28+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208000}","time":"2023-10-03T16:10:28+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-10-03T16:27:10+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:27:12+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:15+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:17+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:19+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:21+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3276800}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3276800}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":819200}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":819200}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3276800}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3276800}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":459408}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":459408}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6382800}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6382800}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":832252.504837358}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":832252.504837358}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:27:21+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:21+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-10-03T16:27:21+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:27:23+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:25+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:27+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:29+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:31+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1818440}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1818440}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":193}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":193}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1809648}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1809648}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1818440}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1818440}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":1294336}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":1294336}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2736128}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2736128}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4299}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4299}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":1261568}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":1261568}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4030464}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4030464}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":68208}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":68208}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4492}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":4492}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1061256}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1061256}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":163840}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":163840}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":163840}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":163840}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":7169232}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":1818440}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":1818440}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":545513.0107059908}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":545513.0107059908}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:27:31+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:31+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":10}\n"}
+{"level":"info","time":"2023-10-03T16:27:31+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:27:33+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:35+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:39+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:41+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3320776}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3320776}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":347}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":347}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1892848}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1892848}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3320776}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3320776}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4063232}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4063232}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4161536}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4161536}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":6604}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":6604}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":4063232}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":4063232}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8224768}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8224768}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":68208}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":68208}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6951}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6951}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1048920}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1048920}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":163840}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":163840}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":163840}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":163840}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":11434400}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":11434400}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":3320776}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":3320776}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":877928.0078888314}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":877928.0078888314}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:27:41+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:41+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":15}\n"}
+{"level":"info","time":"2023-10-03T16:27:41+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:27:43+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:45+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:47+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:49+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:51+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1666216}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1666216}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":6952}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":6952}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000002064888540967509}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000002064888540967509}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2353136}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2353136}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1666216}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1666216}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5619712}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5619712}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2572288}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2572288}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":2461}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":2461}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3473408}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3473408}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339661283643000}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339661283643000}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":77952}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":77952}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":9413}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":9413}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":1}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":1}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1162160}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1162160}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12024224}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12024224}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":4833864}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":4833864}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":160895.87217446242}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":160895.87217446242}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:27:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:27:51+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":20}\n"}
+{"level":"info","time":"2023-10-03T16:27:51+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:27:53+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:55+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:57+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:27:59+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:28:01+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3167680}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3167680}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":7107}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":7107}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000002064888540967509}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000002064888540967509}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2377808}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2377808}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3167680}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3167680}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4153344}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4153344}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4038656}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4038656}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4752}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":4752}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3473408}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3473408}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339661283643000}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339661283643000}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":110208}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":110208}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":11859}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":11859}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":1}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":1}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1121192}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1121192}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12024224}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12024224}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":6335328}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":6335328}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":822708.6710961037}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":822708.6710961037}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:28:01+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:01+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":25}\n"}
+{"level":"info","time":"2023-10-03T16:28:01+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:28:03+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:28:05+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:28:07+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:28:09+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:28:11+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1675072}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1675072}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6192}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":11797}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":11797}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000003768426691916798}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000003768426691916798}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2445392}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2445392}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1675072}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1675072}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5496832}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5496832}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2695168}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2695168}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":2547}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":2547}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3375104}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3375104}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339681517261300}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696339681517261300}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":96936}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":96936}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":14344}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":14344}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":2}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":2}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1119144}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1119144}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12089760}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12089760}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":7845176}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":7845176}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":459472.69014805916}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":459472.69014805916}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:28:11+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:28:11+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":30}\n"}
+{"level":"info","time":"2023-10-03T16:28:11+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:36:16+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:36:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:36:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:36:22+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:36:24+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:36:26+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208816}","time":"2023-10-03T16:36:26+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-10-03T16:47:01+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:47:03+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:47:05+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:47:07+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:47:09+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:47:11+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T16:47:11+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-10-03T16:48:33+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:48:35+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:48:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:48:39+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:48:41+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:48:43+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":206792}","time":"2023-10-03T16:48:43+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-10-03T16:52:28+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:52:30+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:52:32+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:52:34+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:52:36+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:52:38+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208952}","time":"2023-10-03T16:52:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:48+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208952}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:52:48+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:50+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T16:52:50+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:51+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:52:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:51+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-03T16:52:51+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:52+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208952}","time":"2023-10-03T16:52:52+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:52:52+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3276800}","time":"2023-10-03T16:52:52+03:00","message":"Marshal result"}
+{"level":"info","time":"2023-10-03T16:53:02+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T16:53:04+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:06+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:10+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:12+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208944}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208944}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208944}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208944}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208944}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208944}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":457309.82739669847}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":457309.82739669847}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:53:12+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:12+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-10-03T16:53:12+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:53:15+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:17+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:19+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:21+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:23+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3999936}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":3999936}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":3932}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":3932}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00005687725599842749}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00005687725599842749}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2369232}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2369232}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3999936}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":3999936}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3350528}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3350528}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4841472}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":4841472}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1334}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1334}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2990080}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":2990080}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341192982582300}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341192982582300}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":100464}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":100464}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":5266}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":5266}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4844840}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4844840}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":10}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":10}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1981733}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1981733}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25490144}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25490144}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":451482.8577667929}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":451482.8577667929}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:53:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:23+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":10}\n"}
+{"level":"info","time":"2023-10-03T16:53:23+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:53:25+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:27+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:29+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:31+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:33+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2361128}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2361128}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":7296}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":7296}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.0000327311088567107}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.0000327311088567107}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2373328}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2373328}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2361128}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2361128}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5079040}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5079040}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3112960}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3112960}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1190}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1190}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3276800}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3276800}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341203102813000}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341203102813000}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":111216}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":111216}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":114072}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":8486}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":8486}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4729448}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4729448}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":21}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":21}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1977637}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1977637}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":50657880}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":50657880}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":114402.18305812508}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":114402.18305812508}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:53:33+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:33+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":15}\n"}
+{"level":"info","time":"2023-10-03T16:53:33+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:53:35+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:39+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:41+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:43+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2365296}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2365296}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":10455}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":10455}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000040969660738773}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.000040969660738773}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2379496}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2379496}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2365296}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2365296}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5046272}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5046272}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3145728}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3145728}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1238}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1238}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3563520}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3563520}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341213225001500}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341213225001500}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":121968}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":121968}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":130368}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":130368}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":11693}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":11693}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":31}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":31}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1955173}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1955173}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":357000}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":357000}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":75820664}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":75820664}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":691372.2917556849}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":691372.2917556849}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:53:43+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:43+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":20}\n"}
+{"level":"info","time":"2023-10-03T16:53:43+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:53:45+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:47+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:49+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:51+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T16:53:53+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2369320}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":2369320}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":13649}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":13649}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.0000648569696976753}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.0000648569696976753}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2383616}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2383616}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2369320}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":2369320}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4997120}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":4997120}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3194880}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":3194880}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1274}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1274}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3252224}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3252224}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8192000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341223352662500}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1696341223352662500}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":129192}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":129192}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":146664}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":146664}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":14923}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":14923}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4744352}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4744352}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":42}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":42}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1934757}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1934757}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":834100}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":834100}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":196608}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12876192}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":100991528}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":100991528}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":329256.0715020565}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":329256.0715020565}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T16:53:53+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T16:53:53+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":25}\n"}
+{"level":"info","time":"2023-10-03T16:53:53+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T16:53:55+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:37:12+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T17:37:14+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:37:16+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:37:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:37:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:37:22+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207872}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": read tcp [::1]:47858->[::1]:8080: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":207872}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1634}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1651}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715381}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":207872}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":983405.9461182731}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T17:37:22+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:37:22+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-03T17:37:22+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T17:53:27+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T17:53:29+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:31+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:33+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:36+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:38+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208320}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208320}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":678737.4008812472}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":678737.4008812472}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T17:53:38+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-03T17:53:38+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}\n"}
+{"level":"info","time":"2023-10-03T17:53:38+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-03T17:53:40+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:44+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-03T17:53:46+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:48+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:50+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:52+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-03T17:53:54+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":206184}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": read tcp [::1]:48840->[::1]:8080: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":206184}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3448832}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":647168}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1632}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3448832}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1649}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":206184}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":930431.885565007}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-03T17:53:54+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-03T17:53:54+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-03T17:53:54+03:00","message":"Metrics sent"}

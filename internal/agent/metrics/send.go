@@ -2,6 +2,7 @@ package metrics
 
 import (
 	"bytes"
+	"compress/gzip"
 	"encoding/json"
 	"fmt"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/models"
@@ -51,8 +52,16 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		}
 		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
 
-		req, _ := http.NewRequest(http.MethodPost, urlMetric, bytes.NewReader(reqBody))
+		var buf bytes.Buffer
+		gzipWriter := gzip.NewWriter(&buf)
+		gzipWriter.Write(reqBody)
+		gzipWriter.Close()
+
+		//bytes.NewReader(reqBody)
+		req, _ := http.NewRequest(http.MethodPost, urlMetric, &buf)
 		req.Header.Add("Content-Type", "application/json")
+		req.Header.Add("Content-Encoding", "gzip")
+
 		res, err := httpClient.Do(req)
 		if err != nil {
 			log.Info().Err(err).Msg("SendMetric error")
