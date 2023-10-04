@@ -211,6 +211,10 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		logHTTPResult(start, lw, *r, err)
 		return
 	}
+	log.Info().Str("URI", r.URL.Path).Str("Method", r.Method).
+		Str("resJSON", resJSON.String()).
+		Dur("duration", time.Since(start)).
+		Msg("request")
 
 	if ok {
 		lw.WriteHeaderStatus(http.StatusOK)
