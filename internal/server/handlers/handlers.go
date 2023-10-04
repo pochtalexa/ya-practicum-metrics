@@ -14,6 +14,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 )
 
@@ -217,8 +218,14 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
-	fmt.Println("update_long-reqJSON", reqJSON.String())
-	fmt.Println("update_long-resJSON", resJSON.String())
+	if flags.FlagStoreInterval == 0 {
+		err = repo.StoreMetricsToFile()
+		if err != nil {
+			lw.WriteHeaderStatus(http.StatusInternalServerError)
+			logHTTPResult(start, lw, *r)
+			return
+		}
+	}
 
 	logHTTPResult(start, lw, *r)
 }
@@ -301,8 +308,14 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		return
 	}
 
-	//fmt.Println("update-reqJSON", reqJSON.String())
-	//fmt.Println("update-resJSON", resJSON.String())
+	if flags.FlagStoreInterval == 0 {
+		err = repo.StoreMetricsToFile()
+		if err != nil {
+			lw.WriteHeaderStatus(http.StatusInternalServerError)
+			logHTTPResult(start, lw, *r)
+			return
+		}
+	}
 
 	logHTTPResult(start, lw, *r)
 }
@@ -435,9 +448,6 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		err = fmt.Errorf("can not get val for <%v>, type <%v> from repo", reqJSON.ID, reqJSON.MType)
 		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
-
-	//fmt.Println("value-reqJSON", reqJSON.String())
-	//fmt.Println("value-resJSON", resJSON.String())
 
 	logHTTPResult(start, lw, *r, err)
 }

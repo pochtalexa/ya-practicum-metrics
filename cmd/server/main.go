@@ -8,13 +8,48 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 )
 
-func run() error {
-	var MemStorage = storage.NewStore()
+var MemStorage = storage.NewStore()
 
-	log.Info().Str("Running on", flags.FlagRunAddr).Msg("Server started")
-	defer log.Info().Msg("Server stopped")
+func catchTermination() {
+	shutdownChan := make(chan os.Signal, 1)
+	signal.Notify(shutdownChan, os.Interrupt, syscall.SIGTERM)
+
+	<-shutdownChan
+	_ = MemStorage.StoreMetricsToFile()
+
+	os.Exit(0)
+}
+
+func initStoreTimer() {
+	if flags.FlagStoreInterval > 0 {
+
+		for range time.Tick(time.Second * time.Duration(flags.FlagStoreInterval)) {
+			err := MemStorage.StoreMetricsToFile()
+			if err != nil {
+				panic(err)
+			}
+		}
+	}
+}
+
+func restoreMetrics() {
+	if flags.FlagRestore {
+		err := MemStorage.RestoreMetricsFromFile()
+		if err != nil {
+			log.Info().Err(err).Msg("can not read metrics from file")
+			return
+		}
+		log.Info().Msg("metrics restored from file")
+	}
+}
+
+func run() error {
 
 	mux := chi.NewRouter()
 	//mux.Use(middleware.Logger)
@@ -37,12 +72,20 @@ func run() error {
 		handlers.ValueHandler(w, r, MemStorage)
 	})
 
+	log.Info().Str("Running on", flags.FlagRunAddr).Msg("Server started")
+	defer log.Info().Msg("Server stopped")
+
 	return http.ListenAndServe(flags.FlagRunAddr, mux)
 }
 
 func main() {
 	flags.ParseFlags()
 	zerolog.SetGlobalLevel(zerolog.InfoLevel)
+
+	go catchTermination()
+
+	restoreMetrics()
+	go initStoreTimer()
 	if err := run(); err != nil {
 		panic(err)
 	}

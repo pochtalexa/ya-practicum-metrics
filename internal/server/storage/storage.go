@@ -1,22 +1,22 @@
 package storage
 
+import (
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
+	"github.com/rs/zerolog/log"
+)
+
 type Gauge float64
 type Counter int64
 
 type Store struct {
-	Gauges      map[string]Gauge
-	Counters    map[string]Counter
-	MetricsName []string
+	Gauges   map[string]Gauge
+	Counters map[string]Counter
 }
 
 func NewStore() *Store {
 	return &Store{
 		Gauges:   make(map[string]Gauge),
 		Counters: make(map[string]Counter),
-		MetricsName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
-			"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys",
-			"Mallocs", "NextGC", "NumForcedGC", "NumGC", "OtherSys", "PauseTotalNs", "StackInuse", "StackSys", "Sys", "TotalAlloc",
-			"PollCount", "RandomValue"},
 	}
 }
 
@@ -44,4 +44,33 @@ func (m *Store) GetCounters() map[string]Counter {
 
 func (m *Store) UpdateCounter(name string, value Counter) {
 	m.Counters[name] += value
+}
+
+func (m *Store) StoreMetricsToFile() error {
+	StoreFile, err := NewStoreFile(flags.FlagFileStorePath)
+	if err != nil {
+		return err
+	}
+	defer StoreFile.Close()
+
+	if err := StoreFile.WriteMetrics(m); err != nil {
+		return err
+	}
+	log.Info().Msg("metrics saved to file")
+
+	return nil
+}
+
+func (m *Store) RestoreMetricsFromFile() error {
+	RestoreFile, err := NewRestoreFile(flags.FlagFileStorePath)
+	if err != nil {
+		return err
+	}
+	defer RestoreFile.Close()
+
+	if err := RestoreFile.ReadMetrics(m); err != nil {
+		return err
+	}
+
+	return nil
 }
