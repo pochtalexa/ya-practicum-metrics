@@ -223,7 +223,7 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 	}
 
 	if flags.FlagStoreInterval == 0 {
-		err = repo.StoreMetricsToFile()
+		err = storage.StoreMetricsToFile(repo)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusInternalServerError)
 			logHTTPResult(start, lw, *r)
@@ -313,7 +313,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	}
 
 	if flags.FlagStoreInterval == 0 {
-		err = repo.StoreMetricsToFile()
+		err = storage.StoreMetricsToFile(repo)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusInternalServerError)
 			logHTTPResult(start, lw, *r)

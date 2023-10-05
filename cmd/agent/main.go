@@ -61,7 +61,6 @@ func main() {
 	pollIntervalCounter := 0
 	reportIntervalCounter := 0
 
-	//httpClient := *http.DefaultClient
 	httpClient := http.Client{Transport: tr}
 
 	for {

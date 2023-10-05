@@ -168,7 +168,6 @@ func TestUpdateHandler2(t *testing.T) {
 				panic(err)
 			}
 
-			//assert.Equal(t, res.Header.Get("Content-Type"), test.want.contentType)
 			assert.Equal(t, res.StatusCode, test.want.code)
 		})
 	}

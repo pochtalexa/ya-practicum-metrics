@@ -17,7 +17,6 @@ type RestoreFile struct {
 }
 
 func NewStoreFile(fileName string) (*StoreFile, error) {
-	//file, err := os.OpenFile(fileName, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0666)
 	err := os.Truncate(fileName, 0)
 	if err != nil {
 		log.Info().Err(err).Msg("can not Truncate file")
@@ -46,7 +45,7 @@ func NewRestoreFile(fileName string) (*RestoreFile, error) {
 	}, nil
 }
 
-func (s *StoreFile) WriteMetrics(metric *Store) error {
+func (s *StoreFile) WriteMetrics(metric Store) error {
 	return s.encoder.Encode(&metric)
 }
 

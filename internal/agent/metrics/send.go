@@ -57,7 +57,6 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		gzipWriter.Write(reqBody)
 		gzipWriter.Close()
 
-		//bytes.NewReader(reqBody)
 		req, _ := http.NewRequest(http.MethodPost, urlMetric, &buf)
 		req.Header.Add("Content-Type", "application/json")
 		req.Header.Add("Content-Encoding", "gzip")

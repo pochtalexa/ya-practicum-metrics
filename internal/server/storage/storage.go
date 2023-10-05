@@ -20,6 +20,25 @@ func NewStore() *Store {
 	}
 }
 
+func StoreMetricsToFile(s Storer) error {
+	StoreFile, err := NewStoreFile(flags.FlagFileStorePath)
+	if err != nil {
+		return err
+	}
+	defer StoreFile.Close()
+
+	if err := StoreFile.WriteMetrics(s.GetAllMetrics()); err != nil {
+		return err
+	}
+	log.Info().Msg("metrics saved to file")
+
+	return nil
+}
+
+func (m *Store) GetAllMetrics() Store {
+	return *m
+}
+
 func (m *Store) GetGauge(name string) (Gauge, bool) {
 	val, exists := m.Gauges[name]
 	return val, exists
@@ -44,21 +63,6 @@ func (m *Store) GetCounters() map[string]Counter {
 
 func (m *Store) UpdateCounter(name string, value Counter) {
 	m.Counters[name] += value
-}
-
-func (m *Store) StoreMetricsToFile() error {
-	StoreFile, err := NewStoreFile(flags.FlagFileStorePath)
-	if err != nil {
-		return err
-	}
-	defer StoreFile.Close()
-
-	if err := StoreFile.WriteMetrics(m); err != nil {
-		return err
-	}
-	log.Info().Msg("metrics saved to file")
-
-	return nil
 }
 
 func (m *Store) RestoreMetricsFromFile() error {

@@ -7,5 +7,5 @@ type Storer interface {
 	GetCounter(name string) (Counter, bool)
 	GetCounters() map[string]Counter
 	UpdateCounter(name string, value Counter)
-	StoreMetricsToFile() error
+	GetAllMetrics() Store
 }
