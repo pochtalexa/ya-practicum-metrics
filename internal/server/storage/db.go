@@ -9,7 +9,7 @@ import (
 )
 
 func InitDB() (*sql.DB, error) {
-	ps := flags.FlagDbConn
+	ps := flags.FlagDBConn
 
 	db, err := sql.Open("pgx", ps)
 	if err != nil {
