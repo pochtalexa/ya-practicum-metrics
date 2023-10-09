@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
@@ -15,7 +16,11 @@ import (
 	"time"
 )
 
-var MemStorage = storage.NewStore()
+var (
+	MemStorage = storage.NewStore()
+	db         *sql.DB
+	err        error
+)
 
 func catchTermination() {
 	shutdownChan := make(chan os.Signal, 1)
@@ -59,6 +64,10 @@ func run() error {
 		handlers.RootHandler(w, r, MemStorage)
 	})
 
+	mux.Get("/ping", func(w http.ResponseWriter, r *http.Request) {
+		handlers.PingHandler(w, r, db)
+	})
+
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
 		handlers.UpdateHandlerLong(w, r, MemStorage)
 	})
@@ -87,6 +96,14 @@ func main() {
 
 	restoreMetrics()
 	go initStoreTimer()
+
+	db, err = storage.InitDb()
+	if err != nil {
+		log.Err(err)
+		panic(err)
+	}
+	defer db.Close()
+
 	if err := run(); err != nil {
 		panic(err)
 	}

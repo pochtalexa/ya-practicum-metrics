@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"compress/gzip"
+	"database/sql"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -503,11 +504,31 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		panic(err)
 	}
 
-	//if _, err := io.WriteString(&lw, WebPage); err != nil {
-	//	panic(err)
-	//}
-
 	logHTTPResult(start, lw, *r)
+}
+
+func PingHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	start := time.Now()
+
+	responseData := &responseData{
+		status:       0,
+		contEncoding: "",
+		size:         0,
+	}
+	lw := loggingGzipResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+		resCompress:    false,
+	}
+
+	err := storage.PingDb(db)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, err)
+	}
+
+	lw.WriteHeaderStatus(http.StatusOK)
+	logHTTPResult(start, lw, *r, err)
 }
 
 func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
