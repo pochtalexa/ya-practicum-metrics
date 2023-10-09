@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func InitDb() (*sql.DB, error) {
+func InitDB() (*sql.DB, error) {
 	ps := flags.FlagDbConn
 
 	db, err := sql.Open("pgx", ps)
@@ -19,7 +19,7 @@ func InitDb() (*sql.DB, error) {
 	return db, nil
 }
 
-func PingDb(db *sql.DB) error {
+func PingDB(db *sql.DB) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 	defer cancel()
 

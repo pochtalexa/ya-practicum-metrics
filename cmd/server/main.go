@@ -97,7 +97,7 @@ func main() {
 	restoreMetrics()
 	go initStoreTimer()
 
-	db, err = storage.InitDb()
+	db, err = storage.InitDB()
 	if err != nil {
 		log.Err(err)
 		panic(err)

@@ -521,7 +521,7 @@ func PingHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		resCompress:    false,
 	}
 
-	err := storage.PingDb(db)
+	err := storage.PingDB(db)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusInternalServerError)
 		logHTTPResult(start, lw, *r, err)
