@@ -76,7 +76,9 @@ func ParseFlags() {
 		}
 	}
 
+	log.Info().Str("FlagDBConn", FlagDBConn).Msg("")
 	if envVar := os.Getenv("DATABASE_DSN"); envVar != "" {
+		log.Info().Str("DATABASE_DSN", envVar).Msg("")
 		FlagDBConn = envVar
 		if err != nil {
 			panic(err)
