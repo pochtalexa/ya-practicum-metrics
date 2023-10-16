@@ -1,4 +1,7 @@
 ###
+POST http://localhost:8080/update/counter/testCounter/100
+
+###
 POST http://localhost:8080/value/
 Content-Type: application/json
 

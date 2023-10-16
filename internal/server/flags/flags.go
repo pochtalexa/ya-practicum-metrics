@@ -44,7 +44,7 @@ func ParseFlags() {
 	defaultDBConn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		`localhost`, `5432`, `praktikum`, `praktikum`, `praktikum`)
 
-	flag.StringVar(&FlagRunAddr, "a", "localhost:8080", "addr to run on")
+	flag.StringVar(&FlagRunAddr, "a", ":8080", "addr to run on")
 	flag.IntVar(&FlagStoreInterval, "i", 300, "save to file interval (sec)")
 	flag.StringVar(&FlagFileStorePath, "f", defaultFileStorePath, "file to save")
 	flag.BoolVar(&FlagRestore, "r", true, "load metrics on start from file")
