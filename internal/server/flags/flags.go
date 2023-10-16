@@ -9,14 +9,31 @@ import (
 	"strings"
 )
 
+type StoragePoint struct {
+	Memory   bool
+	File     bool
+	DataBase bool
+}
+
 var (
 	FlagRunAddr       string
 	FlagStoreInterval int
 	FlagFileStorePath string
 	FlagRestore       bool
 	FlagDBConn        string
+	StorePoint        StoragePoint
 	err               error
 )
+
+func isFlagPassed(name string) bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == name {
+			found = true
+		}
+	})
+	return found
+}
 
 func ParseFlags() {
 	defaultFileStorePath := "/tmp/metrics-db.json"
@@ -63,4 +80,11 @@ func ParseFlags() {
 		}
 	}
 
+	if isFlagPassed(FlagDBConn) || FlagDBConn != "" {
+		StorePoint.DataBase = true
+	} else if isFlagPassed(FlagFileStorePath) || FlagFileStorePath != "" {
+		StorePoint.File = true
+	} else {
+		StorePoint.Memory = true
+	}
 }
