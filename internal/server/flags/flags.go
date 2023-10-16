@@ -79,6 +79,7 @@ func ParseFlags() {
 
 	log.Info().Str("isFlagPassed: FlagDBConn", strconv.FormatBool(isFlagPassed(FlagDBConn))).Msg("")
 	log.Info().Str("FlagDBConn", FlagDBConn).Msg("")
+	log.Info().Str("Getenv DATABASE_DSN", os.Getenv("DATABASE_DSN")).Msg("")
 	if envVar := os.Getenv("DATABASE_DSN"); envVar != "" {
 		log.Info().Str("DATABASE_DSN", envVar).Msg("")
 		FlagDBConn = envVar
@@ -87,7 +88,7 @@ func ParseFlags() {
 		}
 	}
 
-	if isFlagPassed(FlagDBConn) || FlagDBConn != "" {
+	if isFlagPassed(FlagDBConn) || os.Getenv("DATABASE_DSN") != "" {
 		StorePoint.DataBase = true
 	} else if isFlagPassed(FlagFileStorePath) || FlagFileStorePath != "" {
 		StorePoint.File = true
