@@ -52,6 +52,7 @@ func ParseFlags() {
 	flag.StringVar(&FlagDBConn, "d", defaultDBConn, "db conn string")
 	flag.Parse()
 
+	log.Info().Str("isFlagPassed: FlagRunAddr", strconv.FormatBool(isFlagPassed(FlagRunAddr))).Msg("")
 	log.Info().Str("FlagRunAddr", FlagRunAddr).Msg("")
 	if envVar := os.Getenv("ADDRESS"); envVar != "" {
 		log.Info().Str("ADDRESS", envVar).Msg("")
@@ -76,6 +77,7 @@ func ParseFlags() {
 		}
 	}
 
+	log.Info().Str("isFlagPassed: FlagDBConn", strconv.FormatBool(isFlagPassed(FlagDBConn))).Msg("")
 	log.Info().Str("FlagDBConn", FlagDBConn).Msg("")
 	if envVar := os.Getenv("DATABASE_DSN"); envVar != "" {
 		log.Info().Str("DATABASE_DSN", envVar).Msg("")
