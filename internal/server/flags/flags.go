@@ -3,6 +3,7 @@ package flags
 import (
 	"flag"
 	"fmt"
+	"github.com/rs/zerolog/log"
 	"os"
 	"runtime"
 	"strconv"
@@ -51,7 +52,9 @@ func ParseFlags() {
 	flag.StringVar(&FlagDBConn, "d", defaultDBConn, "db conn string")
 	flag.Parse()
 
+	log.Info().Str("FlagRunAddr", FlagRunAddr).Msg("")
 	if envVar := os.Getenv("ADDRESS"); envVar != "" {
+		log.Info().Str("ADDRESS", envVar).Msg("")
 		FlagRunAddr = envVar
 	}
 
