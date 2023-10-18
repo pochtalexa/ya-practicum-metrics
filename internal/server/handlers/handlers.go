@@ -548,7 +548,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
-	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
