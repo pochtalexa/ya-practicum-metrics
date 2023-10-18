@@ -106,7 +106,7 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	res, err = makeReqWithRetry(httpClient, req)
 	if err != nil {
 		log.Info().Err(err).Msg("SendMetric error")
-		return err
+		return nil
 	}
 	defer res.Body.Close()
 

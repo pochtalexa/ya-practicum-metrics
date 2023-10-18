@@ -4506,3 +4506,690 @@
 {"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"2","time":"2023-10-18T20:34:56+03:00","message":"SendMetric attempt error"}
 {"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"3","time":"2023-10-18T20:35:01+03:00","message":"SendMetric attempt error"}
 {"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T20:35:01+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T21:48:13+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T21:48:15+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:48:17+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:48:19+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:48:21+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:48:23+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208552},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6193},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208552},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3276800},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":819200},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1641},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3276800},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1658},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721551},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208552},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":447664.9978217265},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T21:48:23+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": read tcp [::1]:8109->[::1]:8080: wsarecv: An existing connection was forcibly closed by the remote host.","attemptNo":"0","time":"2023-10-18T21:48:23+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": http: ContentLength=377 with Body length 0","attemptNo":"1","time":"2023-10-18T21:48:24+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": http: ContentLength=377 with Body length 0","attemptNo":"2","time":"2023-10-18T21:48:27+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": http: ContentLength=377 with Body length 0","attemptNo":"3","time":"2023-10-18T21:48:32+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": http: ContentLength=377 with Body length 0","time":"2023-10-18T21:48:32+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T21:52:06+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T21:52:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:10+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:12+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:14+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:16+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":209952}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":209952}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3342336}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":753664}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1647}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3342336}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1664}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":209952}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":746442.8560820634}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T21:52:16+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:16+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T21:52:16+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T21:52:18+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:40+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T21:52:42+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:44+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:46+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:48+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:50+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":206864}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":206864}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1639}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1656}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":206864}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":984375.6981109016}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T21:52:50+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T21:52:50+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T21:52:50+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T21:52:52+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:54+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:56+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:52:58+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T21:53:00+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1855560}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1855560}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5323}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5323}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00009370946576988031}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00009370946576988031}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2278784}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2278784}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1855560}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1855560}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5357568}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5357568}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2605056}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2605056}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":924}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":924}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3301376}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3301376}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":7962624}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":7962624}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697655170770652400}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697655170770652400}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":89712}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":89712}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6247}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6247}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":9}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":9}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1826333}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1826333}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":243400}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":243400}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":425984}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":425984}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":425984}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":425984}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12614048}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12614048}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":24232280}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":24232280}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":263014.5704755971}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":263014.5704755971}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T21:53:00+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T21:53:00+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":25}\n"}
+{"level":"info","time":"2023-10-18T21:53:00+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:07:49+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T22:07:51+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:07:53+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:07:55+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:07:57+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:07:59+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208816}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208816}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3342336}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":753664}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3342336}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715381}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208816}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":498499.3268713481}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:07:59+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:07:59+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208816},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208816},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3342336},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":753664},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3342336},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715381},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208816},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":498499.3268713481},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:07:59+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"0","time":"2023-10-18T22:07:59+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"1","time":"2023-10-18T22:08:00+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"2","time":"2023-10-18T22:08:03+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"3","time":"2023-10-18T22:08:08+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:08:08+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T22:11:01+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T22:11:04+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:06+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:08+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:10+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:12+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207912}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":207912}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3284992}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":811008}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1633}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3284992}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1650}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":459405}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6382800}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":207912}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":861047.9085280553}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:11:12+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:11:12+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":207912},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":207912},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3284992},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":811008},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1633},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3284992},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1650},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":459405},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6382800},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":207912},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":861047.9085280553},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:11:12+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"0","time":"2023-10-18T22:11:12+03:00","message":"SendMetric attempt error"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:13+03:00","message":"resBody: \n"}
+{"level":"info","time":"2023-10-18T22:11:13+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:11:15+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:17+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:19+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:21+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:11:23+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1054640}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1054640}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5566}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5566}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00004247576147958418}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00004247576147958418}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2256160}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2256160}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1054640}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1054640}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":6144000}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":6144000}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1884160}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1884160}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":902}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":902}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3137536}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3137536}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8028160}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8028160}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656272160793900}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656272160793900}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":78960}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":78960}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6468}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6468}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":8}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":8}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1603109}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1603109}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":360448}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":360448}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":360448}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":360448}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12351904}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12351904}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25073032}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25073032}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":548208.2541723846}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":548208.2541723846}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:11:23+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":35}\n"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1054640},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5566},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00004247576147958418},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2256160},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1054640},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":6144000},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":1884160},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":902},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3137536},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8028160},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656272160793900},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":78960},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":81480},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6468},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":8},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1603109},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":360448},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":360448},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12351904},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25073032},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":548208.2541723846},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:11:23+03:00","message":"Marshal Batch result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:11:23+03:00","message":"resBody: \n"}
+{"level":"info","time":"2023-10-18T22:11:23+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:15:32+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T22:15:34+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:36+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:38+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:40+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:42+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208704}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208704}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715381}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208704}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":748860.6500035962}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:15:42+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:42+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208704},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1680120},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208704},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3424256},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":671744},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1637},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3424256},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1654},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":715381},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208704},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":748860.6500035962},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:15:42+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"0","time":"2023-10-18T22:15:42+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"1","time":"2023-10-18T22:15:43+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"2","time":"2023-10-18T22:15:46+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"3","time":"2023-10-18T22:15:51+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:15:51+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T22:15:51+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:15:53+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:55+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:57+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:15:59+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:01+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":260848}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":6033}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00011210376327504796}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2266400}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":260848}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":7053312}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":974848}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":765}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3973120}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8028160}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656551387551700}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":89712}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6798}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":10}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1314429}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":360448}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":360448}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12089760}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25191760}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":226226.94155674562}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:16:01+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:01+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":260848},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":6033},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00011210376327504796},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2266400},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":260848},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":7053312},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":974848},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":765},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3973120},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":8028160},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656551387551700},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":89712},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":97776},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6798},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":10},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1314429},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":360448},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":360448},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12089760},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25191760},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":226226.94155674562},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:16:01+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"0","time":"2023-10-18T22:16:01+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"1","time":"2023-10-18T22:16:02+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"2","time":"2023-10-18T22:16:05+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"3","time":"2023-10-18T22:16:10+03:00","message":"SendMetric attempt error"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:10+03:00","message":"SendMetric error"}
+{"level":"info","time":"2023-10-18T22:16:10+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:16:12+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:18+03:00","message":"MultiWriter logger initiated"}
+{"level":"info","time":"2023-10-18T22:16:20+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:22+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:24+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:26+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:28+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208536}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": EOF","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208536}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3293184}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":802816}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3293184}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208536}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":997717.7561829318}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:16:28+03:00","message":"Marshal result"}
+{"level":"info","error":"Post \"http://localhost:8080/update/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","time":"2023-10-18T22:16:28+03:00","message":"SendMetric error"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":208536},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":17},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":1673952},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":208536},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":3293184},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":802816},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1635},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3293184},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":4096000},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":25200},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":32592},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":1652},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":721549},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":0},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":98304},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":6644944},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":208536},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":997717.7561829318},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:16:28+03:00","message":"Marshal Batch result"}
+{"level":"info","error":"Post \"http://localhost:8080/updates/\": dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.","attemptNo":"0","time":"2023-10-18T22:16:28+03:00","message":"SendMetric attempt error"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:29+03:00","message":"resBody: \n"}
+{"level":"info","time":"2023-10-18T22:16:29+03:00","message":"Metrics sent"}
+{"level":"info","time":"2023-10-18T22:16:31+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:33+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:35+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:37+03:00","message":"Metrics updated"}
+{"level":"info","time":"2023-10-18T22:16:39+03:00","message":"Metrics updated"}
+{"level":"info","reqBody":"{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1894384}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1894384}\n"}
+{"level":"info","reqBody":"{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195}\n"}
+{"level":"info","reqBody":"{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5441}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5441}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00009322048408648228}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00009322048408648228}\n"}
+{"level":"info","reqBody":"{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2284952}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2284952}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1894384}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1894384}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5087232}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5087232}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2809856}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2809856}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1094}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1094}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3014656}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3014656}\n"}
+{"level":"info","reqBody":"{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":7897088}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":7897088}\n"}
+{"level":"info","reqBody":"{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656588295853800}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656588295853800}\n"}
+{"level":"info","reqBody":"{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344}\n"}
+{"level":"info","reqBody":"{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":121968}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":121968}\n"}
+{"level":"info","reqBody":"{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":130368}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":130368}\n"}
+{"level":"info","reqBody":"{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6535}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6535}\n"}
+{"level":"info","reqBody":"{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0}\n"}
+{"level":"info","reqBody":"{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":9}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":9}\n"}
+{"level":"info","reqBody":"{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1787573}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1787573}\n"}
+{"level":"info","reqBody":"{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":511200}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":511200}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":491520}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":491520}\n"}
+{"level":"info","reqBody":"{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":491520}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":491520}\n"}
+{"level":"info","reqBody":"{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12614048}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12614048}\n"}
+{"level":"info","reqBody":"{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25090592}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25090592}\n"}
+{"level":"info","reqBody":"{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":232062.6688580244}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":232062.6688580244}\n"}
+{"level":"info","reqBody":"{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}","time":"2023-10-18T22:16:39+03:00","message":"Marshal result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"respMetric: {\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":50}\n"}
+{"level":"info","reqBody":"[{\"id\":\"Alloc\",\"type\":\"gauge\",\"value\":1894384},{\"id\":\"BuckHashSys\",\"type\":\"gauge\",\"value\":6195},{\"id\":\"Frees\",\"type\":\"gauge\",\"value\":5441},{\"id\":\"GCCPUFraction\",\"type\":\"gauge\",\"value\":0.00009322048408648228},{\"id\":\"GCSys\",\"type\":\"gauge\",\"value\":2284952},{\"id\":\"HeapAlloc\",\"type\":\"gauge\",\"value\":1894384},{\"id\":\"HeapIdle\",\"type\":\"gauge\",\"value\":5087232},{\"id\":\"HeapInuse\",\"type\":\"gauge\",\"value\":2809856},{\"id\":\"HeapObjects\",\"type\":\"gauge\",\"value\":1094},{\"id\":\"HeapReleased\",\"type\":\"gauge\",\"value\":3014656},{\"id\":\"HeapSys\",\"type\":\"gauge\",\"value\":7897088},{\"id\":\"LastGC\",\"type\":\"gauge\",\"value\":1697656588295853800},{\"id\":\"Lookups\",\"type\":\"gauge\",\"value\":0},{\"id\":\"MCacheInuse\",\"type\":\"gauge\",\"value\":9344},{\"id\":\"MCacheSys\",\"type\":\"gauge\",\"value\":16352},{\"id\":\"MSpanInuse\",\"type\":\"gauge\",\"value\":121968},{\"id\":\"MSpanSys\",\"type\":\"gauge\",\"value\":130368},{\"id\":\"Mallocs\",\"type\":\"gauge\",\"value\":6535},{\"id\":\"NextGC\",\"type\":\"gauge\",\"value\":4194304},{\"id\":\"NumForcedGC\",\"type\":\"gauge\",\"value\":0},{\"id\":\"NumGC\",\"type\":\"gauge\",\"value\":9},{\"id\":\"OtherSys\",\"type\":\"gauge\",\"value\":1787573},{\"id\":\"PauseTotalNs\",\"type\":\"gauge\",\"value\":511200},{\"id\":\"StackInuse\",\"type\":\"gauge\",\"value\":491520},{\"id\":\"StackSys\",\"type\":\"gauge\",\"value\":491520},{\"id\":\"Sys\",\"type\":\"gauge\",\"value\":12614048},{\"id\":\"TotalAlloc\",\"type\":\"gauge\",\"value\":25090592},{\"id\":\"RandomValue\",\"type\":\"gauge\",\"value\":232062.6688580244},{\"id\":\"PollCount\",\"type\":\"counter\",\"delta\":5}]","time":"2023-10-18T22:16:39+03:00","message":"Marshal Batch result"}
+{"level":"info","status":"200 OK","time":"2023-10-18T22:16:39+03:00","message":"resBody: \n"}
+{"level":"info","time":"2023-10-18T22:16:39+03:00","message":"Metrics sent"}
