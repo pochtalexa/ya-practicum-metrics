@@ -3,11 +3,15 @@ package storage
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
+	"github.com/jackc/pgerrcode"
+	"github.com/jackc/pgx/v5/pgconn"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
+	"strconv"
 	"time"
 )
 
@@ -45,6 +49,37 @@ func PingDB(db *sql.DB) error {
 	}
 
 	return nil
+}
+
+func makeQueryContextWithRetry(ctx context.Context, db *sql.DB, query string) (*sql.Rows, error) {
+	var (
+		rows *sql.Rows
+		err  error
+	)
+
+	waiteIntervals := []int{0, 1, 3, 5}
+	for i := 0; i < 4; i++ {
+		var sqlErr *pgconn.PgError
+		time.Sleep(time.Duration(waiteIntervals[i]) * time.Second)
+		rows, err = db.QueryContext(ctx, query)
+		if errors.As(err, &sqlErr) && pgerrcode.IsIntegrityConstraintViolation(sqlErr.Code) && i != 3 {
+			log.Info().
+				Err(err).
+				Str("attemptNo", strconv.FormatInt(int64(i), 10)).
+				Msg("DB request attempt error")
+			continue
+		} else if errors.As(err, &sqlErr) && pgerrcode.IsIntegrityConstraintViolation(sqlErr.Code) && i == 3 {
+			log.Info().
+				Err(err).
+				Str("attemptNo", strconv.FormatInt(int64(i), 10)).
+				Msg("DB request error")
+			return nil, err
+		} else if err != nil {
+			return nil, err
+		}
+		break
+	}
+	return rows, nil
 }
 
 func InitialazeDB(db *sql.DB) error {
@@ -93,16 +128,17 @@ func StoreMetricsToDB(d *DBstore) error {
 func selectAllGauges(db *sql.DB) (map[string]Gauge, error) {
 	var (
 		result = make(map[string]Gauge)
+		rows   *sql.Rows
 		err    error
 	)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	rows, err := db.QueryContext(ctx, "SELECT mname, val from gauge")
+	rows, err = makeQueryContextWithRetry(ctx, db, "SELECT mname, val from gauge")
 	if err != nil {
-		log.Err(err)
-		return nil, err
+		log.Info().Err(err).Msg("DB request error")
+		return result, err
 	}
 	defer rows.Close()
 
@@ -139,9 +175,9 @@ func selectAllCounters(db *sql.DB) (map[string]Counter, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	rows, err := db.QueryContext(ctx, "SELECT mname, val from counter")
+	rows, err := makeQueryContextWithRetry(ctx, db, "SELECT mname, val from counter")
 	if err != nil {
-		log.Err(err)
+		log.Info().Err(err).Msg("DB request error")
 		return nil, err
 	}
 	defer rows.Close()
