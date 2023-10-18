@@ -40,6 +40,46 @@ func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
 	return CashMetrics, nil
 }
 
+func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
+	type responseBody struct {
+		Description string `json:"description"` // имя метрики
+	}
+	resBody := responseBody{}
+	urlMetric := fmt.Sprintf("http://%s/updates/", reportRunAddr)
+
+	reqBody, err := json.Marshal(CashMetrics.CashMetrics)
+	if err != nil {
+		panic(err)
+	}
+	log.Info().Str("reqBody", string(reqBody)).Msg("Marshal Batch result")
+
+	var buf bytes.Buffer
+	gzipWriter := gzip.NewWriter(&buf)
+	gzipWriter.Write(reqBody)
+	gzipWriter.Close()
+
+	req, _ := http.NewRequest(http.MethodPost, urlMetric, &buf)
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Content-Encoding", "gzip")
+
+	res, err := httpClient.Do(req)
+	if err != nil {
+		log.Info().Err(err).Msg("SendMetric error")
+		return err
+	}
+	defer res.Body.Close()
+
+	//dec := json.NewDecoder(res.Body)
+	//if err := dec.Decode(&resBody); err != nil {
+	//	log.Info().Err(err).Msg("decode body error")
+	//	return err
+	//}
+
+	log.Info().Str("status", res.Status).Msg(fmt.Sprintln("resBody:", resBody.Description))
+
+	return nil
+}
+
 func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
 	urlMetric := fmt.Sprintf("http://%s/update/", reportRunAddr)
 

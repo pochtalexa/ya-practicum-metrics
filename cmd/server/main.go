@@ -98,6 +98,11 @@ func run() error {
 		handlers.PingHandler(w, r, db)
 	})
 
+	// get metrics in array
+	mux.Post("/updates/", func(w http.ResponseWriter, r *http.Request) {
+		handlers.UpdatesHandler(w, r, DBstorage)
+	})
+
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", func(w http.ResponseWriter, r *http.Request) {
 		if flags.StorePoint.DataBase {
 			handlers.UpdateHandlerLong(w, r, DBstorage)

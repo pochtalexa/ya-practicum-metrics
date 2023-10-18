@@ -3,8 +3,10 @@ package storage
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
 	"time"
 )
@@ -35,7 +37,7 @@ func InitConnDB() (*sql.DB, error) {
 }
 
 func PingDB(db *sql.DB) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	if err := db.PingContext(ctx); err != nil {
@@ -46,7 +48,7 @@ func PingDB(db *sql.DB) error {
 }
 
 func InitialazeDB(db *sql.DB) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	// создаем таблицу -gauge- для Gauge float64 - double precision
@@ -94,7 +96,7 @@ func selectAllGauges(db *sql.DB) (map[string]Gauge, error) {
 		err    error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	rows, err := db.QueryContext(ctx, "SELECT mname, val from gauge")
@@ -134,7 +136,7 @@ func selectAllCounters(db *sql.DB) (map[string]Counter, error) {
 		err    error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	rows, err := db.QueryContext(ctx, "SELECT mname, val from counter")
@@ -191,7 +193,7 @@ func (d *DBstore) GetAllMetrics() Store {
 func (d *DBstore) GetGauge(name string) (Gauge, bool) {
 	var result float64
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	row := d.DBconn.QueryRowContext(ctx, "SELECT val from gauge where mname = $1", name)
@@ -210,7 +212,7 @@ func (d *DBstore) GetGauges() map[string]Gauge {
 		err    error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	rows, err := d.DBconn.QueryContext(ctx, "SELECT mname, val from gauge")
@@ -245,7 +247,7 @@ func (d *DBstore) GetGauges() map[string]Gauge {
 }
 
 func (d *DBstore) SetGauge(name string, value Gauge) {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	insertUpdate := `INSERT INTO gauge (mname, val) VALUES ($1, $2)
@@ -262,7 +264,7 @@ func (d *DBstore) SetGauge(name string, value Gauge) {
 func (d *DBstore) GetCounter(name string) (Counter, bool) {
 	var result int64
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	row := d.DBconn.QueryRowContext(ctx, "SELECT val from counter where mname = $1", name)
@@ -281,7 +283,7 @@ func (d *DBstore) GetCounters() map[string]Counter {
 		err    error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	rows, err := d.DBconn.QueryContext(ctx, "SELECT mname, val from counter")
@@ -316,15 +318,14 @@ func (d *DBstore) GetCounters() map[string]Counter {
 }
 
 func (d *DBstore) UpdateCounter(name string, value Counter) {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	curVal, ok := d.GetCounter(name)
 	if !ok {
 		curVal = 0
-	} else {
-		curVal = curVal + value
 	}
+	curVal = curVal + value
 
 	insertUpdate := `INSERT INTO counter (mname, val) VALUES ($1, $2)
 						ON CONFLICT (mname)
@@ -350,6 +351,43 @@ func (d *DBstore) RestoreMetricsFromDB() error {
 
 	d.Store.Counters, err = selectAllCounters(d.DBconn)
 	if err != nil {
+		log.Err(err)
+		return err
+	}
+
+	return nil
+}
+
+func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	tx, err := d.DBconn.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	insertUpdateGauge := `INSERT INTO gauge (mname, val) VALUES ($1, $2)
+						ON CONFLICT (mname)
+						DO UPDATE SET val = $3
+						WHERE gauge.mname = $4`
+
+	for _, v := range reqJSON {
+		if v.MType == "gauge" {
+			if _, err := tx.ExecContext(ctx, insertUpdateGauge, v.ID, v.Value, v.Value, v.ID); err != nil {
+				log.Err(err)
+				return err
+			}
+		} else if v.MType == "counter" {
+			d.UpdateCounter(v.ID, Counter(*v.Delta))
+		} else {
+			err := fmt.Errorf("can not get val for %v from reqJSON", v.ID)
+			return err
+		}
+	}
+
+	if err := tx.Commit(); err != nil {
 		log.Err(err)
 		return err
 	}

@@ -81,7 +81,8 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-			err = metrics.SendMetric(CashMetrics, httpClient, reportRunAddr)
+			//err = metrics.SendMetric(CashMetrics, httpClient, reportRunAddr)
+			err = metrics.SendMetricBatch(CashMetrics, httpClient, reportRunAddr)
 			if err != nil {
 				panic(err)
 			}
