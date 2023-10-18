@@ -2,6 +2,7 @@ package storage
 
 import (
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
 )
 
@@ -76,5 +77,9 @@ func (m *Store) RestoreMetricsFromFile() error {
 		return err
 	}
 
+	return nil
+}
+
+func (m *Store) UpdateMetricBatch([]models.Metrics) error {
 	return nil
 }

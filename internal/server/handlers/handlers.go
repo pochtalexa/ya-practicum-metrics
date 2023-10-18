@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"compress/gzip"
+	"database/sql"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -85,23 +86,32 @@ func (r *loggingGzipResponseWriter) WriteHeaderStatus(statusCode int) {
 	r.responseData.status = statusCode // захватываем код статуса
 }
 
-func logHTTPResult(start time.Time, lw loggingGzipResponseWriter, r http.Request, optErr ...error) {
+func logHTTPResult(start time.Time, lw loggingGzipResponseWriter, r http.Request,
+	Req []models.Metrics,
+	Res []models.Metrics,
+	optErr ...error) {
 	err := errors.New("null")
 	if len(optErr) > 0 {
 		err = optErr[0]
 	}
 
-	log.Info().
-		Str("URI", r.URL.Path).
-		Str("Method", r.Method).
-		Dur("duration", time.Since(start)).
-		Msg("request")
+	for _, v := range Req {
+		log.Info().
+			Str("URI", r.URL.Path).
+			Str("Method", r.Method).
+			Str("Req", v.String()).
+			Dur("duration", time.Since(start)).
+			Msg("request")
+	}
 
-	log.Info().
-		Str("Status", strconv.Itoa(lw.responseData.status)).
-		Str("Content-Length", strconv.Itoa(lw.responseData.size)).
-		Err(err).
-		Msg("response")
+	for _, v := range Res {
+		log.Info().
+			Str("Status", strconv.Itoa(lw.responseData.status)).
+			Str("Content-Length", strconv.Itoa(lw.responseData.size)).
+			Str("Res", v.String()).
+			Err(err).
+			Msg("response")
+	}
 }
 
 func UpdateMetric(reqJSON models.Metrics, repo storage.Storer) error {
@@ -165,7 +175,7 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		counterVal, err := strconv.ParseInt(chi.URLParam(r, "metricVal"), 10, 64)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, err)
+			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 			return
 		}
 		reqJSON.Delta = &counterVal
@@ -173,14 +183,14 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		gaugeVal, err := strconv.ParseFloat(chi.URLParam(r, "metricVal"), 64)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, err)
+			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 			return
 		}
 		reqJSON.Value = &gaugeVal
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.MType)
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -190,7 +200,7 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 	err := UpdateMetric(reqJSON, repo)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -208,13 +218,9 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
-	log.Info().Str("URI", r.URL.Path).Str("Method", r.Method).
-		Str("resJSON", resJSON.String()).
-		Dur("duration", time.Since(start)).
-		Msg("request")
 
 	if ok {
 		lw.WriteHeaderStatus(http.StatusOK)
@@ -226,12 +232,12 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 		err = storage.StoreMetricsToFile(repo)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusInternalServerError)
-			logHTTPResult(start, lw, *r)
+			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 			return
 		}
 	}
 
-	logHTTPResult(start, lw, *r)
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
 }
 
 func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
@@ -257,7 +263,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	r.Body, err = reqCheckGzipBody(r)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -268,7 +274,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	dec := json.NewDecoder(r.Body)
 	if err := dec.Decode(&reqJSON); err != nil {
 		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -278,7 +284,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	err = UpdateMetric(reqJSON, repo)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -298,7 +304,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", resJSON.ID)
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -308,7 +314,7 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	enc.SetIndent("", "  ")
 	if err := enc.Encode(resJSON); err != nil {
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -316,12 +322,100 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 		err = storage.StoreMetricsToFile(repo)
 		if err != nil {
 			lw.WriteHeaderStatus(http.StatusInternalServerError)
-			logHTTPResult(start, lw, *r)
+			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 			return
 		}
 	}
 
-	logHTTPResult(start, lw, *r)
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
+}
+
+// UpdatesHandler обновление метрик - при условии получения их в виде массива
+func UpdatesHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
+	var (
+		reqJSON, resJSON []models.Metrics
+		err              error
+	)
+
+	type responseBody struct {
+		Description string `json:"description"` // имя метрики
+	}
+
+	start := time.Now()
+
+	responseData := &responseData{
+		status: 0,
+		size:   0,
+	}
+	lw := loggingGzipResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+		resCompress:    false,
+	}
+
+	r.Body, err = reqCheckGzipBody(r)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
+		return
+	}
+
+	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
+		lw.Header().Set("Content-Encoding", "gzip")
+	}
+
+	dec := json.NewDecoder(r.Body)
+	if err := dec.Decode(&reqJSON); err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
+		return
+	}
+
+	lw.Header().Set("Content-Type", "application/json")
+	lw.Header().Set("Date", time.Now().String())
+
+	err = repo.UpdateMetricBatch(reqJSON)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
+		return
+	}
+
+	allMetrics := repo.GetAllMetrics()
+
+	for k, v := range allMetrics.Gauges {
+		tempV := float64(v)
+		metrics := models.Metrics{
+			ID:    k,
+			MType: "gauge",
+			Value: &tempV,
+		}
+		resJSON = append(resJSON, metrics)
+	}
+
+	for k, v := range allMetrics.Counters {
+		tempV := int64(v)
+		metrics := models.Metrics{
+			ID:    k,
+			MType: "counter",
+			Delta: &tempV,
+		}
+		resJSON = append(resJSON, metrics)
+	}
+
+	// TODO - проверить код до конца функции
+
+	lw.WriteHeaderStatus(http.StatusOK)
+
+	enc := json.NewEncoder(&lw)
+	enc.SetIndent("", "  ")
+	if err := enc.Encode(resJSON); err != nil {
+		lw.WriteHeaderStatus(http.StatusBadRequest)
+		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
+		return
+	}
+
+	logHTTPResult(start, lw, *r, reqJSON, resJSON)
 }
 
 func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
@@ -363,7 +457,7 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 	} else {
 		err := fmt.Errorf("can not get val for %v from repo", reqJSON.ID)
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -374,7 +468,8 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
-	logHTTPResult(start, lw, *r)
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
+
 }
 
 func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
@@ -401,7 +496,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	r.Body, err = reqCheckGzipBody(r)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -412,7 +507,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	dec := json.NewDecoder(r.Body)
 	if err = dec.Decode(&reqJSON); err != nil {
 		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -435,7 +530,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	} else {
 		err = fmt.Errorf("can not get val for %v from repo", resJSON.MType)
 		lw.WriteHeaderStatus(http.StatusBadRequest)
-		logHTTPResult(start, lw, *r, err)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 		return
 	}
 
@@ -445,7 +540,7 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		enc.SetIndent("", "  ")
 		if err := enc.Encode(resJSON); err != nil {
 			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, err)
+			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 			return
 		}
 	} else {
@@ -453,10 +548,12 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		lw.WriteHeaderStatus(http.StatusNotFound)
 	}
 
-	logHTTPResult(start, lw, *r, err)
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 }
 
 func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
+	var reqJSON, resJSON models.Metrics
+
 	start := time.Now()
 
 	responseData := &responseData{
@@ -503,11 +600,34 @@ func RootHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 		panic(err)
 	}
 
-	//if _, err := io.WriteString(&lw, WebPage); err != nil {
-	//	panic(err)
-	//}
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
+}
 
-	logHTTPResult(start, lw, *r)
+func PingHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
+	var reqJSON, resJSON models.Metrics
+
+	start := time.Now()
+
+	responseData := &responseData{
+		status:       0,
+		contEncoding: "",
+		size:         0,
+	}
+	lw := loggingGzipResponseWriter{
+		ResponseWriter: w, // встраиваем оригинальный http.ResponseWriter
+		responseData:   responseData,
+		resCompress:    false,
+	}
+
+	err := storage.PingDB(db)
+	if err != nil {
+		lw.WriteHeaderStatus(http.StatusInternalServerError)
+		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
+		return
+	}
+
+	lw.WriteHeaderStatus(http.StatusOK)
+	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 }
 
 func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
