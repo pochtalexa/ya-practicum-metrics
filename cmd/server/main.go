@@ -73,7 +73,7 @@ func restoreMetrics() {
 	} else if flags.FlagRestore && flags.StorePoint.DataBase {
 		err := DBstorage.RestoreMetricsFromDB()
 		if err != nil {
-			log.Info().Err(err).Msg("can not read metrics from DB")
+			log.Info().Err(err).Msg("can not restored metrics from DB")
 			return
 		}
 	}
@@ -153,11 +153,11 @@ func main() {
 		}
 		defer db.Close()
 
-		err := storage.InitialazeDB(db)
-		if err != nil {
-			log.Err(err)
-			panic(err)
-		}
+		//err := storage.InitialazeDB(db)
+		//if err != nil {
+		//	log.Err(err)
+		//	panic(err)
+		//}
 
 		DBstorage.DBconn = db
 	}
