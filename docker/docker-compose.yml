@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16.0
+    environment:
+      POSTGRES_DB: "praktikum"
+      POSTGRES_USER: "praktikum"
+      POSTGRES_PASSWORD: "praktikum"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+       - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

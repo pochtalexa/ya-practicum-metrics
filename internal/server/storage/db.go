@@ -5,27 +5,17 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"github.com/jackc/pgerrcode"
-	"github.com/jackc/pgx/v5/pgconn"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
-	"net"
-	"strconv"
-	"strings"
+	"github.com/sethvargo/go-retry"
 	"time"
 )
 
 type DBstore struct {
 	DBconn *sql.DB
 	Store  Store
-}
-
-type getGaugeCounter struct {
-	counter int64
-	gauge   float64
-	name    string
 }
 
 func NewDBStore() *DBstore {
@@ -37,176 +27,10 @@ func NewDBStore() *DBstore {
 	}
 }
 
-func txCommitRetry(tx *sql.Tx) error {
-	var err error
-
-	waiteIntervals := []int64{0, 1, 3, 5}
-	waiteIntervalsLen := len(waiteIntervals) - 1
-	for k, v := range waiteIntervals {
-		var (
-			pgErr  *pgconn.PgError
-			netErr net.Error
-		)
-
-		time.Sleep(time.Second * time.Duration(v))
-		err = tx.Commit()
-
-		if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k != waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB tx.Commit attempt error")
-			continue
-		} else if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k == waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB tx.Commit attempt error")
-			return err
-		} else if err != nil {
-			log.Info().Msg(err.Error())
-			return err
-		}
-		break
-	}
-
-	log.Info().Msg("DB tx.Commit success")
-	return nil
-}
-
-func QueryRowContextRetry(ctx context.Context, conn *sql.DB, reqDB string, params []string, result *getGaugeCounter) error {
-	var (
-		err error
-		row *sql.Row
-	)
-
-	waiteIntervals := []int64{0, 1, 3, 5}
-	waiteIntervalsLen := len(waiteIntervals) - 1
-	for k, v := range waiteIntervals {
-		var (
-			pgErr  *pgconn.PgError
-			netErr net.Error
-		)
-
-		time.Sleep(time.Second * time.Duration(v))
-		row = conn.QueryRowContext(ctx, reqDB, strings.Join(params, ","))
-
-		if result.name == "counter" {
-			err = row.Scan(&result.counter)
-		} else if result.name == "gauge" {
-			err = row.Scan(&result.gauge)
-		} else {
-			panic(err)
-		}
-
-		if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k != waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB QueryRowContext attempt error")
-			continue
-		} else if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k == waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB QueryRowContext attempt error")
-			return err
-		} else if err != nil {
-			log.Info().Msg(err.Error())
-			return err
-		}
-		break
-	}
-
-	log.Info().Msg("DB QueryRowContextRetry success")
-	return nil
-}
-
-func QueryContextRetry(ctx context.Context, db *sql.DB, reqDB string) (*sql.Rows, error) {
-	var (
-		err  error
-		rows *sql.Rows
-	)
-
-	waiteIntervals := []int64{0, 1, 3, 5}
-	waiteIntervalsLen := len(waiteIntervals) - 1
-	for k, v := range waiteIntervals {
-		var (
-			pgErr  *pgconn.PgError
-			netErr net.Error
-		)
-
-		time.Sleep(time.Second * time.Duration(v))
-		rows, err = db.QueryContext(ctx, reqDB)
-		if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k != waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB QueryContextRetry attempt error")
-			continue
-		} else if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k == waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB QueryContextRetry attempt error")
-			return nil, err
-		} else if err != nil {
-			return nil, err
-		}
-		break
-	}
-
-	return rows, nil
-}
-
-func ExecContextRetry(ctx context.Context, db *sql.DB, reqDB string, params []string) error {
-	var (
-		err    error
-		netErr net.Error
-		pgErr  *pgconn.PgError
-	)
-
-	waiteIntervals := []int64{0, 1, 3, 5}
-	waiteIntervalsLen := len(waiteIntervals) - 1
-	for k, v := range waiteIntervals {
-		time.Sleep(time.Second * time.Duration(v))
-		if len(params) > 0 {
-			_, err = db.ExecContext(ctx, reqDB, strings.Join(params, ","))
-		} else {
-			_, err = db.ExecContext(ctx, reqDB)
-		}
-		if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k != waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB ExecContextRetry attempt error")
-			continue
-		} else if (errors.As(err, &pgErr) && pgerrcode.IsIntegrityConstraintViolation(pgErr.Code) || errors.As(err, &netErr)) &&
-			k == waiteIntervalsLen {
-			log.Info().
-				Err(err).
-				Str("attempt", strconv.FormatInt(int64(k), 10)).
-				Msg("DB ExecContextRetry attempt error")
-			return err
-		} else if err != nil {
-			return err
-		}
-		break
-	}
-
-	return nil
-}
-
 func InitConnDB() (*sql.DB, error) {
 	ps := flags.FlagDBConn
 
+	// не возвращает ошибку елси нет коннетка к БД
 	db, err := sql.Open("pgx", ps)
 	if err != nil {
 		return nil, err
@@ -216,7 +40,7 @@ func InitConnDB() (*sql.DB, error) {
 }
 
 func PingDB(db *sql.DB) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	if err := db.PingContext(ctx); err != nil {
@@ -228,6 +52,7 @@ func PingDB(db *sql.DB) error {
 
 func InitialazeDB(db *sql.DB) error {
 	var err error
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
@@ -245,194 +70,244 @@ func InitialazeDB(db *sql.DB) error {
     								val		 integer	
                    )`
 
-	err = ExecContextRetry(ctx, db, gaugeTable, []string{})
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+
+		if _, err = db.Exec(gaugeTable); err != nil {
+			log.Info().Err(err).Msg("DB gaugeTable error")
+			return retry.RetryableError(err)
+		}
+
+		if _, err = db.Exec(counterTable); err != nil {
+			log.Info().Err(err).Msg("DB counterTable error")
+			return retry.RetryableError(err)
+		}
+
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
 		return err
 	}
-
-	if err = ExecContextRetry(ctx, db, counterTable, []string{}); err != nil {
-		log.Err(err)
-		return err
-	}
-
 	return nil
 }
 
 func StoreMetricsToDB(d *DBstore) error {
+	var err error
 
 	for k, v := range d.Store.Gauges {
-		d.SetGauge(k, v)
+		err = d.SetGauge(k, v)
+		if err != nil {
+			return err
+		}
 	}
 
 	for k, v := range d.Store.Counters {
-		d.UpdateCounter(k, v)
+		err = d.UpdateCounter(k, v)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
 }
 
+// отрабатывает с retry
 func selectAllGauges(db *sql.DB) (map[string]Gauge, error) {
 	var (
 		result = make(map[string]Gauge)
 		err    error
 		rows   *sql.Rows
 	)
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	rows, err = QueryContextRetry(ctx, db, "SELECT mname, val from gauge")
-	if err != nil {
-		log.Err(err)
-		return nil, err
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var (
-			mname string
-			val   float64
-		)
-
-		err = rows.Scan(&mname, &val)
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+		rows, err = db.Query("SELECT mname, val from gauge")
 		if err != nil {
-			log.Err(err)
-			return nil, err
+			log.Info().Err(err).Msg("DB selectAllGauges QueryContext error")
+			return retry.RetryableError(err)
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var (
+				mname string
+				val   float64
+			)
+
+			err = rows.Scan(&mname, &val)
+			if err != nil {
+				log.Info().Err(err).Msg("DB selectAllGauges rows.Scan error")
+				return retry.RetryableError(err)
+			}
+
+			result[mname] = Gauge(val)
 		}
 
-		result[mname] = Gauge(val)
-	}
+		err = rows.Err()
+		if err != nil {
+			log.Info().Err(err).Msg("DB selectAllGauges rows.Err error")
+			return retry.RetryableError(err)
+		}
 
-	err = rows.Err()
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
 		return nil, err
 	}
-
 	return result, nil
 }
 
+// отрабатывает с retry
 func selectAllCounters(db *sql.DB) (map[string]Counter, error) {
 	var (
 		result = make(map[string]Counter)
 		err    error
+		rows   *sql.Rows
 	)
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	rows, err := QueryContextRetry(ctx, db, "SELECT mname, val from counter")
-	if err != nil {
-		log.Err(err)
-		return nil, err
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var (
-			mname string
-			val   int64
-		)
-
-		err = rows.Scan(&mname, &val)
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+		rows, err = db.QueryContext(ctx, "SELECT mname, val from counter")
 		if err != nil {
-			log.Err(err)
-			return nil, err
+			log.Info().Err(err).Msg("DB selectAllCounters QueryContext error")
+			return retry.RetryableError(err)
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var (
+				mname string
+				val   int64
+			)
+
+			err = rows.Scan(&mname, &val)
+			if err != nil {
+				log.Info().Err(err).Msg("DB selectAllCounters rows.Scan error")
+				return retry.RetryableError(err)
+			}
+
+			result[mname] = Counter(val)
 		}
 
-		result[mname] = Counter(val)
-	}
+		err = rows.Err()
+		if err != nil {
+			log.Info().Err(err).Msg("DB selectAllCounters rows.Err error")
+			return retry.RetryableError(err)
+		}
 
-	err = rows.Err()
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
 		return nil, err
 	}
-
 	return result, nil
 }
 
-func (d *DBstore) GetAllMetrics() Store {
-	var (
-		err error
-	)
+func (d *DBstore) GetAllMetrics() (Store, error) {
+	var err error
 
 	d.Store.Gauges, err = selectAllGauges(d.DBconn)
 	if err != nil {
-		log.Err(err)
-		panic(err)
+		log.Info().Err(err).Msg("DB selectAllGauges error")
+		return Store{}, err
 	}
 
 	d.Store.Counters, err = selectAllCounters(d.DBconn)
 	if err != nil {
-		log.Err(err)
-		panic(err)
+		log.Info().Err(err).Msg("DB selectAllCounters error")
+		return Store{}, err
+
 	}
 
-	return d.Store
+	return d.Store, nil
 }
 
-func (d *DBstore) GetGauge(name string) (Gauge, bool) {
-	var (
-		result = getGaugeCounter{name: "gauge"}
-		err    error
-	)
+func (d *DBstore) GetGauge(name string) (Gauge, bool, error) {
+	var result float64
+	var err error
+	b := retry.NewFibonacci(1 * time.Second)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	err = QueryRowContextRetry(ctx, d.DBconn, "SELECT val from gauge where mname = $1", []string{name}, &result)
-	if err != nil {
-		return -1, false
-	}
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+		err = d.DBconn.QueryRow("SELECT val from gauge where mname = $1", name).Scan(&result)
+		if errors.Is(err, sql.ErrNoRows) {
+			return retry.RetryableError(err)
+		} else if err != nil {
+			log.Info().Err(err).Msg("DB selectAllCounters error")
+			return err
+		}
 
-	return Gauge(result.gauge), true
+		return nil
+	})
+
+	if err != nil {
+		return Gauge(result), false, err
+	}
+	return Gauge(result), true, nil
 }
 
-func (d *DBstore) GetGauges() map[string]Gauge {
+func (d *DBstore) GetGauges() (map[string]Gauge, error) {
 	var (
 		result = make(map[string]Gauge)
 		err    error
 		rows   *sql.Rows
 	)
+	b := retry.NewFibonacci(1 * time.Second)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	rows, err = QueryContextRetry(ctx, d.DBconn, "SELECT mname, val from gauge")
-	if err != nil {
-		log.Err(err)
-		panic(err)
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var (
-			mname string
-			val   float64
-		)
-
-		err = rows.Scan(&mname, &val)
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+		rows, err = d.DBconn.Query("SELECT mname, val from gauge")
 		if err != nil {
-			log.Err(err)
-			panic(err)
+			log.Info().Err(err).Msg("DB QueryContext GetGauges error")
+			return retry.RetryableError(err)
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var (
+				mname string
+				val   float64
+			)
+
+			err = rows.Scan(&mname, &val)
+			if err != nil {
+				log.Info().Err(err).Msg("DB rows.Scan QueryContext GetGauges error")
+				return retry.RetryableError(err)
+			}
+
+			result[mname] = Gauge(val)
 		}
 
-		result[mname] = Gauge(val)
-	}
+		err = rows.Err()
+		if err != nil {
+			log.Info().Err(err).Msg("DB rows.Err QueryContext GetGauges error")
+			return retry.RetryableError(err)
+		}
 
-	err = rows.Err()
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
-		panic(err)
+		return nil, err
 	}
-
-	return result
+	return result, nil
 }
 
-func (d *DBstore) SetGauge(name string, value Gauge) {
+func (d *DBstore) SetGauge(name string, value Gauge) error {
 	var err error
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
@@ -442,78 +317,111 @@ func (d *DBstore) SetGauge(name string, value Gauge) {
 						DO UPDATE SET val = $3
 						WHERE gauge.mname = $4`
 
-	err = ExecContextRetry(ctx, d.DBconn, insertUpdate, []string{name, fmt.Sprintf("%v", value),
-		fmt.Sprintf("%v", value), name})
-	if err != nil {
-		log.Err(err)
-		panic(err)
-	}
-}
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 
-func (d *DBstore) GetCounter(name string) (Counter, bool) {
-	var (
-		result = getGaugeCounter{name: "counter"}
-		err    error
-	)
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	err = QueryRowContextRetry(ctx, d.DBconn, "SELECT val from counter where mname = $1", []string{name}, &result)
-	if err != nil {
-		return -1, false
-	}
-
-	return Counter(result.counter), true
-}
-
-func (d *DBstore) GetCounters() map[string]Counter {
-	var (
-		result = make(map[string]Counter)
-		err    error
-		rows   *sql.Rows
-	)
-
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-
-	rows, err = QueryContextRetry(ctx, d.DBconn, "SELECT mname, val from counter")
-	if err != nil {
-		log.Err(err)
-		panic(err)
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var (
-			mname string
-			val   float64
-		)
-
-		err = rows.Scan(&mname, &val)
+		_, err = d.DBconn.Exec(insertUpdate, name, value, value, name)
 		if err != nil {
-			log.Err(err)
-			panic(err)
+			log.Info().Err(err).Msg("DB ExecContext SetGauge error")
+			return retry.RetryableError(err)
 		}
 
-		result[mname] = Counter(val)
-	}
+		return nil
+	})
 
-	err = rows.Err()
-	if err != nil {
-		log.Err(err)
-		panic(err)
-	}
-
-	return result
+	return err
 }
 
-func (d *DBstore) UpdateCounter(name string, value Counter) {
+// отрабатывает с retry
+func (d *DBstore) GetCounter(name string) (Counter, bool, error) {
+	var result int64
 	var err error
+	b := retry.NewFibonacci(1 * time.Second)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+
+		err = d.DBconn.QueryRowContext(ctx, "SELECT val from counter where mname = $1", name).Scan(&result)
+		if errors.Is(err, sql.ErrNoRows) {
+			return err
+		} else if err != nil {
+			log.Info().Err(err).Msg("DB GetCounter QueryRowContext error")
+			return retry.RetryableError(err)
+		}
+
+		return nil
+	})
+
+	if errors.Is(err, sql.ErrNoRows) {
+		return Counter(result), false, nil
+	}
+	if err != nil {
+		return Counter(result), false, err
+	}
+	return Counter(result), true, nil
+}
+
+func (d *DBstore) GetCounters() (map[string]Counter, error) {
+	var (
+		result = make(map[string]Counter)
+		rows   *sql.Rows
+		err    error
+	)
+	b := retry.NewFibonacci(1 * time.Second)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+		rows, err = d.DBconn.QueryContext(ctx, "SELECT mname, val from counter")
+		if err != nil {
+			log.Info().Err(err).Msg("DB GetCounters QueryContext error")
+			return retry.RetryableError(err)
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			var (
+				mname string
+				val   float64
+			)
+
+			err = rows.Scan(&mname, &val)
+			if err != nil {
+				log.Info().Err(err).Msg("DB rows.Scan QueryContext GetCounters error")
+				return retry.RetryableError(err)
+			}
+
+			result[mname] = Counter(val)
+		}
+
+		err = rows.Err()
+		if err != nil {
+			log.Info().Err(err).Msg("DB rows.Err QueryContext GetCounters error")
+			return retry.RetryableError(err)
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
+}
+
+func (d *DBstore) UpdateCounter(name string, value Counter) error {
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	curVal, ok := d.GetCounter(name)
+	curVal, ok, err := d.GetCounter(name)
+	if err != nil {
+		log.Info().Err(err).Msg("DB GetCounter UpdateCounter GetCounters error")
+		return err
+	}
 	if !ok {
 		curVal = 0
 	}
@@ -524,28 +432,37 @@ func (d *DBstore) UpdateCounter(name string, value Counter) {
 						DO UPDATE SET val = $3
 						WHERE counter.mname = $4`
 
-	err = ExecContextRetry(ctx, d.DBconn, insertUpdate, []string{name, fmt.Sprintf("%v", curVal),
-		fmt.Sprintf("%v", curVal), name})
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+
+		_, err = d.DBconn.Exec(insertUpdate, name, curVal, curVal, name)
+		if err != nil {
+			log.Info().Err(err).Msg("DB UpdateCounter error")
+			return retry.RetryableError(err)
+		}
+
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
-		panic(err)
+		return err
 	}
+	return nil
 }
 
 func (d *DBstore) RestoreMetricsFromDB() error {
-	var (
-		err error
-	)
+	var err error
 
+	// selectAllGauges возвращает retry.RetryableError(err)
 	d.Store.Gauges, err = selectAllGauges(d.DBconn)
 	if err != nil {
-		log.Err(err)
+		log.Info().Err(err).Msg("DB selectAllGauges RestoreMetricsFromDB error")
 		return err
 	}
 
+	// selectAllCounters возвращает retry.RetryableError(err)
 	d.Store.Counters, err = selectAllCounters(d.DBconn)
 	if err != nil {
-		log.Err(err)
+		log.Info().Err(err).Msg("DB selectAllCounters RestoreMetricsFromDB error")
 		return err
 	}
 
@@ -554,13 +471,14 @@ func (d *DBstore) RestoreMetricsFromDB() error {
 
 func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
 	var err error
+	b := retry.NewFibonacci(1 * time.Second)
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	tx, err := d.DBconn.Begin()
 	if err != nil {
-		return err
+		retry.RetryableError(err)
 	}
 	defer tx.Rollback()
 
@@ -569,25 +487,36 @@ func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
 						DO UPDATE SET val = $3
 						WHERE gauge.mname = $4`
 
-	for _, v := range reqJSON {
-		if v.MType == "gauge" {
-			if _, err := tx.ExecContext(ctx, insertUpdateGauge, v.ID, v.Value, v.Value, v.ID); err != nil {
-				log.Err(err)
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
+
+		for _, v := range reqJSON {
+			if v.MType == "gauge" {
+				if _, err = tx.ExecContext(ctx, insertUpdateGauge, v.ID, v.Value, v.Value, v.ID); err != nil {
+					log.Info().Err(err).Msg("DB tx insertUpdateGauge error")
+					return retry.RetryableError(err)
+				}
+			} else if v.MType == "counter" {
+				if err = d.UpdateCounter(v.ID, Counter(*v.Delta)); err != nil {
+					return retry.RetryableError(err)
+				}
+			} else {
+				err := fmt.Errorf("can not get val for %v from reqJSON", v.ID)
+				log.Info().Err(err).Msg("reqJSON error")
 				return err
 			}
-		} else if v.MType == "counter" {
-			d.UpdateCounter(v.ID, Counter(*v.Delta))
-		} else {
-			err := fmt.Errorf("can not get val for %v from reqJSON", v.ID)
-			return err
 		}
-	}
 
-	err = txCommitRetry(tx)
+		err = tx.Commit()
+		if err != nil {
+			log.Info().Err(err).Msg("DB tx.Commit error")
+			return retry.RetryableError(err)
+		}
+
+		return nil
+	})
+
 	if err != nil {
-		log.Err(err)
 		return err
 	}
-
 	return nil
 }

@@ -3,10 +3,12 @@ module github.com/pochtalexa/ya-practicum-metrics
 go 1.21
 
 require (
+	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/go-chi/chi/v5 v5.0.10
 	github.com/jackc/pgerrcode v0.0.0-20220416144525-469b46aa5efa
 	github.com/jackc/pgx/v5 v5.4.3
 	github.com/rs/zerolog v1.30.0
+	github.com/sethvargo/go-retry v0.2.4
 	github.com/stretchr/testify v1.8.4
 )
 

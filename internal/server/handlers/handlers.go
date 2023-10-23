@@ -206,12 +206,12 @@ func UpdateHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Stor
 
 	resJSON = reqJSON
 	if resJSON.MType == "counter" {
-		if valCounter, ok = repo.GetCounter(resJSON.ID); ok {
+		if valCounter, ok, _ = repo.GetCounter(resJSON.ID); ok {
 			valCounterI64 := int64(valCounter)
 			resJSON.Delta = &valCounterI64
 		}
 	} else if resJSON.MType == "gauge" {
-		if valGauge, ok = repo.GetGauge(resJSON.ID); ok {
+		if valGauge, ok, _ = repo.GetGauge(resJSON.ID); ok {
 			valGaugeF64 := float64(valGauge)
 			resJSON.Value = &valGaugeF64
 		}
@@ -292,12 +292,12 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) 
 	resJSON.MType = reqJSON.MType
 
 	if resJSON.MType == "counter" {
-		if valCounter, ok = repo.GetCounter(resJSON.ID); ok {
+		if valCounter, ok, _ = repo.GetCounter(resJSON.ID); ok {
 			valCounterI64 := int64(valCounter)
 			resJSON.Delta = &valCounterI64
 		}
 	} else if resJSON.MType == "gauge" {
-		if valGauge, ok = repo.GetGauge(resJSON.ID); ok {
+		if valGauge, ok, _ = repo.GetGauge(resJSON.ID); ok {
 			valGaugeF64 := float64(valGauge)
 			resJSON.Value = &valGaugeF64
 		}
@@ -381,7 +381,12 @@ func UpdatesHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer)
 		return
 	}
 
-	allMetrics := repo.GetAllMetrics()
+	if err != nil {
+		log.Info().Err(err).Msg("DB UpdateMetricBatch error")
+		return
+	}
+
+	allMetrics, _ := repo.GetAllMetrics()
 
 	for k, v := range allMetrics.Gauges {
 		tempV := float64(v)
@@ -402,8 +407,6 @@ func UpdatesHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer)
 		}
 		resJSON = append(resJSON, metrics)
 	}
-
-	// TODO - проверить код до конца функции
 
 	lw.WriteHeaderStatus(http.StatusOK)
 
@@ -446,11 +449,11 @@ func ValueHandlerLong(w http.ResponseWriter, r *http.Request, repo storage.Store
 
 	resJSON = reqJSON
 	if resJSON.MType == "counter" {
-		if valCounter, ok = repo.GetCounter(resJSON.ID); ok {
+		if valCounter, ok, _ = repo.GetCounter(resJSON.ID); ok {
 			data = fmt.Sprintf("%d", valCounter)
 		}
 	} else if resJSON.MType == "gauge" {
-		if valGauge, ok = repo.GetGauge(resJSON.ID); ok {
+		if valGauge, ok, _ = repo.GetGauge(resJSON.ID); ok {
 			data = fmt.Sprintf("%.3f", valGauge)
 			data = strings.Trim(data, "0")
 		}
@@ -518,12 +521,12 @@ func ValueHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer) {
 	resJSON.MType = reqJSON.MType
 
 	if resJSON.MType == "counter" {
-		if valCounter, ok = repo.GetCounter(resJSON.ID); ok {
+		if valCounter, ok, _ = repo.GetCounter(resJSON.ID); ok {
 			valCounterI64 := int64(valCounter)
 			resJSON.Delta = &valCounterI64
 		}
 	} else if resJSON.MType == "gauge" {
-		if valGauge, ok = repo.GetGauge(reqJSON.ID); ok {
+		if valGauge, ok, _ = repo.GetGauge(reqJSON.ID); ok {
 			valGaugeF64 := float64(valGauge)
 			resJSON.Value = &valGaugeF64
 		}
@@ -630,7 +633,7 @@ func PingHandler(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
 }
 
-func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
+func сounters2String(mapCounters map[string]storage.Counter, _ error) (string, error) {
 	var storeList []string
 
 	for k, v := range mapCounters {
@@ -640,7 +643,7 @@ func сounters2String(mapCounters map[string]storage.Counter) (string, error) {
 	return strings.Join(storeList, ","), nil
 }
 
-func gauges2String(mapGauges map[string]storage.Gauge) (string, error) {
+func gauges2String(mapGauges map[string]storage.Gauge, _ error) (string, error) {
 	var storeList []string
 
 	for k, v := range mapGauges {

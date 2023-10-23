@@ -45,7 +45,7 @@ func NewRestoreFile(fileName string) (*RestoreFile, error) {
 	}, nil
 }
 
-func (s *StoreFile) WriteMetrics(metric Store) error {
+func (s *StoreFile) WriteMetrics(metric Store, _ error) error {
 	return s.encoder.Encode(&metric)
 }
 

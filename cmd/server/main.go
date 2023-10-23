@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"errors"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
@@ -23,6 +24,7 @@ var (
 	err        error
 )
 
+// TODO нужно ли здесь оборачивать в retry?
 func catchTermination() {
 	shutdownChan := make(chan os.Signal, 1)
 	signal.Notify(shutdownChan, os.Interrupt, syscall.SIGTERM)
@@ -44,19 +46,22 @@ func catchTermination() {
 }
 
 func initStoreTimer() {
-	if flags.FlagStoreInterval > 0 {
+	var err error
 
+	if flags.FlagStoreInterval > 0 {
 		for range time.Tick(time.Second * time.Duration(flags.FlagStoreInterval)) {
 			if flags.StorePoint.File {
-				err := storage.StoreMetricsToFile(MemStorage)
+				err = storage.StoreMetricsToFile(MemStorage)
 				if err != nil {
-					panic(err)
+					log.Info().Err(err).Msg("StoreMetricsToFile error")
 				}
 			} else if flags.StorePoint.DataBase {
-				err := storage.StoreMetricsToDB(DBstorage)
+				err = storage.StoreMetricsToDB(DBstorage)
 				if err != nil {
-					panic(err)
+					log.Info().Err(err).Msg("StoreMetricsToDB error")
 				}
+			} else {
+				log.Info().Err(errors.New("can not get flags.StorePoint")).Msg("")
 			}
 		}
 	}
@@ -74,7 +79,6 @@ func restoreMetrics() {
 		err := DBstorage.RestoreMetricsFromDB()
 		if err != nil {
 			log.Info().Err(err).Msg("can not restored metrics from DB")
-			return
 		}
 	}
 }
@@ -148,16 +152,14 @@ func main() {
 	if flags.StorePoint.DataBase {
 		db, err = storage.InitConnDB()
 		if err != nil {
-			log.Err(err)
-			panic(err)
+			log.Info().Err(err).Msg("DB conn error")
 		}
 		defer db.Close()
 
-		//err := storage.InitialazeDB(db)
-		//if err != nil {
-		//	log.Err(err)
-		//	panic(err)
-		//}
+		err := storage.InitialazeDB(db)
+		if err != nil {
+			log.Info().Err(err).Msg("InitialazeDB error")
+		}
 
 		DBstorage.DBconn = db
 	}
