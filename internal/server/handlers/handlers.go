@@ -378,10 +378,6 @@ func UpdatesHandler(w http.ResponseWriter, r *http.Request, repo storage.Storer)
 	if err != nil {
 		lw.WriteHeaderStatus(http.StatusBadRequest)
 		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
-		return
-	}
-
-	if err != nil {
 		log.Info().Err(err).Msg("DB UpdateMetricBatch error")
 		return
 	}
