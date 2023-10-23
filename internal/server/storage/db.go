@@ -67,7 +67,7 @@ func InitialazeDB(db *sql.DB) error {
 	counterTable := `CREATE TABLE IF NOT EXISTS counter (
     								id		 serial PRIMARY KEY,
     								mname    varchar(40) UNIQUE,
-    								val		 integer	
+    								val		 bigint	
                    )`
 
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
