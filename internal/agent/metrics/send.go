@@ -54,6 +54,8 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 		res    *http.Response
 		netErr net.Error
 	)
+	ctx := context.Background()
+	b := retry.NewFibonacci(1 * time.Second)
 
 	resBody := responseBody{}
 	urlMetric := fmt.Sprintf("http://%s/updates/", reportRunAddr)
@@ -74,26 +76,23 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Content-Encoding", "gzip")
 
-	res, err = httpClient.Do(req)
-	if err != nil {
-		if errors.As(err, &netErr) ||
-			netErr.Timeout() ||
-			strings.Contains(err.Error(), "EOF") ||
-			strings.Contains(err.Error(), "connection reset by peer") {
+	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 
-			log.Info().Err(err).Msg("SendMetric Batch attempt error")
-			return retry.RetryableError(err)
+		res, err = httpClient.Do(req)
+		if err != nil {
+			if errors.As(err, &netErr) ||
+				netErr.Timeout() ||
+				strings.Contains(err.Error(), "EOF") ||
+				strings.Contains(err.Error(), "connection reset by peer") {
+
+				return retry.RetryableError(err)
+			}
+			return err
 		}
-		log.Info().Err(err).Msg("SendMetric Batch error")
-		return err
-	}
-	defer res.Body.Close()
+		defer res.Body.Close()
 
-	//dec := json.NewDecoder(res.Body)
-	//if err := dec.Decode(&resBody); err != nil {
-	//	log.Info().Err(err).Msg("decode body error")
-	//	return err
-	//}
+		return nil
+	})
 
 	log.Info().Str("status", res.Status).Msg(fmt.Sprintln("resBody Batch:", resBody.Description))
 

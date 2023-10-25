@@ -1,13 +1,10 @@
 package main
 
 import (
-	"context"
-	//"github.com/avast/retry-go"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/sethvargo/go-retry"
 	"io"
 	"net/http"
 	"os"
@@ -27,7 +24,7 @@ func InitMultiLogger() *os.File {
 		0664,
 	)
 	if err != nil {
-		panic(err)
+		log.Fatal().Err(err).Msg("InitMultiLogger")
 	}
 
 	writers := io.MultiWriter(os.Stdout, fileLogger)
@@ -80,12 +77,10 @@ func main() {
 		}
 
 		if reportIntervalCounter == reportInterval {
-			ctx := context.Background()
-			b := retry.NewFibonacci(1 * time.Second)
 
 			CashMetrics, err = metrics.CollectMetrics(metricsStorage)
 			if err != nil {
-				panic(err)
+				log.Fatal().Err(err).Msg("CollectMetrics")
 			}
 
 			err = metrics.SendMetric(CashMetrics, httpClient, reportRunAddr)
@@ -93,10 +88,7 @@ func main() {
 				log.Info().Err(err).Msg("metrics send error")
 			}
 
-			err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
-				err = metrics.SendMetricBatch(CashMetrics, httpClient, reportRunAddr)
-				return err
-			})
+			err = metrics.SendMetricBatch(CashMetrics, httpClient, reportRunAddr)
 			if err != nil {
 				log.Info().Err(err).Msg("batch metric send error")
 			}

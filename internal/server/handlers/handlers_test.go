@@ -7,7 +7,6 @@ import (
 	"errors"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
@@ -29,7 +28,6 @@ type metricsSendBad struct {
 }
 
 func TestUpdateHandler1(t *testing.T) {
-	var MemStorage = storage.NewStore()
 
 	type want struct {
 		code        int
@@ -75,9 +73,7 @@ func TestUpdateHandler1(t *testing.T) {
 			mux := chi.NewRouter()
 			mux.Use(middleware.Logger)
 
-			mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
-				UpdateHandler(w, r, MemStorage)
-			})
+			mux.Post("/update/", UpdateHandler)
 
 			reqBody, _ := json.Marshal(test.body)
 
@@ -111,7 +107,6 @@ func TestUpdateHandler1(t *testing.T) {
 }
 
 func TestUpdateHandler2(t *testing.T) {
-	var MemStorage = storage.NewStore()
 
 	type want struct {
 		code        int
@@ -151,9 +146,7 @@ func TestUpdateHandler2(t *testing.T) {
 			mux := chi.NewRouter()
 			mux.Use(middleware.Logger)
 
-			mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
-				UpdateHandler(w, r, MemStorage)
-			})
+			mux.Post("/update/", UpdateHandler)
 
 			reqBody, _ := json.Marshal(test.body)
 
@@ -174,7 +167,6 @@ func TestUpdateHandler2(t *testing.T) {
 }
 
 func TestGzipCompression3(t *testing.T) {
-	var MemStorage = storage.NewStore()
 
 	type want struct {
 		code        int
@@ -219,9 +211,7 @@ func TestGzipCompression3(t *testing.T) {
 	mux := chi.NewRouter()
 	mux.Use(middleware.Logger)
 
-	mux.Post("/update/", func(w http.ResponseWriter, r *http.Request) {
-		UpdateHandler(w, r, MemStorage)
-	})
+	mux.Post("/update/", UpdateHandler)
 
 	for _, test := range tests {
 		// sends_gzip

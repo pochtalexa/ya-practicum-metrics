@@ -3,6 +3,7 @@ package flags
 import (
 	"flag"
 	"fmt"
+	"github.com/rs/zerolog/log"
 	"os"
 	"runtime"
 	"strconv"
@@ -58,7 +59,7 @@ func ParseFlags() {
 	if envVar := os.Getenv("STORE_INTERVAL"); envVar != "" {
 		FlagStoreInterval, err = strconv.Atoi(envVar)
 		if err != nil {
-			panic(err)
+			log.Fatal().Err(err).Msg("FlagStoreInterval")
 		}
 	}
 
@@ -69,14 +70,14 @@ func ParseFlags() {
 	if envVar := os.Getenv("RESTORE"); envVar != "" {
 		FlagRestore, err = strconv.ParseBool(envVar)
 		if err != nil {
-			panic(err)
+			log.Fatal().Err(err).Msg("FlagRestore")
 		}
 	}
 
 	if envVar := os.Getenv("DATABASE_DSN"); envVar != "" {
 		FlagDBConn = envVar
 		if err != nil {
-			panic(err)
+			log.Fatal().Err(err).Msg("FlagDBConn")
 		}
 	}
 

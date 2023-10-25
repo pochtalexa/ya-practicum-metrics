@@ -14,21 +14,20 @@ type Store struct {
 	Counters map[string]Counter
 }
 
-func NewStore() *Store {
-	return &Store{
-		Gauges:   make(map[string]Gauge),
-		Counters: make(map[string]Counter),
-	}
+var MemStorage = &Store{
+	Gauges:   make(map[string]Gauge),
+	Counters: make(map[string]Counter),
 }
 
-func StoreMetricsToFile(s Storer) error {
+func (m *Store) StoreMetrics() error {
 	StoreFile, err := NewStoreFile(flags.FlagFileStorePath)
 	if err != nil {
+		log.Info().Err(err).Msg("StoreMetricsToFile error")
 		return err
 	}
 	defer StoreFile.Close()
 
-	if err := StoreFile.WriteMetrics(s.GetAllMetrics()); err != nil {
+	if err := StoreFile.WriteMetrics(m.GetAllMetrics()); err != nil {
 		return err
 	}
 	log.Info().Msg("metrics saved to file")
@@ -68,17 +67,20 @@ func (m *Store) UpdateCounter(name string, value Counter) error {
 	return nil
 }
 
-func (m *Store) RestoreMetricsFromFile() error {
+func (m *Store) RestoreMetrics() error {
 	RestoreFile, err := NewRestoreFile(flags.FlagFileStorePath)
 	if err != nil {
+		log.Info().Err(err).Msg("can not read metrics from file")
 		return err
 	}
 	defer RestoreFile.Close()
 
 	if err := RestoreFile.ReadMetrics(m); err != nil {
+		log.Info().Err(err).Msg("can not read metrics from file")
 		return err
 	}
 
+	log.Info().Msg("metrics restored from file")
 	return nil
 }
 

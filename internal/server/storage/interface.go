@@ -11,4 +11,6 @@ type Storer interface {
 	UpdateCounter(name string, value Counter) error
 	GetAllMetrics() (Store, error)
 	UpdateMetricBatch([]models.Metrics) error
+	StoreMetrics() error
+	RestoreMetrics() error
 }
