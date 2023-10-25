@@ -77,7 +77,6 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	req.Header.Add("Content-Encoding", "gzip")
 
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
-
 		res, err = httpClient.Do(req)
 		if err != nil {
 			if errors.As(err, &netErr) ||
@@ -87,7 +86,8 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 
 				return retry.RetryableError(err)
 			}
-			return retry.RetryableError(err)
+			log.Info().Err(err).Msg("SendMetric error")
+			return err
 		}
 		defer res.Body.Close()
 
@@ -132,7 +132,6 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 					strings.Contains(err.Error(), "EOF") ||
 					strings.Contains(err.Error(), "connection reset by peer") {
 
-					log.Info().Err(err).Msg("SendMetric attempt error")
 					return retry.RetryableError(err)
 				}
 				log.Info().Err(err).Msg("SendMetric error")
