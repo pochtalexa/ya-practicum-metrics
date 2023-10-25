@@ -79,7 +79,6 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 
 		res, err = httpClient.Do(req)
-		defer res.Body.Close()
 		if err != nil {
 			if errors.As(err, &netErr) ||
 				netErr.Timeout() ||
@@ -88,8 +87,9 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 
 				return retry.RetryableError(err)
 			}
-			return err
+			return retry.RetryableError(err)
 		}
+		defer res.Body.Close()
 
 		return nil
 	})
