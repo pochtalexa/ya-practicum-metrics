@@ -47,18 +47,16 @@ func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
 }
 
 func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
-	type responseBody struct {
-		Description string `json:"description"` // имя метрики
-	}
-	var (
-		res    *http.Response
-		netErr net.Error
-	)
+	var netErr net.Error
+	urlMetric := fmt.Sprintf("http://%s/updates/", reportRunAddr)
 	ctx := context.Background()
 	b := retry.NewFibonacci(1 * time.Second)
 
+	type responseBody struct {
+		Description string `json:"description"` // имя метрики
+	}
+
 	resBody := responseBody{}
-	urlMetric := fmt.Sprintf("http://%s/updates/", reportRunAddr)
 
 	reqBody, err := json.Marshal(CashMetrics.CashMetrics)
 	if err != nil {
@@ -77,7 +75,7 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	req.Header.Add("Content-Encoding", "gzip")
 
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
-		res, err = httpClient.Do(req)
+		res, err := httpClient.Do(req)
 		if err != nil {
 			if errors.As(err, &netErr) ||
 				netErr.Timeout() ||
@@ -86,15 +84,17 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 
 				return retry.RetryableError(err)
 			}
-			log.Info().Err(err).Msg("SendMetric error")
 			return err
 		}
 		defer res.Body.Close()
 
+		log.Info().Str("status", res.Status).Msg(fmt.Sprintln("resBody Batch:", resBody.Description))
 		return nil
 	})
-
-	log.Info().Str("status", res.Status).Msg(fmt.Sprintln("resBody Batch:", resBody.Description))
+	if err != nil {
+		log.Info().Err(err).Msg("SendMetric error")
+		return err
+	}
 
 	return nil
 }
@@ -134,7 +134,6 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 
 					return retry.RetryableError(err)
 				}
-				log.Info().Err(err).Msg("SendMetric error")
 				return err
 			}
 			defer res.Body.Close()
