@@ -60,8 +60,7 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 
 	reqBody, err := json.Marshal(CashMetrics.CashMetrics)
 	if err != nil {
-		log.Info().Err(err).Str("reqBody", string(reqBody)).Msg("Marshal Batch error")
-		return err
+		return fmt.Errorf("marshal Batch error, %w", err)
 	}
 	log.Info().Str("reqBody", string(reqBody)).Msg("Marshal Batch result")
 
@@ -92,8 +91,7 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 		return nil
 	})
 	if err != nil {
-		log.Info().Err(err).Msg("SendMetric error")
-		return err
+		return fmt.Errorf("SendMetric error, %w", err)
 	}
 
 	return nil
@@ -110,8 +108,7 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 
 		reqBody, err := json.Marshal(el)
 		if err != nil {
-			log.Info().Err(err).Str("reqBody", string(reqBody)).Msg("Marshal error")
-			return err
+			return fmt.Errorf("marshal error, %w", err)
 		}
 		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
 
@@ -140,8 +137,7 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 
 			dec := json.NewDecoder(res.Body)
 			if err := dec.Decode(&respMetric); err != nil {
-				log.Info().Err(err).Msg("decode body error")
-				return err
+				return fmt.Errorf("decode body error, %w", err)
 			}
 
 			log.Info().Str("status", res.Status).Msg(fmt.Sprintln("respMetric:", respMetric.String()))
