@@ -480,10 +480,11 @@ func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
 		counterQuery   string
 		indCounter     int
 	)
+	tmpStoreGauge := make(map[string]Gauge)
 	tmpStoreCounter := make(map[string]Counter)
 	b := retry.NewFibonacci(1 * time.Second)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
 	insertUpdateGauge1 := `INSERT INTO gauge (mname, val) VALUES `
@@ -495,10 +496,7 @@ func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
 	indCounter = 0
 	for _, v := range reqJSON {
 		if v.MType == "gauge" {
-			indCounter++
-			gaugeArgs = append(gaugeArgs, v.ID)
-			gaugeArgs = append(gaugeArgs, v.Value)
-			gaugeStrings = append(gaugeStrings, fmt.Sprintf("($%d, $%d)", indCounter*2-1, indCounter*2))
+			tmpStoreGauge[v.ID] = Gauge(*v.Value)
 		} else if v.MType == "counter" {
 			// был ли такой ключ в пришедшем батче ранее
 			_, ok := tmpStoreCounter[v.ID]
@@ -519,6 +517,14 @@ func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
 		} else {
 			return fmt.Errorf("can not get val for %v from reqJSON", v.ID)
 		}
+	}
+
+	indCounter = 0
+	for k, v := range tmpStoreGauge {
+		indCounter++
+		gaugeArgs = append(gaugeArgs, k)
+		gaugeArgs = append(gaugeArgs, v)
+		gaugeStrings = append(gaugeStrings, fmt.Sprintf("($%d, $%d)", indCounter*2-1, indCounter*2))
 	}
 
 	indCounter = 0
