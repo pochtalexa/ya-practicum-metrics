@@ -11,6 +11,7 @@ import (
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/models"
 	"github.com/rs/zerolog/log"
 	"github.com/sethvargo/go-retry"
+	"strings"
 	"time"
 )
 
@@ -469,58 +470,94 @@ func (d *DBstore) RestoreMetrics() error {
 }
 
 func (d *DBstore) UpdateMetricBatch(reqJSON []models.Metrics) error {
-	var err error
+	var (
+		err            error
+		gaugeArgs      []interface{}
+		gaugeStrings   []string
+		gaugeQuery     string
+		counterArgs    []interface{}
+		counterStrings []string
+		counterQuery   string
+		indCounter     int
+	)
+	tmpStoreCounter := make(map[string]Counter)
 	b := retry.NewFibonacci(1 * time.Second)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	tx, err := d.DBconn.Begin()
-	if err != nil {
-		retry.RetryableError(err)
-	}
-	defer tx.Rollback()
+	insertUpdateGauge1 := `INSERT INTO gauge (mname, val) VALUES `
+	insertUpdateGauge2 := ` ON CONFLICT (mname) DO UPDATE SET val = excluded.val;`
 
-	insertUpdateGauge := `INSERT INTO gauge (mname, val) VALUES ($1, $2)
-						ON CONFLICT (mname)
-						DO UPDATE SET val = $3
-						WHERE gauge.mname = $4`
+	insertUpdateCounter1 := `INSERT INTO counter (mname, val) VALUES `
+	insertUpdateCounter2 := ` ON CONFLICT (mname) DO UPDATE SET val = excluded.val;`
+
+	indCounter = 0
+	for _, v := range reqJSON {
+		if v.MType == "gauge" {
+			indCounter++
+			gaugeArgs = append(gaugeArgs, v.ID)
+			gaugeArgs = append(gaugeArgs, v.Value)
+			gaugeStrings = append(gaugeStrings, fmt.Sprintf("($%d, $%d)", indCounter*2-1, indCounter*2))
+		} else if v.MType == "counter" {
+			// был ли такой ключ в пришедшем батче ранее
+			_, ok := tmpStoreCounter[v.ID]
+			if ok {
+				tmpStoreCounter[v.ID] = tmpStoreCounter[v.ID] + Counter(*v.Delta)
+			} else {
+				counterDBVal, ok, err := d.GetCounter(v.ID)
+				if err != nil {
+					return err
+				}
+
+				if ok {
+					tmpStoreCounter[v.ID] = counterDBVal + Counter(*v.Delta)
+				} else {
+					tmpStoreCounter[v.ID] = Counter(*v.Delta)
+				}
+			}
+		} else {
+			return fmt.Errorf("can not get val for %v from reqJSON", v.ID)
+		}
+	}
+
+	indCounter = 0
+	for k, v := range tmpStoreCounter {
+		indCounter++
+		counterArgs = append(counterArgs, k)
+		counterArgs = append(counterArgs, v)
+		counterStrings = append(counterStrings, fmt.Sprintf("($%d, $%d)", indCounter*2-1, indCounter*2))
+	}
+
+	gaugeQuery = insertUpdateGauge1 + strings.Join(gaugeStrings, ",") + insertUpdateGauge2
+	counterQuery = insertUpdateCounter1 + strings.Join(counterStrings, ",") + insertUpdateCounter2
 
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 
-		for _, v := range reqJSON {
-			if v.MType == "gauge" {
-				if _, err = tx.ExecContext(ctx, insertUpdateGauge, v.ID, v.Value, v.Value, v.ID); err != nil {
-					var pgErr *pgconn.PgError
-					if errors.As(err, &pgErr) {
-						return retry.RetryableError(err)
-					} else {
-						log.Info().Err(err).Msg("DB tx insertUpdateGauge error")
-						return err
-					}
-				}
-			} else if v.MType == "counter" {
-				if err = d.UpdateCounter(v.ID, Counter(*v.Delta)); err != nil {
-					return err
-				}
+		if _, err := d.DBconn.Exec(gaugeQuery, gaugeArgs...); err != nil {
+			var pgErr *pgconn.PgError
+			if errors.As(err, &pgErr) {
+				return retry.RetryableError(err)
 			} else {
-				err := fmt.Errorf("can not get val for %v from reqJSON", v.ID)
-				log.Info().Err(err).Msg("reqJSON error")
-				return err
+				return fmt.Errorf("insertUpdateGauge: %w", err)
 			}
 		}
 
-		err = tx.Commit()
-		if err != nil {
-			log.Info().Err(err).Msg("DB tx.Commit error")
-			return retry.RetryableError(err)
+		if _, err := d.DBconn.Exec(counterQuery, counterArgs...); err != nil {
+			var pgErr *pgconn.PgError
+			if errors.As(err, &pgErr) {
+				return retry.RetryableError(err)
+			} else {
+				return fmt.Errorf("insertUpdateCounter: %w", err)
+			}
 		}
 
 		return nil
 	})
 
 	if err != nil {
-		return err
+		return fmt.Errorf("retry error: %w", err)
 	}
+
 	return nil
 }
