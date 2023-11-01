@@ -4,9 +4,13 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/models"
 	"github.com/rs/zerolog/log"
 	"github.com/sethvargo/go-retry"
@@ -15,6 +19,21 @@ import (
 	"strings"
 	"time"
 )
+
+type hashSHA256Struct struct {
+	data string
+	err  error
+}
+
+var hashSHA256 = &hashSHA256Struct{}
+
+func signReqBody(body []byte) (string, error) {
+	h := hmac.New(sha256.New, []byte(flags.FlagHashKey))
+	h.Write(body)
+	dst := h.Sum(nil)
+
+	return hex.EncodeToString(dst), nil
+}
 
 func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
 	var (
@@ -64,6 +83,13 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	}
 	log.Info().Str("reqBody", string(reqBody)).Msg("Marshal Batch result")
 
+	if flags.UseHashKey {
+		hashSHA256.data, hashSHA256.err = signReqBody(reqBody)
+		if hashSHA256.err != nil {
+			log.Info().Err(err).Msg("can not signReqBody")
+		}
+	}
+
 	var buf bytes.Buffer
 	gzipWriter := gzip.NewWriter(&buf)
 	gzipWriter.Write(reqBody)
@@ -72,6 +98,10 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	req, _ := http.NewRequest(http.MethodPost, urlMetric, &buf)
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Content-Encoding", "gzip")
+
+	if flags.UseHashKey && hashSHA256.err == nil {
+		req.Header.Add("HashSHA256", hashSHA256.data)
+	}
 
 	err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 		res, err := httpClient.Do(req)
@@ -112,6 +142,13 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		}
 		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
 
+		if flags.UseHashKey {
+			hashSHA256.data, hashSHA256.err = signReqBody(reqBody)
+			if hashSHA256.err != nil {
+				log.Info().Err(err).Msg("can not signReqBody")
+			}
+		}
+
 		var buf bytes.Buffer
 		gzipWriter := gzip.NewWriter(&buf)
 		gzipWriter.Write(reqBody)
@@ -120,6 +157,10 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		req, _ := http.NewRequest(http.MethodPost, urlMetric, &buf)
 		req.Header.Add("Content-Type", "application/json")
 		req.Header.Add("Content-Encoding", "gzip")
+
+		if flags.UseHashKey && hashSHA256.err != nil {
+			req.Header.Add("HashSHA256", hashSHA256.data)
+		}
 
 		err = retry.Do(ctx, retry.WithMaxRetries(3, b), func(ctx context.Context) error {
 			res, err := httpClient.Do(req)

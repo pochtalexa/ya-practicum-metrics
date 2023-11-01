@@ -73,6 +73,7 @@ func run() error {
 
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", handlers.UpdateHandlerLong)
 	mux.Post("/update/", handlers.UpdateHandler)
+
 	mux.Get("/value/{metricType}/{metricName}", handlers.ValueHandlerLong)
 	mux.Post("/value/", handlers.ValueHandler)
 

@@ -23,6 +23,8 @@ var (
 	FlagRestore       bool
 	FlagDBConn        string
 	StorePoint        StoragePoint
+	FlagHashKey       string
+	UseHashKey        bool
 	err               error
 )
 
@@ -44,12 +46,15 @@ func ParseFlags() {
 
 	defaultDBConn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		`localhost`, `5432`, `praktikum`, `praktikum`, `praktikum`)
+	//defaultHashKey := "0123456789ABCDEF"
+	defaultHashKey := ""
 
 	flag.StringVar(&FlagRunAddr, "a", ":8080", "addr to run on")
 	flag.IntVar(&FlagStoreInterval, "i", 300, "save to file interval (sec)")
 	flag.StringVar(&FlagFileStorePath, "f", defaultFileStorePath, "file to save")
 	flag.BoolVar(&FlagRestore, "r", true, "load metrics on start from file")
 	flag.StringVar(&FlagDBConn, "d", defaultDBConn, "db conn string")
+	flag.StringVar(&FlagHashKey, "k", defaultHashKey, "hashKey")
 	flag.Parse()
 
 	if envVar := os.Getenv("ADDRESS"); envVar != "" {
@@ -88,4 +93,19 @@ func ParseFlags() {
 	} else {
 		StorePoint.Memory = true
 	}
+
+	if envHashKey := os.Getenv("KEY"); envHashKey != "" {
+		FlagHashKey = envHashKey
+	}
+
+	//UseHashKey = true
+	if !isFlagPassed(FlagHashKey) && os.Getenv("KEY") == "" {
+		UseHashKey = false
+	} else {
+		UseHashKey = true
+	}
+	log.Info().
+		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
+		Str("FlagHashKey", FlagHashKey).
+		Msg("UseHashKey")
 }
