@@ -11,6 +11,7 @@ var (
 	FlagRunAddr        string
 	FlagReportInterval int
 	FlagPollInterval   int
+	FlagWorkers        int
 	FlagHashKey        string
 	UseHashKey         bool
 )
@@ -34,6 +35,7 @@ func ParseFlags() {
 	flag.IntVar(&FlagReportInterval, "r", 10, "reportInterval")
 	flag.IntVar(&FlagPollInterval, "p", 2, "pollInterval")
 	flag.StringVar(&FlagHashKey, "k", defaultHashKey, "hashKey")
+	flag.IntVar(&FlagWorkers, "l", 1, "pool worker count")
 	flag.Parse()
 
 	if envRunAddr := os.Getenv("ADDRESS"); envRunAddr != "" {
@@ -62,5 +64,9 @@ func ParseFlags() {
 		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
 		Str("FlagHashKey", FlagHashKey).
 		Msg("UseHashKey")
+
+	if envFlagWorkers := os.Getenv("RATE_LIMIT"); envFlagWorkers != "" {
+		FlagWorkers, _ = strconv.Atoi(envFlagWorkers)
+	}
 
 }

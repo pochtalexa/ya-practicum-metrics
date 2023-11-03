@@ -3,13 +3,22 @@ package metrics
 import (
 	"fmt"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/models"
+	"github.com/shirou/gopsutil/v3/cpu"
+	"github.com/shirou/gopsutil/v3/mem"
 	"math"
 	"math/rand"
 	"runtime"
+	"time"
 )
 
 type Gauge float64
 type Counter int64
+
+type GopsutilMetrics struct {
+	TotalMemory    float64
+	FreeMemory     float64
+	CPUutilization []float64
+}
 
 type RuntimeMetrics struct {
 	Data        runtime.MemStats
@@ -19,10 +28,14 @@ type RuntimeMetrics struct {
 }
 
 type CashMetrics struct {
-	CashMetrics []models.Metrics
+	CashMetrics []models.Metric
 }
 
-func New() *RuntimeMetrics {
+func NewGopsutilMetrics() *GopsutilMetrics {
+	return &GopsutilMetrics{}
+}
+
+func NewRuntimeMetrics() *RuntimeMetrics {
 	return &RuntimeMetrics{
 		GaugesName: []string{"Alloc", "BuckHashSys", "Frees", "GCCPUFraction", "GCSys", "HeapAlloc", "HeapIdle", "HeapInuse",
 			"HeapObjects", "HeapReleased", "HeapSys", "LastGC", "Lookups", "MCacheInuse", "MCacheSys", "MSpanInuse", "MSpanSys",
@@ -118,4 +131,11 @@ func (el *RuntimeMetrics) GetGaugeValue(name string) (float64, error) {
 	}
 
 	return result, nil
+}
+
+func (el *GopsutilMetrics) UpdateMetrics() {
+	v, _ := mem.VirtualMemory()
+	el.TotalMemory = float64(v.Total)
+	el.FreeMemory = float64(v.Free)
+	el.CPUutilization, _ = cpu.Percent(10*time.Millisecond, true)
 }

@@ -16,6 +16,7 @@ import (
 	"github.com/sethvargo/go-retry"
 	"net"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -35,18 +36,18 @@ func signReqBody(body []byte) (string, error) {
 	return hex.EncodeToString(dst), nil
 }
 
-func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
+func CollectMetrics(runtimeMetrics *RuntimeMetrics, gopsutilMetrics *GopsutilMetrics) (CashMetrics, error) {
 	var (
 		CashMetrics   CashMetrics
-		gaugeMetric   models.Metrics
-		counterMetric models.Metrics
+		gaugeMetric   models.Metric
+		counterMetric models.Metric
 	)
 
-	for _, mName := range metrics.GetGaugeName() {
+	for _, mName := range runtimeMetrics.GetGaugeName() {
 		gaugeMetric.ID = mName
 		gaugeMetric.MType = "gauge"
 
-		gaugeMetricTemp, err := metrics.GetGaugeValue(mName)
+		gaugeMetricTemp, err := runtimeMetrics.GetGaugeValue(mName)
 		if err != nil {
 			return CashMetrics, err
 		}
@@ -55,9 +56,26 @@ func CollectMetrics(metrics *RuntimeMetrics) (CashMetrics, error) {
 		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
 	}
 
+	gaugeMetric.ID = "TotalMemory"
+	gaugeMetric.MType = "gauge"
+	gaugeMetric.Value = &gopsutilMetrics.TotalMemory
+	CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
+
+	gaugeMetric.ID = "FreeMemory"
+	gaugeMetric.MType = "gauge"
+	gaugeMetric.Value = &gopsutilMetrics.FreeMemory
+	CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
+
+	for k, v := range gopsutilMetrics.CPUutilization {
+		gaugeMetric.ID = "CPUutilization" + strconv.Itoa(k)
+		gaugeMetric.MType = "gauge"
+		gaugeMetric.Value = &v
+		CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, gaugeMetric)
+	}
+
 	counterMetric.ID = "PollCount"
 	counterMetric.MType = "counter"
-	counterMetricTemp := int64(metrics.PollCount)
+	counterMetricTemp := int64(runtimeMetrics.PollCount)
 	counterMetric.Delta = &counterMetricTemp
 
 	CashMetrics.CashMetrics = append(CashMetrics.CashMetrics, counterMetric)
@@ -121,31 +139,34 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 		return nil
 	})
 	if err != nil {
-		return fmt.Errorf("SendMetric error, %w", err)
+		return fmt.Errorf("SendMetricWorker error, %w", err)
 	}
 
 	return nil
 }
 
-func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr string) error {
+func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMetricsResult chan<- error,
+	httpClient http.Client, reportRunAddr string) {
 	var netErr net.Error
 	urlMetric := fmt.Sprintf("http://%s/update/", reportRunAddr)
+	log.Info().Str("workerID", strconv.Itoa(workerID)).Msg("SendMetricWorker started")
 
-	for _, el := range CashMetrics.CashMetrics {
+	for el := range chCashMetrics {
 		ctx := context.Background()
 		b := retry.NewFibonacci(1 * time.Second)
-		respMetric := models.Metrics{}
+		respMetric := models.Metric{}
 
 		reqBody, err := json.Marshal(el)
 		if err != nil {
-			return fmt.Errorf("marshal error, %w", err)
+			chCashMetricsResult <- fmt.Errorf("marshal error, %w", err)
+			continue
 		}
 		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
 
 		if flags.UseHashKey {
 			hashSHA256.data, hashSHA256.err = signReqBody(reqBody)
 			if hashSHA256.err != nil {
-				log.Info().Err(err).Msg("can not signReqBody")
+				chCashMetricsResult <- fmt.Errorf("can not signReqBody:, %w", err)
 			}
 		}
 
@@ -186,9 +207,7 @@ func SendMetric(CashMetrics CashMetrics, httpClient http.Client, reportRunAddr s
 		})
 
 		if err != nil {
-			log.Info().Err(err).Msg("send metric error")
+			chCashMetricsResult <- fmt.Errorf("end metric error:, %w", err)
 		}
 	}
-
-	return nil
 }
