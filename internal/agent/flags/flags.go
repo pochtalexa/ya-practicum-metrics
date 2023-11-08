@@ -5,6 +5,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"os"
 	"strconv"
+	"time"
 )
 
 var (
@@ -14,6 +15,8 @@ var (
 	FlagWorkers        int
 	FlagHashKey        string
 	UseHashKey         bool
+	PollInterval       time.Duration
+	ReportInterval     time.Duration
 )
 
 func isFlagPassed(name string) bool {
@@ -45,25 +48,27 @@ func ParseFlags() {
 	if envReportInterval := os.Getenv("REPORT_INTERVAL"); envReportInterval != "" {
 		FlagReportInterval, _ = strconv.Atoi(envReportInterval)
 	}
+	ReportInterval = time.Second * time.Duration(FlagReportInterval)
 
 	if envPollInterval := os.Getenv("POLL_INTERVAL"); envPollInterval != "" {
 		FlagPollInterval, _ = strconv.Atoi(envPollInterval)
 	}
+	PollInterval = time.Second * time.Duration(FlagPollInterval)
 
 	if envHashKey := os.Getenv("KEY"); envHashKey != "" {
 		FlagHashKey = envHashKey
 	}
 
-	//UseHashKey = true
 	if !isFlagPassed(FlagHashKey) && os.Getenv("KEY") == "" {
 		UseHashKey = false
 	} else {
 		UseHashKey = true
 	}
+	//UseHashKey = true
 	log.Info().
 		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
 		Str("FlagHashKey", FlagHashKey).
-		Msg("UseHashKey")
+		Msg("UseHashKey agent")
 
 	if envFlagWorkers := os.Getenv("RATE_LIMIT"); envFlagWorkers != "" {
 		FlagWorkers, _ = strconv.Atoi(envFlagWorkers)

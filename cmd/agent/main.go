@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/metrics"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/agent/models"
@@ -11,12 +12,6 @@ import (
 	"os"
 	"sync"
 	"time"
-)
-
-var (
-	pollInterval   int
-	reportInterval int
-	reportRunAddr  string
 )
 
 func InitMultiLogger() *os.File {
@@ -58,28 +53,31 @@ func main() {
 	flags.ParseFlags()
 	zerolog.SetGlobalLevel(zerolog.InfoLevel)
 
-	pollInterval = flags.FlagPollInterval
-	reportInterval = flags.FlagReportInterval
-	reportRunAddr = flags.FlagRunAddr
-
 	httpClient := http.Client{Transport: tr}
 
 	chCashMetrics := make(chan models.Metric, 100)
 	chCashMetricsResult := make(chan error, flags.FlagWorkers)
+	chgopsutilUpdateMetricsResult := make(chan error, 1)
 
 	// создаем пул воркеров
 	for i := 0; i < flags.FlagWorkers; i++ {
 		workerID := i
 		go func() {
-			metrics.SendMetricWorker(workerID, chCashMetrics, chCashMetricsResult, httpClient, reportRunAddr)
+			metrics.SendMetricWorker(workerID, chCashMetrics, chCashMetricsResult, httpClient, flags.FlagRunAddr)
 		}()
 	}
 
-	// горутина принимаем ошибки от SendMetricWorker
+	// горутина принимаем ошибки от SendMetricWorker и gopsutilStorage.UpdateMetrics
 	wg.Add(1)
 	go func() {
-		for v := range chCashMetricsResult {
-			log.Info().Err(v).Msg("SendMetricWorker error")
+		var err error
+		for {
+			select {
+			case err = <-chCashMetricsResult:
+				log.Info().Err(err).Msg("SendMetricWorker error")
+			case err = <-chgopsutilUpdateMetricsResult:
+				log.Info().Err(err).Msg("gopsutilStorage.UpdateMetrics error")
+			}
 		}
 		wg.Done()
 	}()
@@ -89,7 +87,7 @@ func main() {
 	go func() {
 		log.Info().Msg("runtimeStorage.UpdateMetrics started")
 
-		for range time.Tick(time.Second * time.Duration(pollInterval)) {
+		for range time.Tick(flags.PollInterval) {
 			runtimeStorage.UpdateMetrics()
 			log.Info().Msg("runtimeStorage Metrics updated")
 		}
@@ -101,9 +99,13 @@ func main() {
 	go func() {
 		log.Info().Msg("gopsutilStorage.UpdateMetrics started")
 
-		for range time.Tick(time.Second * time.Duration(pollInterval)) {
-			gopsutilStorage.UpdateMetrics()
-			log.Info().Msg("gopsutilStorage Metrics updated")
+		for range time.Tick(flags.PollInterval) {
+			err := gopsutilStorage.UpdateMetrics()
+			if err != nil {
+				chgopsutilUpdateMetricsResult <- err
+			} else {
+				log.Info().Msg("gopsutilStorage Metrics updated")
+			}
 		}
 		wg.Done()
 	}()
@@ -115,7 +117,7 @@ func main() {
 		var wgCollect sync.WaitGroup
 		log.Info().Msg("CollectMetrics started")
 
-		for range time.Tick(time.Second * time.Duration(reportInterval)) {
+		for range time.Tick(flags.ReportInterval) {
 			CashMetrics, err = metrics.CollectMetrics(runtimeStorage, gopsutilStorage)
 			if err != nil {
 				log.Fatal().Err(err).Msg("CollectMetrics")
@@ -124,12 +126,21 @@ func main() {
 			log.Info().Msg("CollectMetrics done")
 
 			for _, v := range CashMetrics.CashMetrics {
-				chCashMetrics <- v
+				// if the channel is full, the default case will be executed
+				select {
+				case chCashMetrics <- v:
+					continue
+				default:
+					log.Info().
+						Err(fmt.Errorf("chCashMetrics is full")).
+						Str("CashMetric", v.String()).
+						Msg("can not pass metric to channel")
+				}
 			}
 
 			wgCollect.Add(1)
 			go func() {
-				err = metrics.SendMetricBatch(CashMetrics, httpClient, reportRunAddr)
+				err = metrics.SendMetricBatch(CashMetrics, httpClient, flags.FlagRunAddr)
 				if err != nil {
 					log.Info().Err(err).Msg("SendMetricBatch send error")
 				}

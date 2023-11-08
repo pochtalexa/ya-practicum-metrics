@@ -133,9 +133,18 @@ func (el *RuntimeMetrics) GetGaugeValue(name string) (float64, error) {
 	return result, nil
 }
 
-func (el *GopsutilMetrics) UpdateMetrics() {
-	v, _ := mem.VirtualMemory()
+func (el *GopsutilMetrics) UpdateMetrics() error {
+	v, err := mem.VirtualMemory()
+	if err != nil {
+		return fmt.Errorf("mem.VirtualMemory: %w", err)
+	}
+
 	el.TotalMemory = float64(v.Total)
 	el.FreeMemory = float64(v.Free)
-	el.CPUutilization, _ = cpu.Percent(10*time.Millisecond, true)
+	el.CPUutilization, err = cpu.Percent(10*time.Millisecond, true)
+	if err != nil {
+		return fmt.Errorf("cpu.Percent: %w", err)
+	}
+
+	return nil
 }

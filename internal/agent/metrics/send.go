@@ -179,7 +179,7 @@ func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMe
 		req.Header.Add("Content-Type", "application/json")
 		req.Header.Add("Content-Encoding", "gzip")
 
-		if flags.UseHashKey && hashSHA256.err != nil {
+		if flags.UseHashKey && hashSHA256.err == nil {
 			req.Header.Add("HashSHA256", hashSHA256.data)
 		}
 

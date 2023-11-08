@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/flags"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/handlers"
+	"github.com/pochtalexa/ya-practicum-metrics/internal/server/middlefunc"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/migrations"
 	"github.com/pochtalexa/ya-practicum-metrics/internal/server/storage"
 	"github.com/rs/zerolog"
@@ -50,7 +52,7 @@ func restoreMetrics() error {
 	if flags.FlagRestore {
 		err := repo.RestoreMetrics()
 		if err != nil {
-			return err
+			return fmt.Errorf("repo.RestoreMetrics: %w", err)
 		}
 	}
 
@@ -60,6 +62,7 @@ func restoreMetrics() error {
 func run() error {
 
 	mux := chi.NewRouter()
+	mux.Use(middlefunc.GzipDecompression)
 	mux.Use(middleware.Logger)
 
 	// return all metrics on WEB page
@@ -69,13 +72,25 @@ func run() error {
 	mux.Get("/ping", handlers.PingHandler)
 
 	// get metrics in array
-	mux.Post("/updates/", handlers.UpdatesHandler)
+	//mux.Post("/updates/", handlers.UpdatesHandler)
+	mux.Route("/updates", func(r chi.Router) {
+		r.Use(middlefunc.CheckReqBodySign)
+		r.Post("/", handlers.UpdatesHandler)
+	})
 
 	mux.Post("/update/{metricType}/{metricName}/{metricVal}", handlers.UpdateHandlerLong)
-	mux.Post("/update/", handlers.UpdateHandler)
+	//mux.Post("/update/", handlers.UpdateHandler)
+	mux.Route("/update", func(r chi.Router) {
+		r.Use(middlefunc.CheckReqBodySign)
+		r.Post("/", handlers.UpdateHandler)
+	})
 
 	mux.Get("/value/{metricType}/{metricName}", handlers.ValueHandlerLong)
-	mux.Post("/value/", handlers.ValueHandler)
+	//mux.Post("/value/", handlers.ValueHandler)
+	mux.Route("/value", func(r chi.Router) {
+		r.Use(middlefunc.CheckReqBodySign)
+		r.Post("/", handlers.ValueHandler)
+	})
 
 	log.Info().Str("Running on", flags.FlagRunAddr).Msg("Server started")
 	defer log.Info().Msg("Server stopped")

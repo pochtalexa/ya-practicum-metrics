@@ -46,6 +46,7 @@ func ParseFlags() {
 
 	defaultDBConn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		`localhost`, `5432`, `praktikum`, `praktikum`, `praktikum`)
+
 	//defaultHashKey := "0123456789ABCDEF"
 	defaultHashKey := ""
 
@@ -98,14 +99,15 @@ func ParseFlags() {
 		FlagHashKey = envHashKey
 	}
 
-	//UseHashKey = true
 	if !isFlagPassed(FlagHashKey) && os.Getenv("KEY") == "" {
 		UseHashKey = false
 	} else {
 		UseHashKey = true
 	}
+	UseHashKey = true
+
 	log.Info().
 		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
 		Str("FlagHashKey", FlagHashKey).
-		Msg("UseHashKey")
+		Msg("UseHashKey server")
 }

@@ -1,11 +1,7 @@
 package handlers
 
 import (
-	"bytes"
 	"compress/gzip"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -29,16 +25,6 @@ type responseData struct {
 	size         int
 }
 
-func checkReqBodySign(reqHeaderHash string, r *http.Request) bool {
-	h := hmac.New(sha256.New, []byte(flags.FlagHashKey))
-	body, _ := io.ReadAll(r.Body)
-	h.Write(body)
-	dst := h.Sum(nil)
-	r.Body = io.NopCloser(bytes.NewReader(body))
-
-	return reqHeaderHash == hex.EncodeToString(dst)
-}
-
 func GetStore() storage.Storer {
 	if flags.StorePoint.DataBase {
 		return storage.DBstorage
@@ -57,9 +43,9 @@ func reqCheckGzipBody(r *http.Request) (io.ReadCloser, error) {
 		if err != nil {
 			return r.Body, err
 		}
-		// меняем тело запроса на новое
-		r.Body = gzr
 		defer gzr.Close()
+		// добавляем к телу запроса обертку gzip
+		r.Body = gzr
 	}
 
 	return r.Body, nil
@@ -285,13 +271,6 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request) {
 		resCompress:    false,
 	}
 
-	r.Body, err = reqCheckGzipBody(r)
-	if err != nil {
-		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
-		return
-	}
-
 	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
 		lw.Header().Set("Content-Encoding", "gzip")
 	}
@@ -352,16 +331,6 @@ func UpdateHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if flags.UseHashKey {
-		reqHeaderHash := r.Header.Get("HashSHA256")
-		if checkResult := checkReqBodySign(reqHeaderHash, r); !checkResult {
-			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, errors.New("checkReqBodySign error"))
-			return
-		}
-		log.Info().Msg("UpdatesHandler checkReqBodySign success")
-	}
-
 	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON})
 }
 
@@ -390,25 +359,8 @@ func UpdatesHandler(w http.ResponseWriter, r *http.Request) {
 		resCompress:    false,
 	}
 
-	r.Body, err = reqCheckGzipBody(r)
-	if err != nil {
-		lw.WriteHeaderStatus(http.StatusInternalServerError)
-		logHTTPResult(start, lw, *r, reqJSON, resJSON, err)
-		return
-	}
-
 	if lw.resCompress = getReqContEncoding(r); lw.resCompress {
 		lw.Header().Set("Content-Encoding", "gzip")
-	}
-
-	if flags.UseHashKey {
-		reqHeaderHash := r.Header.Get("HashSHA256")
-		if checkResult := checkReqBodySign(reqHeaderHash, r); !checkResult {
-			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, reqJSON, resJSON, errors.New("checkReqBodySign error"))
-			return
-		}
-		log.Info().Msg("UpdatesHandler checkReqBodySign success")
 	}
 
 	dec := json.NewDecoder(r.Body)
@@ -594,16 +546,6 @@ func ValueHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		err = fmt.Errorf("can not get val for <%v>, type <%v> from repo", reqJSON.ID, reqJSON.MType)
 		lw.WriteHeaderStatus(http.StatusNotFound)
-	}
-
-	if flags.UseHashKey {
-		reqHeaderHash := r.Header.Get("HashSHA256")
-		if checkResult := checkReqBodySign(reqHeaderHash, r); !checkResult {
-			lw.WriteHeaderStatus(http.StatusBadRequest)
-			logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, errors.New("checkReqBodySign error"))
-			return
-		}
-		log.Info().Msg("UpdatesHandler checkReqBodySign success")
 	}
 
 	logHTTPResult(start, lw, *r, []models.Metrics{reqJSON}, []models.Metrics{resJSON}, err)
