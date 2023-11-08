@@ -90,29 +90,11 @@ func CheckReqBodySign(next http.Handler) http.Handler {
 				w.Header().Set("Content-Type", "application/json")
 				w.WriteHeader(http.StatusBadRequest)
 
-				//io.Copy(w, r.Body)
-				//body, _ := io.ReadAll(r.Body)
-				//defer r.Body.Close()
-				//w.Write(body)
-				//fmt.Fprintf(w, `{"id": "erroe"}`)
-				//http.Error(w, "Failed to read the request body", http.StatusBadRequest)
-
 				return
 			} else if !checkResult {
 				log.Info().Err(err).Msg("CheckReqBodySign checkResult error")
 				w.Header().Set("Content-Type", "application/json")
 				w.WriteHeader(http.StatusBadRequest)
-
-				//io.Copy(w, r.Body)
-				//body, _ := io.ReadAll(r.Body)
-				//defer r.Body.Close()
-				//written, err := w.Write(body)
-				//if err != nil {
-				//	log.Info().Err(err).Msg("w.Write(body)")
-				//}
-				//log.Info().Str("written", strconv.Itoa(written)).Msg("")
-				//fmt.Fprintf(w, `{"id": "erroe"}`)
-				//http.Error(w, "Failed to read the request body", http.StatusBadRequest)
 
 				return
 			}

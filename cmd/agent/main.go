@@ -68,7 +68,6 @@ func main() {
 	}
 
 	// горутина принимаем ошибки от SendMetricWorker и gopsutilStorage.UpdateMetrics
-	wg.Add(1)
 	go func() {
 		var err error
 		for {
@@ -79,7 +78,6 @@ func main() {
 				log.Info().Err(err).Msg("gopsutilStorage.UpdateMetrics error")
 			}
 		}
-		wg.Done()
 	}()
 
 	// горутина: runtimeStorage.UpdateMetrics сбора метрик с заданным интервалом
