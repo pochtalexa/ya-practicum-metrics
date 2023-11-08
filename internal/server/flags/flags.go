@@ -104,7 +104,7 @@ func ParseFlags() {
 	} else {
 		UseHashKey = true
 	}
-	UseHashKey = true
+	//UseHashKey = true
 
 	log.Info().
 		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
