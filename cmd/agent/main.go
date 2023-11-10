@@ -42,8 +42,6 @@ func drainChannel(ch <-chan models.Metric, chCashMetricsCapacity int) {
 			return
 		}
 	}
-
-	return
 }
 
 func getChanCapacity(runtimeStorage *metrics.RuntimeMetrics, gopsutilStorage *metrics.GopsutilMetrics) (int, error) {
