@@ -14,13 +14,14 @@ import (
 	"strings"
 )
 
-// проверяем, что клиент готов принимать gzip данные
-func getReqContEncoding(r *http.Request) bool {
+// проверяем, что клиент отправил серверу сжатые данные в формате gzip
+func checkGzipEncoding(r *http.Request) bool {
 
-	encodingSlice := r.Header.Values("Accept-Encoding")
+	encodingSlice := r.Header.Values("Content-Encoding")
 	encodingsStr := strings.Join(encodingSlice, ",")
 	encodings := strings.Split(encodingsStr, ",")
-	log.Info().Str("encodingsStr", encodingsStr).Msg("getReqContEncoding")
+
+	log.Info().Str("encodingsStr", encodingsStr).Msg("checkGzipEncoding")
 
 	for _, el := range encodings {
 		if el == "gzip" {
@@ -33,25 +34,18 @@ func getReqContEncoding(r *http.Request) bool {
 
 func GzipDecompression(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		contentEncoding := r.Header.Get("Content-Encoding")
-		sendsGzip := strings.Contains(contentEncoding, "gzip")
 
-		if sendsGzip {
+		if checkGzipEncoding(r) {
 			gzipReader, err := gzip.NewReader(r.Body)
 			if err != nil {
 				w.Header().Set("Content-Type", "application/json")
-				w.WriteHeader(http.StatusBadRequest)
+				http.Error(w, err.Error(), http.StatusBadRequest)
 				return
 			}
 			r.Body = gzipReader
+			defer gzipReader.Close()
 		}
 
-		if getReqContEncoding(r) {
-			w.Header().Set("Content-Encoding", "gzip")
-			log.Info().Msg("set Content-Encoding gzip")
-		}
-
-		log.Info().Str("r.URL", r.URL.String()).Msg("GzipDecompression")
 		log.Info().Msg("GzipDecompression passed")
 
 		next.ServeHTTP(w, r)
@@ -84,17 +78,22 @@ func checkSign(r *http.Request) (bool, error) {
 
 func CheckReqBodySign(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if flags.UseHashKey {
+		reqHeaderHash := r.Header.Get("HashSHA256")
+		if flags.UseHashKey && reqHeaderHash != "" {
 			if checkResult, err := checkSign(r); err != nil {
 				log.Info().Err(err).Msg("CheckReqBodySign error")
+
 				w.Header().Set("Content-Type", "application/json")
 				w.WriteHeader(http.StatusBadRequest)
+				io.Copy(w, r.Body)
 
 				return
 			} else if !checkResult {
 				log.Info().Err(err).Msg("CheckReqBodySign checkResult error")
+
 				w.Header().Set("Content-Type", "application/json")
 				w.WriteHeader(http.StatusBadRequest)
+				io.Copy(w, r.Body)
 
 				return
 			}

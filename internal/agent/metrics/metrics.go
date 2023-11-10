@@ -44,6 +44,12 @@ func NewRuntimeMetrics() *RuntimeMetrics {
 	}
 }
 
+func (el *RuntimeMetrics) GetMetricsQuantity() int {
+	gaugesQnty := len(el.GaugesName)
+
+	return gaugesQnty + 2
+}
+
 func (el *RuntimeMetrics) PollCountInc() {
 	el.PollCount++
 }
@@ -147,4 +153,13 @@ func (el *GopsutilMetrics) UpdateMetrics() error {
 	}
 
 	return nil
+}
+
+func (el *GopsutilMetrics) GetMetricsQuantity() (int, error) {
+	cpuQnty, err := cpu.Counts(true)
+	if err != nil {
+		return -1, fmt.Errorf("cpu.Counts: %w", err)
+	}
+
+	return cpuQnty + 2, nil
 }

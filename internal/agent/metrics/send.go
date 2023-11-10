@@ -145,20 +145,22 @@ func SendMetricBatch(CashMetrics CashMetrics, httpClient http.Client, reportRunA
 	return nil
 }
 
-func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMetricsResult chan<- error,
+func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMetricsErrors chan<- error,
 	httpClient http.Client, reportRunAddr string) {
 	var netErr net.Error
 	urlMetric := fmt.Sprintf("http://%s/update/", reportRunAddr)
 	log.Info().Str("workerID", strconv.Itoa(workerID)).Msg("SendMetricWorker started")
 
 	for el := range chCashMetrics {
+		log.Info().Str("len", strconv.Itoa(len(chCashMetrics))).Msg("chCashMetrics_len")
+
 		ctx := context.Background()
 		b := retry.NewFibonacci(1 * time.Second)
 		respMetric := models.Metric{}
 
 		reqBody, err := json.Marshal(el)
 		if err != nil {
-			chCashMetricsResult <- fmt.Errorf("marshal error, %w", err)
+			chCashMetricsErrors <- fmt.Errorf("marshal error, %w", err)
 			continue
 		}
 		log.Info().Str("reqBody", string(reqBody)).Msg("Marshal result")
@@ -166,7 +168,7 @@ func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMe
 		if flags.UseHashKey {
 			hashSHA256.data, hashSHA256.err = signReqBody(reqBody)
 			if hashSHA256.err != nil {
-				chCashMetricsResult <- fmt.Errorf("can not signReqBody:, %w", err)
+				chCashMetricsErrors <- fmt.Errorf("can not signReqBody:, %w", err)
 			}
 		}
 
@@ -207,7 +209,7 @@ func SendMetricWorker(workerID int, chCashMetrics <-chan models.Metric, chCashMe
 		})
 
 		if err != nil {
-			chCashMetricsResult <- fmt.Errorf("end metric error:, %w", err)
+			chCashMetricsErrors <- fmt.Errorf("end metric error:, %w", err)
 		}
 	}
 }

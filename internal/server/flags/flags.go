@@ -2,7 +2,6 @@ package flags
 
 import (
 	"flag"
-	"fmt"
 	"github.com/rs/zerolog/log"
 	"os"
 	"runtime"
@@ -44,8 +43,9 @@ func ParseFlags() {
 		defaultFileStorePath = "c:/tmp/metrics-db.json"
 	}
 
-	defaultDBConn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		`localhost`, `5432`, `praktikum`, `praktikum`, `praktikum`)
+	//defaultDBConn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+	//	`localhost`, `5432`, `praktikum`, `praktikum`, `praktikum`)
+	defaultDBConn := ""
 
 	//defaultHashKey := "0123456789ABCDEF"
 	defaultHashKey := ""
@@ -94,6 +94,7 @@ func ParseFlags() {
 	} else {
 		StorePoint.Memory = true
 	}
+	//StorePoint.DataBase = true
 
 	if envHashKey := os.Getenv("KEY"); envHashKey != "" {
 		FlagHashKey = envHashKey

@@ -34,11 +34,13 @@ func ParseFlags() {
 	//defaultHashKey := "0123456789ABCDEF"
 	defaultHashKey := ""
 
+	defaultWorkers := 1
+
 	flag.StringVar(&FlagRunAddr, "a", "localhost:8080", "addr to run on")
 	flag.IntVar(&FlagReportInterval, "r", 10, "reportInterval")
 	flag.IntVar(&FlagPollInterval, "p", 2, "pollInterval")
 	flag.StringVar(&FlagHashKey, "k", defaultHashKey, "hashKey")
-	flag.IntVar(&FlagWorkers, "l", 1, "pool worker count")
+	flag.IntVar(&FlagWorkers, "l", defaultWorkers, "pool worker count")
 	flag.Parse()
 
 	if envRunAddr := os.Getenv("ADDRESS"); envRunAddr != "" {
@@ -65,6 +67,7 @@ func ParseFlags() {
 		UseHashKey = true
 	}
 	//UseHashKey = true
+
 	log.Info().
 		Str("UseHashKey", strconv.FormatBool(UseHashKey)).
 		Str("FlagHashKey", FlagHashKey).

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"compress/flate"
 	"fmt"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -62,8 +63,11 @@ func restoreMetrics() error {
 func run() error {
 
 	mux := chi.NewRouter()
-	mux.Use(middlefunc.GzipDecompression)
+	mux.Use(middleware.RequestID)
 	mux.Use(middleware.Logger)
+	mux.Use(middleware.Recoverer)
+	mux.Use(middlefunc.GzipDecompression)
+	mux.Use(middleware.Compress(flate.DefaultCompression, "application/json", "text/html"))
 
 	// return all metrics on WEB page
 	mux.Get("/", handlers.RootHandler)
